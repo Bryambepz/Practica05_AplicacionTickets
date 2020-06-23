@@ -5,11 +5,14 @@
  */
 package ec.edu.ups.modelo;
 
+import java.util.Objects;
+
 /**
  *
  * @author braya
  */
 public class Vehiculo {
-    //modelo vehiculo.
-    //vehi
+   
+    
+    
 }
