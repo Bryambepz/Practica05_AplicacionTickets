@@ -63,8 +63,8 @@ public class Cliente {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.cedula);
+        int hash = 3;
+        hash = 97 * hash + Objects.hashCode(this.cedula);
         return hash;
     }
 
@@ -79,12 +79,15 @@ public class Cliente {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Vehiculo other = (Vehiculo) obj;
+        final Cliente other = (Cliente) obj;
         if (!Objects.equals(this.cedula, other.cedula)) {
             return false;
         }
         return true;
     }
+    
+    
+    
 
     @Override
     public String toString() {
