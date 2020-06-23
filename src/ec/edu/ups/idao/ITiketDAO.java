@@ -7,7 +7,7 @@ package ec.edu.ups.idao;
 
 
 import ec.edu.ups.modelo.Tiket;
-import java.util.Collection;
+import java.util.List;
 
 /**
  *
@@ -18,5 +18,5 @@ public interface ITiketDAO {
     public Tiket read(int numero);
     public void update(Tiket tiket);
     public void delete(Tiket tiket);   
-    public Collection<Tiket> findAll();
+    public List<Tiket> findAll();
 }

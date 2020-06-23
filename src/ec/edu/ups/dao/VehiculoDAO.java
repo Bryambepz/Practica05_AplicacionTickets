@@ -7,7 +7,9 @@ package ec.edu.ups.dao;
 
 import ec.edu.ups.idao.IVehiculoDAO;
 import ec.edu.ups.modelo.Vehiculo;
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  *
@@ -15,29 +17,52 @@ import java.util.Collection;
  */
 public class VehiculoDAO implements IVehiculoDAO {
 
+     private List<Vehiculo> listaVehiculos;
+    public VehiculoDAO() {
+        listaVehiculos = new ArrayList<>();
+    }
+    
     @Override
     public void create(Vehiculo vehiculo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        listaVehiculos.add(vehiculo);
     }
 
     @Override
     public Vehiculo read(String placa) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (Vehiculo vehiculo : listaVehiculos) {
+            if (vehiculo.getPlaca().equals(placa)) {
+                return vehiculo;
+            }
+        }
+        return null;
     }
 
     @Override
     public void update(Vehiculo vehiculo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (int i = 0; i < listaVehiculos.size(); i++) {
+            Vehiculo v = listaVehiculos.get(i);
+            if (v.getPlaca().equals(vehiculo.getPlaca())) {
+                listaVehiculos.set(i, vehiculo);
+                break;
+            }
+        }
+
     }
 
     @Override
-    public void delete(Vehiculo veiculo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void delete(Vehiculo vehiculo) {
+        Iterator<Vehiculo> it = listaVehiculos.iterator();
+        while (it.hasNext()) {
+            Vehiculo v = it.next();
+            if (v.getPlaca().equals(vehiculo.getPlaca())) {
+                it.remove();
+                break;
+            }
+        }
     }
 
     @Override
-    public Collection<Vehiculo> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Vehiculo> findAll() {
+        return listaVehiculos;
     }
-    
 }

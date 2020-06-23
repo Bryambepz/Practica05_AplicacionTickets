@@ -7,7 +7,9 @@ package ec.edu.ups.dao;
 
 import ec.edu.ups.idao.ITiketDAO;
 import ec.edu.ups.modelo.Tiket;
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  *
@@ -15,29 +17,54 @@ import java.util.Collection;
  */
 public class TiketDAO implements ITiketDAO {
 
+   private List<Tiket> listaTiket;
+
+    public TiketDAO() {
+        listaTiket = new ArrayList<>();
+    }
+
     @Override
     public void create(Tiket tiket) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        listaTiket.add(tiket);
     }
 
     @Override
     public Tiket read(int numero) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (Tiket tiket : listaTiket) {
+            if (tiket.getNumero() == numero) {
+                return tiket;
+            }
+        }
+        return null;
     }
 
     @Override
     public void update(Tiket tiket) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (int i = 0; i < listaTiket.size(); i++) {
+            Tiket t = listaTiket.get(i);
+            if (t.getNumero() == tiket.getNumero()) {
+                listaTiket.set(i, tiket);
+                break;
+            }
+        }
+
     }
 
     @Override
     public void delete(Tiket tiket) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Iterator<Tiket> it = listaTiket.iterator();
+        while (it.hasNext()) {
+            Tiket t = it.next();
+            if (t.getNumero() == tiket.getNumero()) {
+                it.remove();
+                break;
+            }
+        }
     }
 
     @Override
-    public Collection<Tiket> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Tiket> findAll() {
+        return listaTiket;
     }
     
 }
