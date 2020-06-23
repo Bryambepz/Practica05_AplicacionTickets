@@ -10,5 +10,6 @@ package ec.edu.ups.modelo;
  * @author braya
  */
 public class Vehiculo {
-    //modelo vehiculo
+    //modelo vehiculo.
+    //vehi
 }
