@@ -5,6 +5,7 @@
  */
 package ec.edu.ups.modelo;
 
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -18,6 +19,7 @@ public class Cliente {
     private String nombre;
     private String direccion;
     private String telefono;
+    private List<Vehiculo> listaVehiculos;
 
     public Cliente() {
     }
@@ -61,6 +63,15 @@ public class Cliente {
         this.telefono = telefono;
     }
 
+    public List<Vehiculo> getListaVehiculos() {
+        return listaVehiculos;
+    }
+
+    public void setListaVehiculos(List<Vehiculo> listaVehiculos) {
+        this.listaVehiculos = listaVehiculos;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 3;
@@ -85,12 +96,10 @@ public class Cliente {
         }
         return true;
     }
-    
-    
-    
 
     @Override
     public String toString() {
-        return "Vehiculo{" + "cedula=" + cedula + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono=" + telefono + '}';
+        return "Cliente{" + "cedula=" + cedula + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono=" + telefono + ", listaVehiculos=" + listaVehiculos + '}';
     }
+    
 }

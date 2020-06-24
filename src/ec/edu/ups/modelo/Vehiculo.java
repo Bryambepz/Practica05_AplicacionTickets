@@ -16,6 +16,7 @@ public class Vehiculo {
     private String placa;
     private String marca;
     private String modelo;
+    private Tiket tiket;
 
     public Vehiculo() {
     }
@@ -44,6 +45,15 @@ public class Vehiculo {
         this.modelo = modelo;
     }
 
+    public Tiket getTiket() {
+        return tiket;
+    }
+
+    public void setTiket(Tiket tiket) {
+        this.tiket = tiket;
+    }
+    
+
     @Override
     public int hashCode() {
         int hash = 7;
@@ -71,8 +81,10 @@ public class Vehiculo {
 
     @Override
     public String toString() {
-        return "Vehiculo{" + "placa=" + placa + ", marca=" + marca + ", modelo=" + modelo + '}';
+        return "Vehiculo{" + "placa=" + placa + ", marca=" + marca + ", modelo=" + modelo + ", tiket=" + tiket + '}';
     }
+
+    
     
     
     
