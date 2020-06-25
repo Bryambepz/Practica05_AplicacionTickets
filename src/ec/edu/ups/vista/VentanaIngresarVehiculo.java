@@ -16,11 +16,13 @@ import javax.swing.JOptionPane;
 public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
 
     private ControladorCliente controladorCliente;
+    private VentanaPrincipal ventanaPrincipal;
     /**
      * Creates new form VentanaCrearTiket
      */
-    public VentanaIngresarVehiculo(ControladorCliente controladorCliente) {
-        this.controladorCliente=controladorCliente;
+    public VentanaIngresarVehiculo() {
+        //this.controladorCliente=controladorCliente;
+        //this.ventanaPrincipal = ventanaPrincipal;
     }
 
     /**
@@ -52,6 +54,7 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
         btnBuscarCliente = new javax.swing.JButton();
 
         setClosable(true);
+        setTitle("Registrar");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
                 formInternalFrameActivated(evt);
@@ -85,7 +88,7 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---Seleciones un vehiculo---" }));
 
         btnEmitirTiket.setBackground(new java.awt.Color(0, 0, 0));
-        btnEmitirTiket.setForeground(new java.awt.Color(255, 255, 0));
+        btnEmitirTiket.setForeground(new java.awt.Color(0, 153, 153));
         btnEmitirTiket.setText("Emitir Tiket De Ingreso");
 
         jLabel1.setText("Cedula del Cliente");
@@ -106,15 +109,15 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
         txtNumeroFormateado.setBackground(new java.awt.Color(255, 255, 204));
 
         btnCrearCliente.setBackground(new java.awt.Color(0, 0, 0));
-        btnCrearCliente.setForeground(new java.awt.Color(255, 255, 0));
+        btnCrearCliente.setForeground(new java.awt.Color(0, 153, 153));
         btnCrearCliente.setText("Crear Cliente");
 
         btnGestionVhiculo.setBackground(new java.awt.Color(0, 0, 0));
-        btnGestionVhiculo.setForeground(new java.awt.Color(255, 255, 0));
+        btnGestionVhiculo.setForeground(new java.awt.Color(0, 153, 153));
         btnGestionVhiculo.setText("Gestion Vehiculo");
 
         btnBuscarCliente.setBackground(new java.awt.Color(0, 0, 0));
-        btnBuscarCliente.setForeground(new java.awt.Color(255, 255, 0));
+        btnBuscarCliente.setForeground(new java.awt.Color(0, 153, 153));
         btnBuscarCliente.setText("Buscar Cliente");
         btnBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,26 +215,26 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
-        String cedula= txtCedula.getText();
-        Cliente u=controladorCliente.buscrarClientePorCedula(cedula);
-        if(u!= null)
-        {
-            txtNombre.setText(u.getNombre());
-            txtDireccion.setText(u.getDireccion());
-            txtNumeroFormateado.setText(u.getTelefono());
-            btnEmitirTiket.setEnabled(true);
-            btnGestionVhiculo.setEnabled(true);
-        }else
-        {
-            btnCrearCliente.setEnabled(true);
-            JOptionPane.showMessageDialog(this, "NO SE A ENCONTRADO EL USURAIO CON LA CEDULA:"+ cedula);
-        }
+//        String cedula= txtCedula.getText();
+//        Cliente u=controladorCliente.buscrarClientePorCedula(cedula);
+//        if(u!= null)
+//        {
+//            txtNombre.setText(u.getNombre());
+//            txtDireccion.setText(u.getDireccion());
+//            txtNumeroFormateado.setText(u.getTelefono());
+//            btnEmitirTiket.setEnabled(true);
+//            btnGestionVhiculo.setEnabled(true);
+//        }else
+//        {
+//            btnCrearCliente.setEnabled(true);
+//            JOptionPane.showMessageDialog(this, "NO SE A ENCONTRADO EL USURAIO CON LA CEDULA:"+ cedula);
+//        }
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-        btnCrearCliente.setEnabled(false);
-        btnEmitirTiket.setEnabled(false);
-        btnGestionVhiculo.setEnabled(false);
+//        btnCrearCliente.setEnabled(false);
+//        btnEmitirTiket.setEnabled(false);
+//        btnGestionVhiculo.setEnabled(false);
     }//GEN-LAST:event_formInternalFrameActivated
 
 

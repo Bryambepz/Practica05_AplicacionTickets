@@ -13,9 +13,10 @@ import ec.edu.ups.dao.ClienteDAO;
  * @author braya
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-
+    //ventanas
     private VentanaIngresarVehiculo ventanaIngresarVehiculo;
     private ControladorCliente controladorCliente;
+    //mvc
     private ClienteDAO clienteDAO;
     /**
      * Creates new form VentanaPrincipal
@@ -25,7 +26,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         
         clienteDAO=new ClienteDAO();
         controladorCliente=new ControladorCliente(clienteDAO);
-        ventanaIngresarVehiculo= new VentanaIngresarVehiculo(controladorCliente);
+        //ventanaIngresarVehiculo = new VentanaIngresarVehiculo();
         desktopPane.add(ventanaIngresarVehiculo);
     }
 
@@ -136,7 +137,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void registrarEntradaMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarEntradaMenuItemActionPerformed
-        
+//        desktopPane.add(ventanaIngresarVehiculo);
         ventanaIngresarVehiculo.setVisible(true);
     }//GEN-LAST:event_registrarEntradaMenuItemActionPerformed
 
