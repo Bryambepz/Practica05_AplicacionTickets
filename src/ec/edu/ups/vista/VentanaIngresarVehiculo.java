@@ -14,15 +14,16 @@ import javax.swing.JOptionPane;
  * @author NANCY
  */
 public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
-
     private ControladorCliente controladorCliente;
     private VentanaPrincipal ventanaPrincipal;
+    
     /**
      * Creates new form VentanaCrearTiket
      */
-    public VentanaIngresarVehiculo() {
-        //this.controladorCliente=controladorCliente;
-        //this.ventanaPrincipal = ventanaPrincipal;
+    public VentanaIngresarVehiculo(ControladorCliente ctrlCliente, VentanaPrincipal ventanaPrincipal) {
+        initComponents();
+        this.controladorCliente = ctrlCliente;
+        this.ventanaPrincipal = ventanaPrincipal;
     }
 
     /**
@@ -215,26 +216,27 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
-//        String cedula= txtCedula.getText();
-//        Cliente u=controladorCliente.buscrarClientePorCedula(cedula);
-//        if(u!= null)
-//        {
-//            txtNombre.setText(u.getNombre());
-//            txtDireccion.setText(u.getDireccion());
-//            txtNumeroFormateado.setText(u.getTelefono());
-//            btnEmitirTiket.setEnabled(true);
-//            btnGestionVhiculo.setEnabled(true);
-//        }else
-//        {
-//            btnCrearCliente.setEnabled(true);
-//            JOptionPane.showMessageDialog(this, "NO SE A ENCONTRADO EL USURAIO CON LA CEDULA:"+ cedula);
-//        }
+        String cedula= txtCedula.getText();
+        Cliente u=controladorCliente.buscrarClientePorCedula(cedula);
+        if(u!= null)
+        {
+            txtNombre.setText(u.getNombre());
+            txtDireccion.setText(u.getDireccion());
+            txtNumeroFormateado.setText(u.getTelefono());
+            btnEmitirTiket.setEnabled(true);
+            btnGestionVhiculo.setEnabled(true);
+        }else
+        {
+            btnCrearCliente.setEnabled(true);
+            JOptionPane.showMessageDialog(this, "NO SE A ENCONTRADO EL USUARIO CON LA CEDULA: "+ cedula);
+        }
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-//        btnCrearCliente.setEnabled(false);
-//        btnEmitirTiket.setEnabled(false);
-//        btnGestionVhiculo.setEnabled(false);
+        // TODO add your handling code here:
+        btnCrearCliente.setEnabled(false);
+        btnEmitirTiket.setEnabled(false);
+        btnGestionVhiculo.setEnabled(false);
     }//GEN-LAST:event_formInternalFrameActivated
 
 
