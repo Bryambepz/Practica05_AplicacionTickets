@@ -16,6 +16,7 @@ public class Tiket {
     private Date fechaYHoraDeIngreso;
     private Date fechaYHoraDeSalida;
     private double total;
+    private Vehiculo vehiculo;
 
     public Tiket() {
     }
@@ -59,6 +60,15 @@ public class Tiket {
         this.total = total;
     }
 
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -84,12 +94,10 @@ public class Tiket {
         return true;
     }
 
-    
-    
     @Override
     public String toString() {
-        return "Tiket{" + "numero=" + numero + ", fechaYHoraDeIngreso=" + fechaYHoraDeIngreso + ", fechaYHoraDeSalida=" + fechaYHoraDeSalida + ", total=" + total + '}';
+        return "Tiket{" + "numero=" + numero + ", fechaYHoraDeIngreso=" + fechaYHoraDeIngreso + ", fechaYHoraDeSalida=" + fechaYHoraDeSalida + ", total=" + total + ", vehiculo=" + vehiculo + '}';
     }
     
-    
+ 
 }

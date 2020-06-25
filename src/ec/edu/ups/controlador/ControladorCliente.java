@@ -5,10 +5,25 @@
  */
 package ec.edu.ups.controlador;
 
+import ec.edu.ups.dao.ClienteDAO;
+import ec.edu.ups.idao.IClienteDAO;
+import ec.edu.ups.modelo.Cliente;
+
 /**
  *
  * @author NANCY
  */
 public class ControladorCliente {
+    private IClienteDAO clienteDAO;
+    private Cliente cliente;
+
+    public ControladorCliente(ClienteDAO clienteDAO) {
+        this.clienteDAO=clienteDAO;
+    }
     
+    public Cliente buscrarClientePorCedula(String cedula)
+    {
+        cliente= clienteDAO.read(cedula);
+        return cliente;
+    }
 }

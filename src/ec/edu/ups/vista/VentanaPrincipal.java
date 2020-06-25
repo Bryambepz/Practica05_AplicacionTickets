@@ -5,17 +5,28 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorCliente;
+import ec.edu.ups.dao.ClienteDAO;
+
 /**
  *
  * @author braya
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
 
+    private VentanaIngresarVehiculo ventanaIngresarVehiculo;
+    private ControladorCliente controladorCliente;
+    private ClienteDAO clienteDAO;
     /**
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
         initComponents();
+        
+        clienteDAO=new ClienteDAO();
+        controladorCliente=new ControladorCliente(clienteDAO);
+        ventanaIngresarVehiculo= new VentanaIngresarVehiculo(controladorCliente);
+        desktopPane.add(ventanaIngresarVehiculo);
     }
 
     /**
@@ -30,7 +41,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
         menuMenu = new javax.swing.JMenu();
-        openMenuItem = new javax.swing.JMenuItem();
+        registrarEntradaMenuItem = new javax.swing.JMenuItem();
         saveMenuItem = new javax.swing.JMenuItem();
         saveAsMenuItem = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
@@ -52,9 +63,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuMenu.setMnemonic('f');
         menuMenu.setText("Menu");
 
-        openMenuItem.setMnemonic('o');
-        openMenuItem.setText("Registrar Cliente");
-        menuMenu.add(openMenuItem);
+        registrarEntradaMenuItem.setMnemonic('o');
+        registrarEntradaMenuItem.setText("Registrar Entrada");
+        registrarEntradaMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarEntradaMenuItemActionPerformed(evt);
+            }
+        });
+        menuMenu.add(registrarEntradaMenuItem);
 
         saveMenuItem.setMnemonic('s');
         saveMenuItem.setText("Save");
@@ -119,6 +135,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
+    private void registrarEntradaMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarEntradaMenuItemActionPerformed
+        
+        ventanaIngresarVehiculo.setVisible(true);
+    }//GEN-LAST:event_registrarEntradaMenuItemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -166,8 +187,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuMenu;
-    private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
+    private javax.swing.JMenuItem registrarEntradaMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
