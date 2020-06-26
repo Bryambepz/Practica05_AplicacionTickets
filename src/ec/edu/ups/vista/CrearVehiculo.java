@@ -20,13 +20,15 @@ public class CrearVehiculo extends javax.swing.JInternalFrame {
     private ControladorCliente controladorCliente;
     private VentanaCrearCliente ventanaCrearCliente;
     private ControladorVehiculo controladorVehiculo;
+    private VentanaPrincipal ventanaPrincipal;
     /**
      * Creates new form CrearVehiculo
      */
-    public CrearVehiculo(ControladorCliente controladorCliente,VentanaCrearCliente ventanaCrearCliente,ControladorVehiculo controladorVehiculo ) {
+    public CrearVehiculo(ControladorCliente controladorCliente,VentanaCrearCliente ventanaCrearCliente,ControladorVehiculo controladorVehiculo,VentanaPrincipal ventanaPrincipal ) {
         initComponents();
         this.controladorCliente= controladorCliente;
         this.ventanaCrearCliente=ventanaCrearCliente;
+        this.ventanaPrincipal=ventanaPrincipal;
         this.controladorVehiculo=controladorVehiculo;
     }
 
@@ -217,6 +219,7 @@ public class CrearVehiculo extends javax.swing.JInternalFrame {
             btnRegistrarVehiculo.setEnabled(false);
             if(opcion== JOptionPane.YES_OPTION)
             {
+                ventanaPrincipal.getDesktopPane().add(ventanaCrearCliente);
                 ventanaCrearCliente.setVisible(true);
             }
         }
