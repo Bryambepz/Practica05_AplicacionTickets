@@ -71,6 +71,33 @@ public class Cliente {
         this.listaVehiculos = listaVehiculos;
     }
 
+    //métodos de la agregación
+    public void agregarVehiculo(Vehiculo vehiculo) {
+        listaVehiculos.add(vehiculo);
+    }
+
+    public void actualizarVehiculo(Vehiculo vehiculo) {
+        if (listaVehiculos.contains(vehiculo)) {
+            int index = listaVehiculos.indexOf(vehiculo);
+            listaVehiculos.set(index, vehiculo);
+        }
+    }
+
+    public void eliminarVehiculo(Vehiculo vehiculo) {
+        if (listaVehiculos.contains(vehiculo)) {
+            int index = listaVehiculos.indexOf(vehiculo);
+            listaVehiculos.remove(index);
+        }
+    }
+
+    public List<Vehiculo> listar() {
+        return listaVehiculos;
+    }
+
+    public Vehiculo buscar(String placa) {
+        return listaVehiculos.get(Integer.valueOf(placa));
+
+    }
     
     @Override
     public int hashCode() {
