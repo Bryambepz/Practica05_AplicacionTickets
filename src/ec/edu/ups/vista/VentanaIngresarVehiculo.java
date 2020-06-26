@@ -20,17 +20,15 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
     private ControladorCliente controladorCliente;
     private ControladorTiket controladorTiket;
     private VentanaPrincipal ventanaPrincipal;
-    private VentanaCrearCliente ventanaCrearCliente;
     private CrearVehiculo crearVehiculo;
     /**
      * Creates new form VentanaCrearTiket
      */
-    public VentanaIngresarVehiculo(ControladorCliente ctrlCliente, VentanaPrincipal ventanaPrincipal, VentanaCrearCliente ventanaCrearCliente,ControladorTiket controladorTiket,CrearVehiculo crearVehiculo) {
+    public VentanaIngresarVehiculo(ControladorCliente ctrlCliente, VentanaPrincipal ventanaPrincipal,ControladorTiket controladorTiket,CrearVehiculo crearVehiculo) {
         initComponents();
         this.controladorCliente = ctrlCliente;
         this.controladorTiket= controladorTiket;
         this.ventanaPrincipal = ventanaPrincipal;
-        this.ventanaCrearCliente= ventanaCrearCliente;
         this.crearVehiculo = crearVehiculo;
     }
     
@@ -277,7 +275,9 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
 
     private void btnGestionVhiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionVhiculoActionPerformed
 
+        ventanaPrincipal.getDesktopPane().add(crearVehiculo);
         crearVehiculo.setVisible(true);
+       // ventanaPrincipal.getCrearVehiculo().setVisible(true);
     }//GEN-LAST:event_btnGestionVhiculoActionPerformed
 
 

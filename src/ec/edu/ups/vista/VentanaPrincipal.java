@@ -11,6 +11,7 @@ import ec.edu.ups.controlador.ControladorVehiculo;
 import ec.edu.ups.dao.ClienteDAO;
 import ec.edu.ups.dao.TiketDAO;
 import ec.edu.ups.dao.VehiculoDAO;
+import javax.swing.JDesktopPane;
 
 /**
  *
@@ -43,14 +44,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         controladorTiket=new ControladorTiket(clienteDAO, vehiculoDAO, tiketDAO);
         
         ventanaCrearCliente= new VentanaCrearCliente(controladorCliente);
-        crearVehiculo = new CrearVehiculo(controladorCliente,ventanaCrearCliente,controladorVehiculo);
-        ventanaIngresarVehiculo = new VentanaIngresarVehiculo(controladorCliente, this, ventanaCrearCliente, controladorTiket,crearVehiculo);
+        crearVehiculo = new CrearVehiculo(controladorCliente,ventanaCrearCliente,controladorVehiculo,this);
+        ventanaIngresarVehiculo = new VentanaIngresarVehiculo(controladorCliente, this,controladorTiket,crearVehiculo);
         // se añade al panel principal la ventana crear cliente para luego hacerle visble en la ventana ingresar Vehiculo      
         //desktopPane.add(ventanaIngresarVehiculo);
-        //desktopPane.add(ventanaCrearCliente);
-        //desktopPane.add(crearVehiculo);
+        desktopPane.add(ventanaCrearCliente);
+        desktopPane.add(crearVehiculo);
     }
 
+   
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -164,13 +168,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void registrarEntradaMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarEntradaMenuItemActionPerformed
         desktopPane.add(ventanaIngresarVehiculo);
-        desktopPane.add(crearVehiculo);
+        //desktopPane.add(crearVehiculo);
         ventanaIngresarVehiculo.setVisible(true);
     }//GEN-LAST:event_registrarEntradaMenuItemActionPerformed
 
     private void crearClienteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearClienteMenuItemActionPerformed
         desktopPane.add(ventanaCrearCliente);
-        desktopPane.add(crearVehiculo);
+        //desktopPane.add(crearVehiculo);
         ventanaCrearCliente.setVisible(true);
     }//GEN-LAST:event_crearClienteMenuItemActionPerformed
 
@@ -208,7 +212,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
     }
+    
+    public VentanaCrearCliente getVentanaCrearCliente() {
+        return ventanaCrearCliente;
+    }
 
+    public CrearVehiculo getCrearVehiculo() {
+        return crearVehiculo;
+    }
+
+    public JDesktopPane getDesktopPane() {
+        return desktopPane;
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem contentMenuItem;
