@@ -40,8 +40,8 @@ public class ControladorCliente {
         return cliente;
     }
     
-     public void agregarVehiculo(Vehiculo vehiculo, String cedulas) {
-        cliente = clienteDAO.read(cedulas);
+     public void agregarVehiculo(Vehiculo vehiculo, String cedula) {
+        cliente = clienteDAO.read(cedula);
         cliente.agregarVehiculo(vehiculo);
         clienteDAO.update(cliente);
     }
