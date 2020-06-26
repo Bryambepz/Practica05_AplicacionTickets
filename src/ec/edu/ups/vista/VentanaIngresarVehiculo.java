@@ -21,15 +21,17 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
     private ControladorTiket controladorTiket;
     private VentanaPrincipal ventanaPrincipal;
     private VentanaCrearCliente ventanaCrearCliente;
+    private CrearVehiculo crearVehiculo;
     /**
      * Creates new form VentanaCrearTiket
      */
-    public VentanaIngresarVehiculo(ControladorCliente ctrlCliente, VentanaPrincipal ventanaPrincipal, VentanaCrearCliente ventanaCrearCliente,ControladorTiket controladorTiket) {
+    public VentanaIngresarVehiculo(ControladorCliente ctrlCliente, VentanaPrincipal ventanaPrincipal, VentanaCrearCliente ventanaCrearCliente,ControladorTiket controladorTiket, CrearVehiculo crearVehiculo) {
         initComponents();
         this.controladorCliente = ctrlCliente;
         this.controladorTiket= controladorTiket;
         this.ventanaPrincipal = ventanaPrincipal;
         this.ventanaCrearCliente= ventanaCrearCliente;
+        this.crearVehiculo = crearVehiculo;
     }
     
     public void cargarNumero() {
@@ -143,6 +145,11 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
         btnGestionVhiculo.setBackground(new java.awt.Color(0, 0, 0));
         btnGestionVhiculo.setForeground(new java.awt.Color(0, 153, 153));
         btnGestionVhiculo.setText("Gestion Vehiculo");
+        btnGestionVhiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionVhiculoActionPerformed(evt);
+            }
+        });
 
         btnBuscarCliente.setBackground(new java.awt.Color(0, 0, 0));
         btnBuscarCliente.setForeground(new java.awt.Color(0, 153, 153));
@@ -303,6 +310,11 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
         btnEmitirTiket.setEnabled(false);
         btnGestionVhiculo.setEnabled(false);
     }//GEN-LAST:event_formInternalFrameActivated
+
+    private void btnGestionVhiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionVhiculoActionPerformed
+        // TODO add your handling code here:
+        crearVehiculo.setVisible(true);
+    }//GEN-LAST:event_btnGestionVhiculoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

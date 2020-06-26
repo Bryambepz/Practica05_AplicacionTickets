@@ -53,7 +53,7 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
         jLabel4.setText("Telefono:");
 
         btnCrearCliente.setBackground(new java.awt.Color(0, 0, 0));
-        btnCrearCliente.setForeground(new java.awt.Color(255, 255, 0));
+        btnCrearCliente.setForeground(new java.awt.Color(0, 153, 153));
         btnCrearCliente.setText("Crear Cliente");
         btnCrearCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

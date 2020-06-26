@@ -19,7 +19,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     //ventanas
     private VentanaIngresarVehiculo ventanaIngresarVehiculo;
     private VentanaCrearCliente ventanaCrearCliente;
-    
+    private CrearVehiculo crearVehiculo;
     //mvc
     private ClienteDAO clienteDAO;
     private VehiculoDAO vehiculoDAO;
@@ -38,7 +38,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         controladorCliente=new ControladorCliente(clienteDAO);
         controladorTiket=new ControladorTiket(clienteDAO, vehiculoDAO, tiketDAO);
         ventanaCrearCliente= new VentanaCrearCliente(controladorCliente);
-        ventanaIngresarVehiculo = new VentanaIngresarVehiculo(controladorCliente, this,ventanaCrearCliente,controladorTiket);
+        ventanaIngresarVehiculo = new VentanaIngresarVehiculo(controladorCliente, this, ventanaCrearCliente, controladorTiket, crearVehiculo);
  // se añade al panel principal la ventana crear cliente para luego hacerle visble en la ventana ingresar Vehiculo      
         desktopPane.add(ventanaCrearCliente);
     }
