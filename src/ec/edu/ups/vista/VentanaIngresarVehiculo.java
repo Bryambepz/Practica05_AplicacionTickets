@@ -6,7 +6,9 @@
 package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.ControladorCliente;
+import ec.edu.ups.controlador.ControladorTiket;
 import ec.edu.ups.modelo.Cliente;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,19 +16,33 @@ import javax.swing.JOptionPane;
  * @author NANCY
  */
 public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
+    private Calendar fechaYHora;
     private ControladorCliente controladorCliente;
+    private ControladorTiket controladorTiket;
     private VentanaPrincipal ventanaPrincipal;
     private VentanaCrearCliente ventanaCrearCliente;
     /**
      * Creates new form VentanaCrearTiket
      */
-    public VentanaIngresarVehiculo(ControladorCliente ctrlCliente, VentanaPrincipal ventanaPrincipal, VentanaCrearCliente ventanaCrearCliente) {
+    public VentanaIngresarVehiculo(ControladorCliente ctrlCliente, VentanaPrincipal ventanaPrincipal, VentanaCrearCliente ventanaCrearCliente,ControladorTiket controladorTiket) {
         initComponents();
         this.controladorCliente = ctrlCliente;
+        this.controladorTiket= controladorTiket;
         this.ventanaPrincipal = ventanaPrincipal;
         this.ventanaCrearCliente= ventanaCrearCliente;
     }
+    
+    public void cargarNumero() {
+        int num = controladorTiket.numeroTicket();
+        String num2 = String.valueOf(num);
+        txtNumeroTiket.setText(num2);
+    }
+//metodo para calcular la fecha y hora automaticamente 
+    public void FechaYHora() {
+        fechaYHora = Calendar.getInstance();
+        textFechaIngreso.setText(fechaYHora.getTime().toString());
 
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -51,7 +67,6 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
         txtDireccion = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtNumeroFormateado = new javax.swing.JFormattedTextField();
-        btnCrearCliente = new javax.swing.JButton();
         btnGestionVhiculo = new javax.swing.JButton();
         btnBuscarCliente = new javax.swing.JButton();
 
@@ -110,15 +125,6 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
         txtNumeroFormateado.setEditable(false);
         txtNumeroFormateado.setBackground(new java.awt.Color(255, 255, 204));
 
-        btnCrearCliente.setBackground(new java.awt.Color(0, 0, 0));
-        btnCrearCliente.setForeground(new java.awt.Color(0, 153, 153));
-        btnCrearCliente.setText("Crear Cliente");
-        btnCrearCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearClienteActionPerformed(evt);
-            }
-        });
-
         btnGestionVhiculo.setBackground(new java.awt.Color(0, 0, 0));
         btnGestionVhiculo.setForeground(new java.awt.Color(0, 153, 153));
         btnGestionVhiculo.setText("Gestion Vehiculo");
@@ -168,13 +174,9 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnEmitirTiket)
                         .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnGestionVhiculo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCrearCliente))
-                            .addComponent(btnBuscarCliente))
-                        .addGap(0, 18, Short.MAX_VALUE)))
+                        .addComponent(btnGestionVhiculo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addComponent(btnBuscarCliente)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -208,13 +210,11 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(btnBuscarCliente)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEmitirTiket)
-                    .addComponent(btnCrearCliente)
-                    .addComponent(btnGestionVhiculo))
+                    .addComponent(btnGestionVhiculo)
+                    .addComponent(btnBuscarCliente))
                 .addContainerGap())
         );
 
@@ -233,27 +233,28 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
             btnGestionVhiculo.setEnabled(true);
         }else
         {
-            btnCrearCliente.setEnabled(true);
-            JOptionPane.showMessageDialog(this, "NO SE A ENCONTRADO EL USUARIO CON LA CEDULA: "+ cedula);
+            int opcion=JOptionPane.showConfirmDialog(this," CLIENTE NO ENCONTRADO ¿DESEA CREAR UNO?" );
+            btnEmitirTiket.setEnabled(false);
+            btnGestionVhiculo.setEnabled(false);
+            if(opcion== JOptionPane.YES_OPTION)
+            {
+                ventanaCrearCliente.setVisible(true);
+            }
         }
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        // metodo para cargar el numero de tikets
+        cargarNumero();
+        FechaYHora();
         // TODO add your handling code here:
-        btnCrearCliente.setEnabled(false);
         btnEmitirTiket.setEnabled(false);
         btnGestionVhiculo.setEnabled(false);
     }//GEN-LAST:event_formInternalFrameActivated
 
-    private void btnCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearClienteActionPerformed
-       // visibilidad de la ventana crear vehiculo
-        ventanaCrearCliente.setVisible(true);
-    }//GEN-LAST:event_btnCrearClienteActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarCliente;
-    private javax.swing.JButton btnCrearCliente;
     private javax.swing.JButton btnEmitirTiket;
     private javax.swing.JButton btnGestionVhiculo;
     private javax.swing.JComboBox<String> jComboBox1;

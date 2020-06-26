@@ -5,10 +5,33 @@
  */
 package ec.edu.ups.controlador;
 
+import ec.edu.ups.idao.IClienteDAO;
+import ec.edu.ups.idao.ITiketDAO;
+import ec.edu.ups.idao.IVehiculoDAO;
+import ec.edu.ups.modelo.Cliente;
+import ec.edu.ups.modelo.Tiket;
+import ec.edu.ups.modelo.Vehiculo;
+
 /**
  *
  * @author NANCY
  */
 public class ControladorTiket {
+    private Cliente cliente;
+    private Vehiculo vehiculo;
+    private Tiket tiket;
+    private IClienteDAO clienteDAO;
+    private IVehiculoDAO vehiculoDAO;
+    private ITiketDAO tiketDAO;
     
+    public ControladorTiket(IClienteDAO clienteDAO, IVehiculoDAO vehiculoDAO, ITiketDAO tiketDAO) {
+        this.clienteDAO = clienteDAO;
+        this.vehiculoDAO = vehiculoDAO;
+        this.tiketDAO = tiketDAO;
+    }
+    
+    public int numeroTicket() {
+        int conta = tiketDAO.devolverNumero();
+        return (++conta);
+    }
 }

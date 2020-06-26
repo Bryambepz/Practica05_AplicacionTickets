@@ -19,4 +19,5 @@ public interface ITiketDAO {
     public void update(Tiket tiket);
     public void delete(Tiket tiket);   
     public List<Tiket> findAll();
+    public int devolverNumero();
 }

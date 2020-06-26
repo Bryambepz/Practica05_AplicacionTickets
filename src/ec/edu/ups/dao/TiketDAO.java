@@ -18,9 +18,11 @@ import java.util.List;
 public class TiketDAO implements ITiketDAO {
 
    private List<Tiket> listaTiket;
+   private int numero;
 
     public TiketDAO() {
         listaTiket = new ArrayList<>();
+        numero=0;
     }
 
     @Override
@@ -65,6 +67,12 @@ public class TiketDAO implements ITiketDAO {
     @Override
     public List<Tiket> findAll() {
         return listaTiket;
+    }
+    
+    @Override
+
+    public int devolverNumero(){
+        return numero;
     }
     
 }

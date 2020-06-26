@@ -6,7 +6,10 @@
 package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.ControladorCliente;
+import ec.edu.ups.controlador.ControladorTiket;
 import ec.edu.ups.dao.ClienteDAO;
+import ec.edu.ups.dao.TiketDAO;
+import ec.edu.ups.dao.VehiculoDAO;
 
 /**
  *
@@ -19,7 +22,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     
     //mvc
     private ClienteDAO clienteDAO;
+    private VehiculoDAO vehiculoDAO;
+    private TiketDAO tiketDAO;
     private ControladorCliente controladorCliente;
+    private ControladorTiket controladorTiket;
     
     /**
      * Creates new form VentanaPrincipal
@@ -27,9 +33,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public VentanaPrincipal() {
         initComponents();
         clienteDAO=new ClienteDAO();
+        vehiculoDAO=new VehiculoDAO();
+        tiketDAO= new TiketDAO();
         controladorCliente=new ControladorCliente(clienteDAO);
+        controladorTiket=new ControladorTiket(clienteDAO, vehiculoDAO, tiketDAO);
         ventanaCrearCliente= new VentanaCrearCliente(controladorCliente);
-        ventanaIngresarVehiculo = new VentanaIngresarVehiculo(controladorCliente, this,ventanaCrearCliente);
+        ventanaIngresarVehiculo = new VentanaIngresarVehiculo(controladorCliente, this,ventanaCrearCliente,controladorTiket);
  // se añade al panel principal la ventana crear cliente para luego hacerle visble en la ventana ingresar Vehiculo      
         desktopPane.add(ventanaCrearCliente);
     }
@@ -47,7 +56,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuBar = new javax.swing.JMenuBar();
         menuMenu = new javax.swing.JMenu();
         registrarEntradaMenuItem = new javax.swing.JMenuItem();
-        saveMenuItem = new javax.swing.JMenuItem();
+        crearClienteMenuItem = new javax.swing.JMenuItem();
         saveAsMenuItem = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
@@ -77,9 +86,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuMenu.add(registrarEntradaMenuItem);
 
-        saveMenuItem.setMnemonic('s');
-        saveMenuItem.setText("Save");
-        menuMenu.add(saveMenuItem);
+        crearClienteMenuItem.setMnemonic('s');
+        crearClienteMenuItem.setText("Crear Cliente ");
+        crearClienteMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearClienteMenuItemActionPerformed(evt);
+            }
+        });
+        menuMenu.add(crearClienteMenuItem);
 
         saveAsMenuItem.setMnemonic('a');
         saveAsMenuItem.setText("Save As ...");
@@ -145,6 +159,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ventanaIngresarVehiculo.setVisible(true);
     }//GEN-LAST:event_registrarEntradaMenuItemActionPerformed
 
+    private void crearClienteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearClienteMenuItemActionPerformed
+        ventanaCrearCliente.setVisible(true);
+    }//GEN-LAST:event_crearClienteMenuItemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -184,6 +202,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
+    private javax.swing.JMenuItem crearClienteMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JDesktopPane desktopPane;
@@ -195,7 +214,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem pasteMenuItem;
     private javax.swing.JMenuItem registrarEntradaMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem;
-    private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
 
 }
