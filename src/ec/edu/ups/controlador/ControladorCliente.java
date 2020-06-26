@@ -21,6 +21,12 @@ public class ControladorCliente {
         this.clienteDAO=clienteDAO;
     }
     
+    public void registrar(String cedula,String nombre,String direccion,String telefono)
+    {
+        cliente= new Cliente(cedula, nombre, direccion, telefono);
+        clienteDAO.create(cliente);
+    }
+    
     public Cliente buscrarClientePorCedula(String cedula)
     {
         cliente= clienteDAO.read(cedula);

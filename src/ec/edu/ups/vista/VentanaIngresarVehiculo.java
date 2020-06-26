@@ -16,14 +16,15 @@ import javax.swing.JOptionPane;
 public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
     private ControladorCliente controladorCliente;
     private VentanaPrincipal ventanaPrincipal;
-    
+    private VentanaCrearCliente ventanaCrearCliente;
     /**
      * Creates new form VentanaCrearTiket
      */
-    public VentanaIngresarVehiculo(ControladorCliente ctrlCliente, VentanaPrincipal ventanaPrincipal) {
+    public VentanaIngresarVehiculo(ControladorCliente ctrlCliente, VentanaPrincipal ventanaPrincipal, VentanaCrearCliente ventanaCrearCliente) {
         initComponents();
         this.controladorCliente = ctrlCliente;
         this.ventanaPrincipal = ventanaPrincipal;
+        this.ventanaCrearCliente= ventanaCrearCliente;
     }
 
     /**
@@ -112,6 +113,11 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
         btnCrearCliente.setBackground(new java.awt.Color(0, 0, 0));
         btnCrearCliente.setForeground(new java.awt.Color(0, 153, 153));
         btnCrearCliente.setText("Crear Cliente");
+        btnCrearCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearClienteActionPerformed(evt);
+            }
+        });
 
         btnGestionVhiculo.setBackground(new java.awt.Color(0, 0, 0));
         btnGestionVhiculo.setForeground(new java.awt.Color(0, 153, 153));
@@ -238,6 +244,11 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
         btnEmitirTiket.setEnabled(false);
         btnGestionVhiculo.setEnabled(false);
     }//GEN-LAST:event_formInternalFrameActivated
+
+    private void btnCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearClienteActionPerformed
+       // visibilidad de la ventana crear vehiculo
+        ventanaCrearCliente.setVisible(true);
+    }//GEN-LAST:event_btnCrearClienteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

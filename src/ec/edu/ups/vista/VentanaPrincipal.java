@@ -15,6 +15,7 @@ import ec.edu.ups.dao.ClienteDAO;
 public class VentanaPrincipal extends javax.swing.JFrame {
     //ventanas
     private VentanaIngresarVehiculo ventanaIngresarVehiculo;
+    private VentanaCrearCliente ventanaCrearCliente;
     
     //mvc
     private ClienteDAO clienteDAO;
@@ -27,8 +28,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         initComponents();
         clienteDAO=new ClienteDAO();
         controladorCliente=new ControladorCliente(clienteDAO);
-        ventanaIngresarVehiculo = new VentanaIngresarVehiculo(controladorCliente, this);
-//        desktopPane.add(ventanaIngresarVehiculo);
+        ventanaCrearCliente= new VentanaCrearCliente(controladorCliente);
+        ventanaIngresarVehiculo = new VentanaIngresarVehiculo(controladorCliente, this,ventanaCrearCliente);
+ // se añade al panel principal la ventana crear cliente para luego hacerle visble en la ventana ingresar Vehiculo      
+        desktopPane.add(ventanaCrearCliente);
     }
 
     /**
