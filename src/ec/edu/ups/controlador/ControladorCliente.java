@@ -6,8 +6,11 @@
 package ec.edu.ups.controlador;
 
 import ec.edu.ups.dao.ClienteDAO;
+import ec.edu.ups.dao.VehiculoDAO;
 import ec.edu.ups.idao.IClienteDAO;
+import ec.edu.ups.idao.IVehiculoDAO;
 import ec.edu.ups.modelo.Cliente;
+import ec.edu.ups.modelo.Vehiculo;
 
 /**
  *
@@ -15,10 +18,14 @@ import ec.edu.ups.modelo.Cliente;
  */
 public class ControladorCliente {
     private IClienteDAO clienteDAO;
+    private IVehiculoDAO vehiculoDAO;
     private Cliente cliente;
-
-    public ControladorCliente(ClienteDAO clienteDAO) {
+    private Vehiculo vehiculo;
+    
+    
+    public ControladorCliente(ClienteDAO clienteDAO,VehiculoDAO vehiculoDAO) {
         this.clienteDAO=clienteDAO;
+        this.vehiculoDAO= vehiculoDAO;
     }
     
     public void registrar(String cedula,String nombre,String direccion,String telefono)
@@ -31,5 +38,11 @@ public class ControladorCliente {
     {
         cliente= clienteDAO.read(cedula);
         return cliente;
+    }
+    
+     public void agregarVehiculo(Vehiculo vehiculo, String cedulas) {
+        cliente = clienteDAO.read(cedulas);
+        cliente.agregarVehiculo(vehiculo);
+        clienteDAO.update(cliente);
     }
 }

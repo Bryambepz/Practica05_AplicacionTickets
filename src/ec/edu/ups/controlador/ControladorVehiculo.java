@@ -5,10 +5,25 @@
  */
 package ec.edu.ups.controlador;
 
+import ec.edu.ups.dao.VehiculoDAO;
+import ec.edu.ups.idao.IVehiculoDAO;
+import ec.edu.ups.modelo.Vehiculo;
+
 /**
  *
  * @author NANCY
  */
 public class ControladorVehiculo {
+    private Vehiculo vehiculo;
+    private IVehiculoDAO vehiculoDAO;
     
+    public ControladorVehiculo(VehiculoDAO vehiculoDAO) {
+        this.vehiculoDAO = vehiculoDAO;
+    }
+    
+    public Vehiculo crearVehiculo(String placa, String marca, String modelo) {
+        vehiculo = new Vehiculo(placa, marca, modelo);
+        vehiculoDAO.create(vehiculo);
+        return vehiculo;
+    }
 }

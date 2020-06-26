@@ -71,7 +71,6 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         txtNumeroFormateado = new javax.swing.JFormattedTextField();
         btnGestionVhiculo = new javax.swing.JButton();
-        btnBuscarCliente = new javax.swing.JButton();
         txtPlacaVehiculo = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -151,15 +150,6 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
             }
         });
 
-        btnBuscarCliente.setBackground(new java.awt.Color(0, 0, 0));
-        btnBuscarCliente.setForeground(new java.awt.Color(0, 153, 153));
-        btnBuscarCliente.setText("Buscar Cliente");
-        btnBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarClienteActionPerformed(evt);
-            }
-        });
-
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -193,13 +183,11 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(8, 8, 8)
+                .addGap(39, 39, 39)
                 .addComponent(btnEmitirTiket)
-                .addGap(22, 22, 22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnGestionVhiculo)
-                .addGap(18, 18, 18)
-                .addComponent(btnBuscarCliente)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(48, 48, 48))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,8 +258,7 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEmitirTiket)
-                    .addComponent(btnGestionVhiculo)
-                    .addComponent(btnBuscarCliente))
+                    .addComponent(btnGestionVhiculo))
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -280,35 +267,12 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
-        String cedula= txtCedula.getText();
-        Cliente u=controladorCliente.buscrarClientePorCedula(cedula);
-        if(u!= null)
-        {
-            txtNombre.setText(u.getNombre());
-            txtDireccion.setText(u.getDireccion());
-            txtNumeroFormateado.setText(u.getTelefono());
-            btnEmitirTiket.setEnabled(true);
-            btnGestionVhiculo.setEnabled(true);
-        }else
-        {
-            int opcion=JOptionPane.showConfirmDialog(this," CLIENTE NO ENCONTRADO ¿DESEA CREAR UNO?" );
-            btnEmitirTiket.setEnabled(false);
-            btnGestionVhiculo.setEnabled(false);
-            if(opcion== JOptionPane.YES_OPTION)
-            {
-                ventanaCrearCliente.setVisible(true);
-            }
-        }
-    }//GEN-LAST:event_btnBuscarClienteActionPerformed
-
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
         // metodo para cargar el numero de tikets
         cargarNumero();
         FechaYHora();
 
         btnEmitirTiket.setEnabled(false);
-        btnGestionVhiculo.setEnabled(false);
     }//GEN-LAST:event_formInternalFrameActivated
 
     private void btnGestionVhiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionVhiculoActionPerformed
@@ -318,7 +282,6 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscarCliente;
     private javax.swing.JButton btnEmitirTiket;
     private javax.swing.JButton btnGestionVhiculo;
     private javax.swing.JLabel jLabel1;

@@ -7,6 +7,7 @@ package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.ControladorCliente;
 import ec.edu.ups.controlador.ControladorTiket;
+import ec.edu.ups.controlador.ControladorVehiculo;
 import ec.edu.ups.dao.ClienteDAO;
 import ec.edu.ups.dao.TiketDAO;
 import ec.edu.ups.dao.VehiculoDAO;
@@ -26,19 +27,23 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private TiketDAO tiketDAO;
     private ControladorCliente controladorCliente;
     private ControladorTiket controladorTiket;
-    
+    private ControladorVehiculo controladorVehiculo;
     /**
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
         initComponents();
+        
         clienteDAO=new ClienteDAO();
         vehiculoDAO=new VehiculoDAO();
         tiketDAO= new TiketDAO();
-        controladorCliente=new ControladorCliente(clienteDAO);
+        
+        controladorCliente=new ControladorCliente(clienteDAO,vehiculoDAO);
+        controladorVehiculo= new ControladorVehiculo(vehiculoDAO);
         controladorTiket=new ControladorTiket(clienteDAO, vehiculoDAO, tiketDAO);
+        
         ventanaCrearCliente= new VentanaCrearCliente(controladorCliente);
-        crearVehiculo = new CrearVehiculo();
+        crearVehiculo = new CrearVehiculo(controladorCliente,ventanaCrearCliente,controladorVehiculo);
         ventanaIngresarVehiculo = new VentanaIngresarVehiculo(controladorCliente, this, ventanaCrearCliente, controladorTiket,crearVehiculo);
  // se añade al panel principal la ventana crear cliente para luego hacerle visble en la ventana ingresar Vehiculo      
         desktopPane.add(ventanaIngresarVehiculo);
