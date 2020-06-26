@@ -25,13 +25,13 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
     /**
      * Creates new form VentanaCrearTiket
      */
-    public VentanaIngresarVehiculo(ControladorCliente ctrlCliente, VentanaPrincipal ventanaPrincipal, VentanaCrearCliente ventanaCrearCliente,ControladorTiket controladorTiket, CrearVehiculo crearVehiculo) {
+    public VentanaIngresarVehiculo(ControladorCliente ctrlCliente, VentanaPrincipal ventanaPrincipal, VentanaCrearCliente ventanaCrearCliente,ControladorTiket controladorTiket) {
         initComponents();
         this.controladorCliente = ctrlCliente;
         this.controladorTiket= controladorTiket;
         this.ventanaPrincipal = ventanaPrincipal;
         this.ventanaCrearCliente= ventanaCrearCliente;
-        this.crearVehiculo = crearVehiculo;
+        //this.crearVehiculo = crearVehiculo;
     }
     
     public void cargarNumero() {
