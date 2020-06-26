@@ -25,13 +25,13 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
     /**
      * Creates new form VentanaCrearTiket
      */
-    public VentanaIngresarVehiculo(ControladorCliente ctrlCliente, VentanaPrincipal ventanaPrincipal, VentanaCrearCliente ventanaCrearCliente,ControladorTiket controladorTiket) {
+    public VentanaIngresarVehiculo(ControladorCliente ctrlCliente, VentanaPrincipal ventanaPrincipal, VentanaCrearCliente ventanaCrearCliente,ControladorTiket controladorTiket,CrearVehiculo crearVehiculo) {
         initComponents();
         this.controladorCliente = ctrlCliente;
         this.controladorTiket= controladorTiket;
         this.ventanaPrincipal = ventanaPrincipal;
         this.ventanaCrearCliente= ventanaCrearCliente;
-        //this.crearVehiculo = crearVehiculo;
+        this.crearVehiculo = crearVehiculo;
     }
     
     public void cargarNumero() {
@@ -306,13 +306,13 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
         // metodo para cargar el numero de tikets
         cargarNumero();
         FechaYHora();
-        // TODO add your handling code here:
+
         btnEmitirTiket.setEnabled(false);
         btnGestionVhiculo.setEnabled(false);
     }//GEN-LAST:event_formInternalFrameActivated
 
     private void btnGestionVhiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionVhiculoActionPerformed
-        // TODO add your handling code here:
+
         crearVehiculo.setVisible(true);
     }//GEN-LAST:event_btnGestionVhiculoActionPerformed
 

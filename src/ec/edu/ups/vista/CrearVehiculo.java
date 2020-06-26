@@ -35,6 +35,8 @@ public class CrearVehiculo extends javax.swing.JInternalFrame {
         txtMarca = new javax.swing.JTextField();
         txtModelo = new javax.swing.JTextField();
 
+        setClosable(true);
+
         jLabel1.setText("Ingrese Placa");
 
         jLabel2.setText("Ingrese marca");

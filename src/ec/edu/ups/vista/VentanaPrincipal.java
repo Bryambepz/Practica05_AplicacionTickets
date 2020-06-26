@@ -39,9 +39,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         controladorTiket=new ControladorTiket(clienteDAO, vehiculoDAO, tiketDAO);
         ventanaCrearCliente= new VentanaCrearCliente(controladorCliente);
         crearVehiculo = new CrearVehiculo();
-        ventanaIngresarVehiculo = new VentanaIngresarVehiculo(controladorCliente, this, ventanaCrearCliente, controladorTiket);
+        ventanaIngresarVehiculo = new VentanaIngresarVehiculo(controladorCliente, this, ventanaCrearCliente, controladorTiket,crearVehiculo);
  // se añade al panel principal la ventana crear cliente para luego hacerle visble en la ventana ingresar Vehiculo      
+        desktopPane.add(ventanaIngresarVehiculo);
         desktopPane.add(ventanaCrearCliente);
+        desktopPane.add(crearVehiculo);
     }
 
     /**
@@ -156,7 +158,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void registrarEntradaMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarEntradaMenuItemActionPerformed
-        desktopPane.add(ventanaIngresarVehiculo);
+        
         ventanaIngresarVehiculo.setVisible(true);
     }//GEN-LAST:event_registrarEntradaMenuItemActionPerformed
 
