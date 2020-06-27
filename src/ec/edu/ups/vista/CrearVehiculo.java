@@ -21,7 +21,6 @@ public class CrearVehiculo extends javax.swing.JInternalFrame {
     private VentanaCrearCliente ventanaCrearCliente;
     private ControladorVehiculo controladorVehiculo;
     private VentanaPrincipal ventanaPrincipal;
-    private int codiogo;
     /**
      * Creates new form CrearVehiculo
      */
@@ -72,6 +71,7 @@ public class CrearVehiculo extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         btnBuscarCliente = new javax.swing.JButton();
 
+        setClosable(true);
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
                 formInternalFrameActivated(evt);

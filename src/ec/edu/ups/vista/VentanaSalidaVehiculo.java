@@ -30,13 +30,13 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
     /**
      * Creates new form VentanaSalidaVehiculo
      */
-    public VentanaSalidaVehiculo(ControladorCliente controladorCliente, ControladorTiket controladorTicket, ControladorVehiculo controladorVehiculo, VentanaPrincipal ventanaPrincipal) {
+    public VentanaSalidaVehiculo(ControladorCliente controladorCliente, ControladorTiket controladorTicket, ControladorVehiculo controladorVehiculo, VentanaPrincipal ventanaPrincipal,VentanaIngresarVehiculo ventanaIngresarVehiculo) {
         initComponents();
         this.controladorCliente = controladorCliente;
         this.controladorTicket = controladorTicket;
         this.controladorVehiculo = controladorVehiculo;
         this.ventanaIngresarVehiculo = ventanaIngresarVehiculo;
-        this.ventanaPricipal = ventanaPricipal;
+        this.ventanaPricipal = ventanaPrincipal;
     }
     
     //metodo para calcular la fecha y hora automaticamente 
