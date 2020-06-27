@@ -48,6 +48,23 @@
             </MenuItem>
           </SubComponents>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="listarMenu">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Listar"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="listarTodosMenuItem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Listar todos los tickets"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="listarPorParametroMenuItem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Listar por placa o cedula"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
         <Menu class="javax.swing.JMenu" name="idiomaMenu">
           <Properties>
             <Property name="mnemonic" type="int" value="104"/>

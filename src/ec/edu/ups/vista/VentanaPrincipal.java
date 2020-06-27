@@ -74,6 +74,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         crearClienteMenuItem = new javax.swing.JMenuItem();
         ticketSalidaMenu = new javax.swing.JMenuItem();
         salirMenuItem = new javax.swing.JMenuItem();
+        listarMenu = new javax.swing.JMenu();
+        listarTodosMenuItem = new javax.swing.JMenuItem();
+        listarPorParametroMenuItem = new javax.swing.JMenuItem();
         idiomaMenu = new javax.swing.JMenu();
         menuItemEspañol = new javax.swing.JMenuItem();
         menuItemIngles = new javax.swing.JMenuItem();
@@ -124,6 +127,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         principalMenu.add(salirMenuItem);
 
         menuBar.add(principalMenu);
+
+        listarMenu.setText("Listar");
+
+        listarTodosMenuItem.setText("Listar todos los tickets");
+        listarMenu.add(listarTodosMenuItem);
+
+        listarPorParametroMenuItem.setText("Listar por placa o cedula");
+        listarMenu.add(listarPorParametroMenuItem);
+
+        menuBar.add(listarMenu);
 
         idiomaMenu.setMnemonic('h');
         idiomaMenu.setText("Idioma");
@@ -246,6 +259,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem crearClienteMenuItem;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu idiomaMenu;
+    private javax.swing.JMenu listarMenu;
+    private javax.swing.JMenuItem listarPorParametroMenuItem;
+    private javax.swing.JMenuItem listarTodosMenuItem;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem menuItemEspañol;
     private javax.swing.JMenuItem menuItemIngles;
