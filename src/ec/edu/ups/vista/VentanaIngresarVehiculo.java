@@ -289,7 +289,7 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
 //        //metodo para cargar el numero de tikets
 //        if(!txtPlacaVehiculo.getText().equals("")){
-//            cargarNumero();
+            cargarNumero();
 //        }
 //        
         FechaYHora();
