@@ -332,7 +332,7 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "TIKET CREADO CORRECTAMENTE" + txtNumeroTiket.getText());
             //cargarNumero();
             limpiar();
-            //this.dispose();
+            this.dispose(); 
         }else{
             JOptionPane.showMessageDialog(this, "NO SE PUEDE CREAR EL TIKET FALTA COMPLETAR INFORMACION");
         }
