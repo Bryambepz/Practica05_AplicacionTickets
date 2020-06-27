@@ -11,6 +11,7 @@ import ec.edu.ups.controlador.ControladorVehiculo;
 import ec.edu.ups.dao.ClienteDAO;
 import ec.edu.ups.dao.TiketDAO;
 import ec.edu.ups.dao.VehiculoDAO;
+import java.awt.event.ActionEvent;
 import javax.swing.JDesktopPane;
 
 /**
@@ -22,6 +23,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private VentanaIngresarVehiculo ventanaIngresarVehiculo;
     private VentanaCrearCliente ventanaCrearCliente;
     private CrearVehiculo crearVehiculo;
+    private VentanaSalidaVehiculo ventanaSalidaVehiculo;
     //mvc
     private ClienteDAO clienteDAO;
     private VehiculoDAO vehiculoDAO;
@@ -46,6 +48,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ventanaCrearCliente= new VentanaCrearCliente(controladorCliente);
         crearVehiculo = new CrearVehiculo(controladorCliente,ventanaCrearCliente,controladorVehiculo,this);
         ventanaIngresarVehiculo = new VentanaIngresarVehiculo(controladorCliente, this,controladorTiket,crearVehiculo,controladorVehiculo);
+        ventanaSalidaVehiculo = new VentanaSalidaVehiculo(controladorCliente, controladorTiket, controladorVehiculo);
         // se añade al panel principal la ventana crear cliente para luego hacerle visble en la ventana ingresar Vehiculo      
         //desktopPane.add(ventanaIngresarVehiculo);
         //desktopPane.add(ventanaCrearCliente);
@@ -66,19 +69,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
-        menuMenu = new javax.swing.JMenu();
+        principalMenu = new javax.swing.JMenu();
         registrarEntradaMenuItem = new javax.swing.JMenuItem();
+        ticketSalidaMenu = new javax.swing.JMenuItem();
         crearClienteMenuItem = new javax.swing.JMenuItem();
-        saveAsMenuItem = new javax.swing.JMenuItem();
-        exitMenuItem = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
-        cutMenuItem = new javax.swing.JMenuItem();
-        copyMenuItem = new javax.swing.JMenuItem();
-        pasteMenuItem = new javax.swing.JMenuItem();
-        deleteMenuItem = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
+        salirMenuItem = new javax.swing.JMenuItem();
+        idiomaMenu = new javax.swing.JMenu();
+        menuItemEspañol = new javax.swing.JMenuItem();
+        menuItemIngles = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
@@ -86,8 +84,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         desktopPane.setBackground(new java.awt.Color(0, 204, 204));
         getContentPane().add(desktopPane, java.awt.BorderLayout.CENTER);
 
-        menuMenu.setMnemonic('f');
-        menuMenu.setText("Menu");
+        principalMenu.setMnemonic('f');
+        principalMenu.setText("Menu");
 
         registrarEntradaMenuItem.setMnemonic('o');
         registrarEntradaMenuItem.setText("Registrar Entrada");
@@ -96,7 +94,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 registrarEntradaMenuItemActionPerformed(evt);
             }
         });
-        menuMenu.add(registrarEntradaMenuItem);
+        principalMenu.add(registrarEntradaMenuItem);
+
+        ticketSalidaMenu.setMnemonic('a');
+        ticketSalidaMenu.setText("Ticket Salida");
+        ticketSalidaMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ticketSalidaMenuActionPerformed(evt);
+            }
+        });
+        principalMenu.add(ticketSalidaMenu);
 
         crearClienteMenuItem.setMnemonic('s');
         crearClienteMenuItem.setText("Crear Cliente ");
@@ -105,57 +112,41 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 crearClienteMenuItemActionPerformed(evt);
             }
         });
-        menuMenu.add(crearClienteMenuItem);
+        principalMenu.add(crearClienteMenuItem);
 
-        saveAsMenuItem.setMnemonic('a');
-        saveAsMenuItem.setText("Save As ...");
-        saveAsMenuItem.setDisplayedMnemonicIndex(5);
-        menuMenu.add(saveAsMenuItem);
-
-        exitMenuItem.setMnemonic('x');
-        exitMenuItem.setText("Exit");
-        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        salirMenuItem.setMnemonic('x');
+        salirMenuItem.setText("Exit");
+        salirMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitMenuItemActionPerformed(evt);
+                salirMenuItemActionPerformed(evt);
             }
         });
-        menuMenu.add(exitMenuItem);
+        principalMenu.add(salirMenuItem);
 
-        menuBar.add(menuMenu);
+        menuBar.add(principalMenu);
 
-        editMenu.setMnemonic('e');
-        editMenu.setText("Edit");
+        idiomaMenu.setMnemonic('h');
+        idiomaMenu.setText("Idioma");
 
-        cutMenuItem.setMnemonic('t');
-        cutMenuItem.setText("Cut");
-        editMenu.add(cutMenuItem);
+        menuItemEspañol.setMnemonic('c');
+        menuItemEspañol.setText("Español");
+        menuItemEspañol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemEspañolActionPerformed(evt);
+            }
+        });
+        idiomaMenu.add(menuItemEspañol);
 
-        copyMenuItem.setMnemonic('y');
-        copyMenuItem.setText("Copy");
-        editMenu.add(copyMenuItem);
+        menuItemIngles.setMnemonic('a');
+        menuItemIngles.setText("Ingles");
+        menuItemIngles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemInglesActionPerformed(evt);
+            }
+        });
+        idiomaMenu.add(menuItemIngles);
 
-        pasteMenuItem.setMnemonic('p');
-        pasteMenuItem.setText("Paste");
-        editMenu.add(pasteMenuItem);
-
-        deleteMenuItem.setMnemonic('d');
-        deleteMenuItem.setText("Delete");
-        editMenu.add(deleteMenuItem);
-
-        menuBar.add(editMenu);
-
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Idioma");
-
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Español");
-        helpMenu.add(contentMenuItem);
-
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("Ingles");
-        helpMenu.add(aboutMenuItem);
-
-        menuBar.add(helpMenu);
+        menuBar.add(idiomaMenu);
 
         setJMenuBar(menuBar);
 
@@ -177,6 +168,25 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         //desktopPane.add(crearVehiculo);
         ventanaCrearCliente.setVisible(true);
     }//GEN-LAST:event_crearClienteMenuItemActionPerformed
+
+    private void ticketSalidaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ticketSalidaMenuActionPerformed
+        // TODO add your handling code here:
+        desktopPane.add(ventanaSalidaVehiculo);
+        ventanaSalidaVehiculo.setVisible(true);
+    }//GEN-LAST:event_ticketSalidaMenuActionPerformed
+
+    private void salirMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirMenuItemActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_salirMenuItemActionPerformed
+
+    private void menuItemEspañolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEspañolActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuItemEspañolActionPerformed
+
+    private void menuItemInglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemInglesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuItemInglesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,21 +237,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JMenuItem contentMenuItem;
-    private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem crearClienteMenuItem;
-    private javax.swing.JMenuItem cutMenuItem;
-    private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JDesktopPane desktopPane;
-    private javax.swing.JMenu editMenu;
-    private javax.swing.JMenuItem exitMenuItem;
-    private javax.swing.JMenu helpMenu;
+    private javax.swing.JMenu idiomaMenu;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenu menuMenu;
-    private javax.swing.JMenuItem pasteMenuItem;
+    private javax.swing.JMenuItem menuItemEspañol;
+    private javax.swing.JMenuItem menuItemIngles;
+    private javax.swing.JMenu principalMenu;
     private javax.swing.JMenuItem registrarEntradaMenuItem;
-    private javax.swing.JMenuItem saveAsMenuItem;
+    private javax.swing.JMenuItem salirMenuItem;
+    private javax.swing.JMenuItem ticketSalidaMenu;
     // End of variables declaration//GEN-END:variables
 
 }
