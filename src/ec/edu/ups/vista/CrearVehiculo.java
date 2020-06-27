@@ -17,11 +17,11 @@ import javax.swing.JTextField;
  * @author braya
  */
 public class CrearVehiculo extends javax.swing.JInternalFrame {
-
     private ControladorCliente controladorCliente;
     private VentanaCrearCliente ventanaCrearCliente;
     private ControladorVehiculo controladorVehiculo;
     private VentanaPrincipal ventanaPrincipal;
+    private int codiogo;
     /**
      * Creates new form CrearVehiculo
      */
@@ -44,8 +44,7 @@ public class CrearVehiculo extends javax.swing.JInternalFrame {
     public JTextField getTxtModelo() {
         return txtModelo;
     }
-    
-    
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

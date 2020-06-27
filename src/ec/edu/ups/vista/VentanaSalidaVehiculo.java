@@ -242,6 +242,7 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         FechaYHora();
         
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
