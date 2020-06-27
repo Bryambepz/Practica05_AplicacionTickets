@@ -348,6 +348,8 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
     
     public void limpiar()
     {
+        txtNumeroTiket.setText("");
+        textFechaIngreso.setText("");
         txtCedula.setText("");
         txtNombre.setText("");
         txtDireccion.setText("");
