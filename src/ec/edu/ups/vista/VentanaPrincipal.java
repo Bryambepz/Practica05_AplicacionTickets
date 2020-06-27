@@ -45,7 +45,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         
         ventanaCrearCliente= new VentanaCrearCliente(controladorCliente);
         crearVehiculo = new CrearVehiculo(controladorCliente,ventanaCrearCliente,controladorVehiculo,this);
-        ventanaIngresarVehiculo = new VentanaIngresarVehiculo(controladorCliente, this,controladorTiket,crearVehiculo);
+        ventanaIngresarVehiculo = new VentanaIngresarVehiculo(controladorCliente, this,controladorTiket,crearVehiculo,controladorVehiculo);
         // se añade al panel principal la ventana crear cliente para luego hacerle visble en la ventana ingresar Vehiculo      
         //desktopPane.add(ventanaIngresarVehiculo);
         //desktopPane.add(ventanaCrearCliente);

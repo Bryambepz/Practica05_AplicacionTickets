@@ -16,8 +16,10 @@ public class Vehiculo {
     private String placa;
     private String marca;
     private String modelo;
+    private Cliente cliente;
 
     public Vehiculo() {
+        
     }
 
     public Vehiculo(String placa, String marca, String modelo) {
@@ -25,6 +27,14 @@ public class Vehiculo {
         this.marca = marca;
         this.modelo = modelo;
     }
+
+    public Vehiculo(String placa, String marca, String modelo, Cliente cliente) {
+        this.placa = placa;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.cliente = cliente;
+    }
+
     
 
     public String getPlaca() {
@@ -51,6 +61,18 @@ public class Vehiculo {
         this.modelo = modelo;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    
+    
+
+    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -79,6 +101,10 @@ public class Vehiculo {
     @Override
     public String toString() {
         return "Vehiculo{" + "placa=" + placa + ", marca=" + marca + ", modelo=" + modelo + '}';
+    }
+
+    public Object getCliente(String cedula) {
+        return cedula;
     }
 
     

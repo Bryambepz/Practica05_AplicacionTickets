@@ -7,9 +7,12 @@ package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.ControladorCliente;
 import ec.edu.ups.controlador.ControladorTiket;
+import ec.edu.ups.controlador.ControladorVehiculo;
 import ec.edu.ups.modelo.Cliente;
+import ec.edu.ups.modelo.Vehiculo;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,15 +22,17 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
     private Calendar fechaYHora;
     private ControladorCliente controladorCliente;
     private ControladorTiket controladorTiket;
+    private ControladorVehiculo controladorVehiculo;
     private VentanaPrincipal ventanaPrincipal;
     private CrearVehiculo crearVehiculo;
     /**
      * Creates new form VentanaCrearTiket
      */
-    public VentanaIngresarVehiculo(ControladorCliente ctrlCliente, VentanaPrincipal ventanaPrincipal,ControladorTiket controladorTiket,CrearVehiculo crearVehiculo) {
+    public VentanaIngresarVehiculo(ControladorCliente ctrlCliente, VentanaPrincipal ventanaPrincipal,ControladorTiket controladorTiket,CrearVehiculo crearVehiculo,ControladorVehiculo controladorVehiculo) {
         initComponents();
         this.controladorCliente = ctrlCliente;
         this.controladorTiket= controladorTiket;
+        this.controladorVehiculo=controladorVehiculo;
         this.ventanaPrincipal = ventanaPrincipal;
         this.crearVehiculo = crearVehiculo;
     }
@@ -71,7 +76,7 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
         btnGestionVhiculo = new javax.swing.JButton();
         txtPlacaVehiculo = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblVehiculos = new javax.swing.JTable();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -148,7 +153,7 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
             }
         });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblVehiculos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -174,7 +179,12 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable2);
+        tblVehiculos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblVehiculosMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblVehiculos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -269,6 +279,7 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
         // metodo para cargar el numero de tikets
         cargarNumero();
         FechaYHora();
+        cargarDatosTablaVehiculos();
 
         btnEmitirTiket.setEnabled(false);
     }//GEN-LAST:event_formInternalFrameActivated
@@ -280,7 +291,38 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
        // ventanaPrincipal.getCrearVehiculo().setVisible(true);
     }//GEN-LAST:event_btnGestionVhiculoActionPerformed
 
+    private void tblVehiculosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblVehiculosMouseClicked
+        int filaSeleccionada = tblVehiculos.getSelectedRow();
+        if (filaSeleccionada >= 0) {
+            String cedulaCliente = tblVehiculos.getValueAt(filaSeleccionada, 3).toString();
+            Cliente cliente = controladorCliente.buscrarClientePorCedula(cedulaCliente);
+            cargarDatosDelCliente(cliente);
+            String placa = tblVehiculos.getValueAt(filaSeleccionada, 0).toString();
+            txtPlacaVehiculo.setText(placa);
+            
+        }
+    }//GEN-LAST:event_tblVehiculosMouseClicked
 
+
+    public void cargarDatosTablaVehiculos() {
+        DefaultTableModel modelo = (DefaultTableModel) tblVehiculos.getModel();
+        modelo.setRowCount(0);
+        for (Cliente cliente: controladorCliente.listar()) {
+            for (Vehiculo vehiculo : cliente.getListaVehiculos()) {
+            Object[] rowData = {vehiculo.getPlaca(), vehiculo.getMarca(), vehiculo.getModelo(),vehiculo.getCliente(cliente.getCedula())};
+            modelo.addRow(rowData);
+            }
+        }
+       
+        tblVehiculos.setModel(modelo);
+    }
+    
+    public void cargarDatosDelCliente(Cliente cliente) {
+        txtCedula.setText(cliente.getCedula());
+        txtNombre.setText(cliente.getNombre());
+        txtDireccion.setText(cliente.getDireccion());
+        txtNumeroFormateado.setText(cliente.getTelefono());
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEmitirTiket;
     private javax.swing.JButton btnGestionVhiculo;
@@ -294,7 +336,7 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable tblVehiculos;
     private javax.swing.JTextField textFechaIngreso;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtDireccion;

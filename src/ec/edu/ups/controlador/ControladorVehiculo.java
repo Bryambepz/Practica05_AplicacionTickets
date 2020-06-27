@@ -8,6 +8,7 @@ package ec.edu.ups.controlador;
 import ec.edu.ups.dao.VehiculoDAO;
 import ec.edu.ups.idao.IVehiculoDAO;
 import ec.edu.ups.modelo.Vehiculo;
+import java.util.List;
 
 /**
  *
@@ -25,5 +26,9 @@ public class ControladorVehiculo {
         vehiculo = new Vehiculo(placa, marca, modelo);
         vehiculoDAO.create(vehiculo);
         return vehiculo;
+    }
+    
+    public List<Vehiculo> listar() {
+        return vehiculoDAO.findAll();
     }
 }

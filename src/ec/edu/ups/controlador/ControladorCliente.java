@@ -11,6 +11,7 @@ import ec.edu.ups.idao.IClienteDAO;
 import ec.edu.ups.idao.IVehiculoDAO;
 import ec.edu.ups.modelo.Cliente;
 import ec.edu.ups.modelo.Vehiculo;
+import java.util.List;
 
 /**
  *
@@ -42,7 +43,12 @@ public class ControladorCliente {
     
      public void agregarVehiculo(Vehiculo vehiculo, String cedula) {
         cliente = clienteDAO.read(cedula);
+        vehiculo.getCliente(cedula);
         cliente.agregarVehiculo(vehiculo);
         clienteDAO.update(cliente);
+    }
+     
+    public List<Cliente> listar() {
+        return clienteDAO.findAll();
     }
 }
