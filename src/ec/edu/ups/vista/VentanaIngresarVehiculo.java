@@ -126,7 +126,7 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
 
         btnEmitirTiket.setBackground(new java.awt.Color(0, 0, 0));
         btnEmitirTiket.setForeground(new java.awt.Color(0, 153, 153));
-        btnEmitirTiket.setText("Emitir Tiket De Ingreso");
+        btnEmitirTiket.setText("Emitir Ticket De Ingreso");
         btnEmitirTiket.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEmitirTiketActionPerformed(evt);
