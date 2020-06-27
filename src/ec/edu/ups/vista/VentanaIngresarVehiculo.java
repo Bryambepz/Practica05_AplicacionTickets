@@ -11,6 +11,7 @@ import ec.edu.ups.controlador.ControladorVehiculo;
 import ec.edu.ups.modelo.Cliente;
 import ec.edu.ups.modelo.Vehiculo;
 import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -126,8 +127,16 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
         btnEmitirTiket.setBackground(new java.awt.Color(0, 0, 0));
         btnEmitirTiket.setForeground(new java.awt.Color(0, 153, 153));
         btnEmitirTiket.setText("Emitir Tiket De Ingreso");
+        btnEmitirTiket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEmitirTiketActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Cedula del Cliente");
+
+        txtCedula.setEditable(false);
+        txtCedula.setBackground(new java.awt.Color(255, 255, 204));
 
         jLabel2.setText("Nombre del Cliente:");
 
@@ -152,6 +161,8 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
                 btnGestionVhiculoActionPerformed(evt);
             }
         });
+
+        txtPlacaVehiculo.setBackground(new java.awt.Color(255, 255, 204));
 
         tblVehiculos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -281,7 +292,6 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
         FechaYHora();
         cargarDatosTablaVehiculos();
 
-        btnEmitirTiket.setEnabled(false);
     }//GEN-LAST:event_formInternalFrameActivated
 
     private void btnGestionVhiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionVhiculoActionPerformed
@@ -303,6 +313,18 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_tblVehiculosMouseClicked
 
+    private void btnEmitirTiketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmitirTiketActionPerformed
+        if(!txtCedula.getText().equals("")&&!txtNombre.getText().equals("")&&!txtDireccion.getText().equals("")&&!txtNumeroFormateado.getText().equals("")&&!txtPlacaVehiculo.getText().equals(""))
+        {
+            Date horaEntrada = fechaYHora.getTime();
+            controladorTiket.crear(Integer.valueOf(txtNumeroTiket.getText()), horaEntrada, txtPlacaVehiculo.getText());
+            JOptionPane.showMessageDialog(this, "TIKET CREADO CORRECTAMENTE");
+            limpiar();
+            this.dispose();
+        }else{JOptionPane.showMessageDialog(this, "NO SE PUEDE CREAR EL TIKET FALTA COMPLETAR INFORMACION");}
+        
+    }//GEN-LAST:event_btnEmitirTiketActionPerformed
+
 
     public void cargarDatosTablaVehiculos() {
         DefaultTableModel modelo = (DefaultTableModel) tblVehiculos.getModel();
@@ -322,6 +344,15 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
         txtNombre.setText(cliente.getNombre());
         txtDireccion.setText(cliente.getDireccion());
         txtNumeroFormateado.setText(cliente.getTelefono());
+    }
+    
+    public void limpiar()
+    {
+        txtCedula.setText("");
+        txtNombre.setText("");
+        txtDireccion.setText("");
+        txtNumeroFormateado.setText("");
+        txtPlacaVehiculo.setText("");
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEmitirTiket;

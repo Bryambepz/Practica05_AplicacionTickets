@@ -11,6 +11,7 @@ import ec.edu.ups.idao.IVehiculoDAO;
 import ec.edu.ups.modelo.Cliente;
 import ec.edu.ups.modelo.Tiket;
 import ec.edu.ups.modelo.Vehiculo;
+import java.util.Date;
 
 /**
  *
@@ -28,6 +29,12 @@ public class ControladorTiket {
         this.clienteDAO = clienteDAO;
         this.vehiculoDAO = vehiculoDAO;
         this.tiketDAO = tiketDAO;
+    }
+    
+    public void crear(int numero,Date fechaEntrada, String placa) {
+        Vehiculo vehiculo = vehiculoDAO.read(placa);
+        tiket = new Tiket(numero,fechaEntrada, vehiculo);
+        tiketDAO.create(tiket);
     }
     
     public int numeroTicket() {

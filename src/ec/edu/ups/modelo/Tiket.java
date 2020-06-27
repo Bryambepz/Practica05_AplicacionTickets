@@ -12,6 +12,7 @@ import java.util.Date;
  * @author NANCY
  */
 public class Tiket {
+
     private int numero;
     private Date fechaYHoraDeIngreso;
     private Date fechaYHoraDeSalida;
@@ -21,6 +22,13 @@ public class Tiket {
     public Tiket() {
     }
 
+    public Tiket(int numero, Date fechaYHoraDeIngreso, Vehiculo vehiculo) {
+        this.numero = numero;
+        this.fechaYHoraDeIngreso = fechaYHoraDeIngreso;
+        this.vehiculo = vehiculo;
+    }
+
+    
     public Tiket(int numero, Date fechaYHoraDeIngreso, Date fechaYHoraDeSalida, double total) {
         this.numero = numero;
         this.fechaYHoraDeIngreso = fechaYHoraDeIngreso;
@@ -68,7 +76,6 @@ public class Tiket {
         this.vehiculo = vehiculo;
     }
 
-    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -98,6 +105,5 @@ public class Tiket {
     public String toString() {
         return "Tiket{" + "numero=" + numero + ", fechaYHoraDeIngreso=" + fechaYHoraDeIngreso + ", fechaYHoraDeSalida=" + fechaYHoraDeSalida + ", total=" + total + ", vehiculo=" + vehiculo + '}';
     }
-    
- 
+
 }
