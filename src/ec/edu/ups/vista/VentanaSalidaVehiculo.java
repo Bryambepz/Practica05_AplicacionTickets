@@ -249,7 +249,9 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
            if(opcion == JOptionPane.YES_OPTION){
                ventanaPricipal.getDesktopPane().add(ventanaIngresarVehiculo);
                ventanaIngresarVehiculo.setVisible(true);
-               //this.dispose();
+               this.dispose();
+           }else if(opcion == JOptionPane.NO_OPTION){
+               JOptionPane.showMessageDialog(this, "Ingrese un ticket valido");
            }
            
        }else{
