@@ -39,6 +39,6 @@ public class ControladorTiket {
     
     public int numeroTicket() {
         int conta = tiketDAO.devolverNumero();
-        return (++conta);
+        return (conta);
     }
 }

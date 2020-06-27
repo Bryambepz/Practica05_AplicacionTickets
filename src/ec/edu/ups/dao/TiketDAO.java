@@ -72,7 +72,7 @@ public class TiketDAO implements ITiketDAO {
     @Override
 
     public int devolverNumero(){
-        return numero;
+        return numero++;
     }
     
 }

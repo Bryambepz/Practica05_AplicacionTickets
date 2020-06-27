@@ -287,8 +287,11 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-        // metodo para cargar el numero de tikets
-        cargarNumero();
+//        //metodo para cargar el numero de tikets
+//        if(!txtPlacaVehiculo.getText().equals("")){
+//            cargarNumero();
+//        }
+//        
         FechaYHora();
         cargarDatosTablaVehiculos();
 
@@ -314,14 +317,17 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tblVehiculosMouseClicked
 
     private void btnEmitirTiketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmitirTiketActionPerformed
-        if(!txtCedula.getText().equals("")&&!txtNombre.getText().equals("")&&!txtDireccion.getText().equals("")&&!txtNumeroFormateado.getText().equals("")&&!txtPlacaVehiculo.getText().equals(""))
+        if(!txtCedula.getText().equals("") && !txtNombre.getText().equals("") &&!txtDireccion.getText().equals("")&&!txtNumeroFormateado.getText().equals("")&&!txtPlacaVehiculo.getText().equals(""))
         {
             Date horaEntrada = fechaYHora.getTime();
             controladorTiket.crear(Integer.valueOf(txtNumeroTiket.getText()), horaEntrada, txtPlacaVehiculo.getText());
             JOptionPane.showMessageDialog(this, "TIKET CREADO CORRECTAMENTE");
+            cargarNumero();
             limpiar();
             this.dispose();
-        }else{JOptionPane.showMessageDialog(this, "NO SE PUEDE CREAR EL TIKET FALTA COMPLETAR INFORMACION");}
+        }else{
+            JOptionPane.showMessageDialog(this, "NO SE PUEDE CREAR EL TIKET FALTA COMPLETAR INFORMACION");
+        }
         
     }//GEN-LAST:event_btnEmitirTiketActionPerformed
 
