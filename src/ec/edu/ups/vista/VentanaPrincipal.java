@@ -24,6 +24,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private VentanaCrearCliente ventanaCrearCliente;
     private CrearVehiculo crearVehiculo;
     private VentanaSalidaVehiculo ventanaSalidaVehiculo;
+    private VentanaListarTicket ventanaListarTicket;
     //mvc
     private ClienteDAO clienteDAO;
     private VehiculoDAO vehiculoDAO;
@@ -49,6 +50,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         crearVehiculo = new CrearVehiculo(controladorCliente,ventanaCrearCliente,controladorVehiculo,this);
         ventanaIngresarVehiculo = new VentanaIngresarVehiculo(controladorCliente, this,controladorTiket,crearVehiculo,controladorVehiculo);
         ventanaSalidaVehiculo = new VentanaSalidaVehiculo(controladorCliente, controladorTiket, controladorVehiculo, this,ventanaIngresarVehiculo); 
+        ventanaListarTicket= new VentanaListarTicket();
         // se añade al panel principal la ventana crear cliente para luego hacerle visble en la ventana ingresar Vehiculo      
         //desktopPane.add(ventanaIngresarVehiculo);
         //desktopPane.add(ventanaCrearCliente);
@@ -134,6 +136,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         listarMenu.add(listarTodosMenuItem);
 
         listarPorParametroMenuItem.setText("Listar por placa o cedula");
+        listarPorParametroMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listarPorParametroMenuItemActionPerformed(evt);
+            }
+        });
         listarMenu.add(listarPorParametroMenuItem);
 
         menuBar.add(listarMenu);
@@ -200,6 +207,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void menuItemInglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemInglesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuItemInglesActionPerformed
+
+    private void listarPorParametroMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarPorParametroMenuItemActionPerformed
+        desktopPane.add(ventanaListarTicket);
+        ventanaListarTicket.setVisible(true);
+    }//GEN-LAST:event_listarPorParametroMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
