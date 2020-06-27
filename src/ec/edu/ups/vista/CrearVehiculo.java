@@ -249,7 +249,7 @@ public class CrearVehiculo extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
-
+ 
      public void limpiar() {
         txtPlaca.setText("");
         txtMarca.setText("");
