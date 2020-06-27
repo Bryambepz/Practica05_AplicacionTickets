@@ -48,6 +48,12 @@ public class ControladorCliente {
         clienteDAO.update(cliente);
     }
      
+    public Cliente buscarPorVehiculo(String placa) {
+        cliente = clienteDAO.buscarPorVehiculo(placa);
+        return cliente;
+    }
+
+     
     public List<Cliente> listar() {
         return clienteDAO.findAll();
     }

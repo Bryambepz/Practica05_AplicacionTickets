@@ -7,6 +7,7 @@ package ec.edu.ups.dao;
 
 import ec.edu.ups.idao.IClienteDAO;
 import ec.edu.ups.modelo.Cliente;
+import ec.edu.ups.modelo.Vehiculo;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -68,5 +69,17 @@ public class ClienteDAO implements IClienteDAO {
         return listaClientes;
     }
  
+    @Override
+    public Cliente buscarPorVehiculo(String placa) {
+        for (Cliente cliente : listaClientes) {
+            for (Vehiculo vehiculo : cliente.getListaVehiculos()) {
+                if (vehiculo.getPlaca().equals(placa)) {
+                    return cliente;
+                }
+            }
+        }
+        return null;
+    }
+
     
 }

@@ -41,11 +41,8 @@ public class ControladorTiket {
         int conta = tiketDAO.devolverNumero();
         return (conta);
     }
-    
-//    public Ticket buscarTiket(int numero, String placa){
-//        tiket = tiketDAO.read(numero);
-//        vehiculo = tiket.getVehiculo();
-//                
-//        return tiket;
-//    }
+       public Ticket buscarTiket(int numero){
+           tiket = tiketDAO.read(numero);
+           return tiket;
+       }
 }

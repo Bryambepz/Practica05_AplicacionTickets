@@ -8,6 +8,9 @@ package ec.edu.ups.vista;
 import ec.edu.ups.controlador.ControladorCliente;
 import ec.edu.ups.controlador.ControladorTiket;
 import ec.edu.ups.controlador.ControladorVehiculo;
+import ec.edu.ups.modelo.Cliente;
+import ec.edu.ups.modelo.Ticket;
+import ec.edu.ups.modelo.Vehiculo;
 import java.util.Calendar;
 
 /**
@@ -239,8 +242,20 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        FechaYHora();
+       FechaYHora();
+       Ticket tiket= controladorTicket.buscarTiket(Integer.valueOf(txtNUmeroTicket.getText()));
+       Vehiculo vehiculo= tiket.getVehiculo();
+       txtEntrada.setText(tiket.getFechaYHoraDeIngreso().toString());
+       txtPlaca.setText(vehiculo.getPlaca());
+       txtMarca.setText(vehiculo.getMarca());
+       txtModelo.setText(vehiculo.getModelo());
+       Cliente cliente = controladorCliente.buscarPorVehiculo(vehiculo.getPlaca());
+       //Cliente cliente=vehiculo.getCliente();
+       txtCedula.setText(cliente.getCedula());
+       txtNombre.setText(cliente.getNombre());
+       txtDireccion.setText(cliente.getDireccion());
+       txtTelefono.setText(cliente.getTelefono());
+
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
