@@ -12,6 +12,7 @@ import ec.edu.ups.modelo.Cliente;
 import ec.edu.ups.modelo.Ticket;
 import ec.edu.ups.modelo.Vehiculo;
 import java.util.Calendar;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,16 +24,19 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
     private ControladorTiket controladorTicket;
     private ControladorVehiculo controladorVehiculo;
     
-    
+    private VentanaIngresarVehiculo ventanaIngresarVehiculo;
+    private VentanaPrincipal ventanaPricipal;
     
     /**
      * Creates new form VentanaSalidaVehiculo
      */
-    public VentanaSalidaVehiculo(ControladorCliente controladorCliente, ControladorTiket controladorTicket, ControladorVehiculo controladorVehiculo) {
+    public VentanaSalidaVehiculo(ControladorCliente controladorCliente, ControladorTiket controladorTicket, ControladorVehiculo controladorVehiculo, VentanaPrincipal ventanaPrincipal) {
         initComponents();
         this.controladorCliente = controladorCliente;
         this.controladorTicket = controladorTicket;
         this.controladorVehiculo = controladorVehiculo;
+        this.ventanaIngresarVehiculo = ventanaIngresarVehiculo;
+        this.ventanaPricipal = ventanaPricipal;
     }
     
     //metodo para calcular la fecha y hora automaticamente 
@@ -73,8 +77,8 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
         txtMarca = new javax.swing.JTextField();
         txtModelo = new javax.swing.JTextField();
         txtTotal = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnGenerarTicket = new javax.swing.JButton();
+        btnInformacionTicket = new javax.swing.JButton();
 
         setClosable(true);
 
@@ -130,12 +134,12 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
         txtTotal.setEditable(false);
         txtTotal.setBackground(new java.awt.Color(255, 255, 204));
 
-        jButton1.setText("Generar ticket de salida");
+        btnGenerarTicket.setText("Generar ticket de salida");
 
-        jButton2.setText("Informacion");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnInformacionTicket.setText("Informacion Ticket");
+        btnInformacionTicket.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnInformacionTicketActionPerformed(evt);
             }
         });
 
@@ -145,7 +149,9 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnInformacionTicket)
+                .addGap(102, 102, 102)
+                .addComponent(btnGenerarTicket)
                 .addGap(83, 83, 83))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(112, 112, 112)
@@ -175,11 +181,6 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
                     .addComponent(txtModelo)
                     .addComponent(txtTotal))
                 .addContainerGap(47, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(130, 130, 130)
-                    .addComponent(jButton2)
-                    .addContainerGap(348, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,41 +230,47 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
                     .addComponent(jLabel11)
                     .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGenerarTicket)
+                    .addComponent(btnInformacionTicket))
                 .addContainerGap(92, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(524, Short.MAX_VALUE)
-                    .addComponent(jButton2)
-                    .addGap(92, 92, 92)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       FechaYHora();
+    private void btnInformacionTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInformacionTicketActionPerformed
+        // TODO add your handling code here:
+        FechaYHora();
        Ticket tiket= controladorTicket.buscarTiket(Integer.valueOf(txtNUmeroTicket.getText()));
-       Vehiculo vehiculo= tiket.getVehiculo();
-       txtEntrada.setText(tiket.getFechaYHoraDeIngreso().toString());
-       txtPlaca.setText(vehiculo.getPlaca());
-       txtMarca.setText(vehiculo.getMarca());
-       txtModelo.setText(vehiculo.getModelo());
-       Cliente cliente = controladorCliente.buscarPorVehiculo(vehiculo.getPlaca());
-       //Cliente cliente=vehiculo.getCliente();
-       txtCedula.setText(cliente.getCedula());
-       txtNombre.setText(cliente.getNombre());
-       txtDireccion.setText(cliente.getDireccion());
-       txtTelefono.setText(cliente.getTelefono());
-
-        
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
+       
+       if(tiket == null){
+           int opcion = JOptionPane.showConfirmDialog(this, "No existe ese ticket \n¿Desea crear uno?");
+           if(opcion == JOptionPane.YES_OPTION){
+               ventanaPricipal.getDesktopPane().add(ventanaIngresarVehiculo);
+               ventanaIngresarVehiculo.setVisible(true);
+               //this.dispose();
+           }
+           
+       }else{
+           Vehiculo vehiculo = tiket.getVehiculo();
+           txtEntrada.setText(tiket.getFechaYHoraDeIngreso().toString());
+           txtPlaca.setText(vehiculo.getPlaca());
+           txtMarca.setText(vehiculo.getMarca());
+           txtModelo.setText(vehiculo.getModelo());
+           Cliente cliente = controladorCliente.buscarPorVehiculo(vehiculo.getPlaca());
+           //Cliente cliente=vehiculo.getCliente();
+           txtCedula.setText(cliente.getCedula());
+           txtNombre.setText(cliente.getNombre());
+           txtDireccion.setText(cliente.getDireccion());
+           txtTelefono.setText(cliente.getTelefono());
+       }
+    }//GEN-LAST:event_btnInformacionTicketActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnGenerarTicket;
+    private javax.swing.JButton btnInformacionTicket;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
