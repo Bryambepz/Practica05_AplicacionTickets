@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author NANCY
  */
-public class Tiket {
+public class Ticket {
 
     private int numero;
     private Date fechaYHoraDeIngreso;
@@ -19,17 +19,17 @@ public class Tiket {
     private double total;
     private Vehiculo vehiculo;
 
-    public Tiket() {
+    public Ticket() {
     }
 
-    public Tiket(int numero, Date fechaYHoraDeIngreso, Vehiculo vehiculo) {
+    public Ticket(int numero, Date fechaYHoraDeIngreso, Vehiculo vehiculo) {
         this.numero = numero;
         this.fechaYHoraDeIngreso = fechaYHoraDeIngreso;
         this.vehiculo = vehiculo;
     }
 
     
-    public Tiket(int numero, Date fechaYHoraDeIngreso, Date fechaYHoraDeSalida, double total) {
+    public Ticket(int numero, Date fechaYHoraDeIngreso, Date fechaYHoraDeSalida, double total) {
         this.numero = numero;
         this.fechaYHoraDeIngreso = fechaYHoraDeIngreso;
         this.fechaYHoraDeSalida = fechaYHoraDeSalida;
@@ -94,7 +94,7 @@ public class Tiket {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Tiket other = (Tiket) obj;
+        final Ticket other = (Ticket) obj;
         if (this.numero != other.numero) {
             return false;
         }

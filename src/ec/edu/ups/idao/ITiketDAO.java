@@ -6,7 +6,7 @@
 package ec.edu.ups.idao;
 
 
-import ec.edu.ups.modelo.Tiket;
+import ec.edu.ups.modelo.Ticket;
 import java.util.List;
 
 /**
@@ -14,10 +14,10 @@ import java.util.List;
  * @author NANCY
  */
 public interface ITiketDAO {
-    public void create(Tiket tiket);
-    public Tiket read(int numero);
-    public void update(Tiket tiket);
-    public void delete(Tiket tiket);   
-    public List<Tiket> findAll();
+    public void create(Ticket tiket);
+    public Ticket read(int numero);
+    public void update(Ticket tiket);
+    public void delete(Ticket tiket);   
+    public List<Ticket> findAll();
     public int devolverNumero();
 }

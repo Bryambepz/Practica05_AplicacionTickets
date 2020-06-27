@@ -9,7 +9,7 @@ import ec.edu.ups.idao.IClienteDAO;
 import ec.edu.ups.idao.ITiketDAO;
 import ec.edu.ups.idao.IVehiculoDAO;
 import ec.edu.ups.modelo.Cliente;
-import ec.edu.ups.modelo.Tiket;
+import ec.edu.ups.modelo.Ticket;
 import ec.edu.ups.modelo.Vehiculo;
 import java.util.Date;
 
@@ -20,7 +20,7 @@ import java.util.Date;
 public class ControladorTiket {
     private Cliente cliente;
     private Vehiculo vehiculo;
-    private Tiket tiket;
+    private Ticket tiket;
     private IClienteDAO clienteDAO;
     private IVehiculoDAO vehiculoDAO;
     private ITiketDAO tiketDAO;
@@ -32,8 +32,8 @@ public class ControladorTiket {
     }
     
     public void crear(int numero,Date fechaEntrada, String placa) {
-        Vehiculo vehiculo = vehiculoDAO.read(placa);
-        tiket = new Tiket(numero,fechaEntrada, vehiculo);
+        vehiculo = vehiculoDAO.read(placa);
+        tiket = new Ticket(numero,fechaEntrada, vehiculo);
         tiketDAO.create(tiket);
     }
     
@@ -42,10 +42,10 @@ public class ControladorTiket {
         return (conta);
     }
     
-    public Tiket buscarTiket(int numero, String placa){
-        tiket = tiketDAO.read(numero);
-        vehiculo = tiket.getVehiculo();
-                
-        return tiket;
-    }
+//    public Ticket buscarTiket(int numero, String placa){
+//        tiket = tiketDAO.read(numero);
+//        vehiculo = tiket.getVehiculo();
+//                
+//        return tiket;
+//    }
 }

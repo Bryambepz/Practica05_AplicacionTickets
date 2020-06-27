@@ -288,7 +288,7 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
 //        //metodo para cargar el numero de tikets
-//        if(!txtPlacaVehiculo.getText().equals("")){
+//        if(!crearVehiculo.getTxtPlaca().getText().equals("")){
             cargarNumero();
 //        }
 //        
@@ -298,20 +298,28 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameActivated
 
     private void btnGestionVhiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionVhiculoActionPerformed
-
+//        if (!crearVehiculo.getTxtPlaca().getText().equals("") && !crearVehiculo.getTxtModelo().getText().equals("") ) {
+//            cargarNumero();
+//        }
+        
         ventanaPrincipal.getDesktopPane().add(crearVehiculo);
         crearVehiculo.setVisible(true);
+        
        // ventanaPrincipal.getCrearVehiculo().setVisible(true);
     }//GEN-LAST:event_btnGestionVhiculoActionPerformed
 
     private void tblVehiculosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblVehiculosMouseClicked
+        
         int filaSeleccionada = tblVehiculos.getSelectedRow();
         if (filaSeleccionada >= 0) {
+            //cargarNumero();
+            //limpiar();
             String cedulaCliente = tblVehiculos.getValueAt(filaSeleccionada, 3).toString();
             Cliente cliente = controladorCliente.buscrarClientePorCedula(cedulaCliente);
             cargarDatosDelCliente(cliente);
             String placa = tblVehiculos.getValueAt(filaSeleccionada, 0).toString();
             txtPlacaVehiculo.setText(placa);
+            
             
         }
     }//GEN-LAST:event_tblVehiculosMouseClicked
@@ -321,10 +329,10 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
         {
             Date horaEntrada = fechaYHora.getTime();
             controladorTiket.crear(Integer.valueOf(txtNumeroTiket.getText()), horaEntrada, txtPlacaVehiculo.getText());
-            JOptionPane.showMessageDialog(this, "TIKET CREADO CORRECTAMENTE");
-            cargarNumero();
+            JOptionPane.showMessageDialog(this, "TIKET CREADO CORRECTAMENTE" + txtNumeroTiket.getText());
+            //cargarNumero();
             limpiar();
-            this.dispose();
+            //this.dispose();
         }else{
             JOptionPane.showMessageDialog(this, "NO SE PUEDE CREAR EL TIKET FALTA COMPLETAR INFORMACION");
         }
@@ -341,7 +349,7 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
             modelo.addRow(rowData);
             }
         }
-       
+        
         tblVehiculos.setModel(modelo);
     }
     
@@ -362,6 +370,7 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
         txtNumeroFormateado.setText("");
         txtPlacaVehiculo.setText("");
     }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEmitirTiket;
     private javax.swing.JButton btnGestionVhiculo;

@@ -73,6 +73,8 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
+        setClosable(true);
+
         jLabel1.setText("Ingrese numero de ticket");
 
         jLabel2.setText("Fecha y hora de salida");

@@ -71,8 +71,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuBar = new javax.swing.JMenuBar();
         principalMenu = new javax.swing.JMenu();
         registrarEntradaMenuItem = new javax.swing.JMenuItem();
-        ticketSalidaMenu = new javax.swing.JMenuItem();
         crearClienteMenuItem = new javax.swing.JMenuItem();
+        ticketSalidaMenu = new javax.swing.JMenuItem();
         salirMenuItem = new javax.swing.JMenuItem();
         idiomaMenu = new javax.swing.JMenu();
         menuItemEspañol = new javax.swing.JMenuItem();
@@ -96,15 +96,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         principalMenu.add(registrarEntradaMenuItem);
 
-        ticketSalidaMenu.setMnemonic('a');
-        ticketSalidaMenu.setText("Ticket Salida");
-        ticketSalidaMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ticketSalidaMenuActionPerformed(evt);
-            }
-        });
-        principalMenu.add(ticketSalidaMenu);
-
         crearClienteMenuItem.setMnemonic('s');
         crearClienteMenuItem.setText("Crear Cliente ");
         crearClienteMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -113,6 +104,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
         principalMenu.add(crearClienteMenuItem);
+
+        ticketSalidaMenu.setMnemonic('a');
+        ticketSalidaMenu.setText("Ticket Salida");
+        ticketSalidaMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ticketSalidaMenuActionPerformed(evt);
+            }
+        });
+        principalMenu.add(ticketSalidaMenu);
 
         salirMenuItem.setMnemonic('x');
         salirMenuItem.setText("Exit");

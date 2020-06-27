@@ -6,7 +6,7 @@
 package ec.edu.ups.dao;
 
 import ec.edu.ups.idao.ITiketDAO;
-import ec.edu.ups.modelo.Tiket;
+import ec.edu.ups.modelo.Ticket;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class TiketDAO implements ITiketDAO {
 
-   private List<Tiket> listaTiket;
+   private List<Ticket> listaTiket;
    private int numero;
 
     public TiketDAO() {
@@ -26,13 +26,13 @@ public class TiketDAO implements ITiketDAO {
     }
 
     @Override
-    public void create(Tiket tiket) {
+    public void create(Ticket tiket) {
         listaTiket.add(tiket);
     }
 
     @Override
-    public Tiket read(int numero) {
-        for (Tiket tiket : listaTiket) {
+    public Ticket read(int numero) {
+        for (Ticket tiket : listaTiket) {
             if (tiket.getNumero() == numero) {
                 return tiket;
             }
@@ -41,9 +41,9 @@ public class TiketDAO implements ITiketDAO {
     }
 
     @Override
-    public void update(Tiket tiket) {
+    public void update(Ticket tiket) {
         for (int i = 0; i < listaTiket.size(); i++) {
-            Tiket t = listaTiket.get(i);
+            Ticket t = listaTiket.get(i);
             if (t.getNumero() == tiket.getNumero()) {
                 listaTiket.set(i, tiket);
                 break;
@@ -53,10 +53,10 @@ public class TiketDAO implements ITiketDAO {
     }
 
     @Override
-    public void delete(Tiket tiket) {
-        Iterator<Tiket> it = listaTiket.iterator();
+    public void delete(Ticket tiket) {
+        Iterator<Ticket> it = listaTiket.iterator();
         while (it.hasNext()) {
-            Tiket t = it.next();
+            Ticket t = it.next();
             if (t.getNumero() == tiket.getNumero()) {
                 it.remove();
                 break;
@@ -65,7 +65,7 @@ public class TiketDAO implements ITiketDAO {
     }
 
     @Override
-    public List<Tiket> findAll() {
+    public List<Ticket> findAll() {
         return listaTiket;
     }
     
