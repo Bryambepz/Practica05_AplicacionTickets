@@ -39,6 +39,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private Locale localizacion;
     private ResourceBundle mensajes;
     
+    
     /**
      * Creates new form VentanaPrincipal
      */
@@ -71,6 +72,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public void cambiarIdioma(){
         principalMenu.setText(mensajes.getString("menu"));
             registrarEntradaMenuItem.setText(mensajes.getString("registrarEntrada"));
+                ventanaIngresarVehiculo.setTitle(mensajes.getString("tituloIngresar"));
+                ventanaIngresarVehiculo.getjNumero().setText(mensajes.getString("numero"));
+                ventanaIngresarVehiculo.getjFecjha().setText(mensajes.getString("fecha"));
+                ventanaIngresarVehiculo.getjCedula().setText(mensajes.getString("cedula"));
+                ventanaIngresarVehiculo.getjNombre().setText(mensajes.getString("nombre"));
+                ventanaIngresarVehiculo.getjDireccion().setText(mensajes.getString("direccion"));
+                ventanaIngresarVehiculo.getjTelefono().setText(mensajes.getString("telefono"));
+                ventanaIngresarVehiculo.getjPlaca().setText(mensajes.getString("placa"));
+                ventanaIngresarVehiculo.getBtnEmitirTiket().setText(mensajes.getString("btnEmitir"));
+                ventanaIngresarVehiculo.getBtnGestionVhiculo().setText(mensajes.getString("btnGestion"));
+                ventanaIngresarVehiculo.setMensajeEmitir(mensajes.getString("mensajeEmitir"));
+                ventanaIngresarVehiculo.setMensajeEmitirNull(mensajes.getString("mensajeEmitirNull"));
             crearClienteMenuItem.setText(mensajes.getString("crearCliente"));
             salirMenuItem.setText(mensajes.getString("salir"));
         listarMenu.setText(mensajes.getString("listar"));
