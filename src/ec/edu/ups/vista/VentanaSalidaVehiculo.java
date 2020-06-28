@@ -37,6 +37,7 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
         this.controladorVehiculo = controladorVehiculo;
         this.ventanaIngresarVehiculo = ventanaIngresarVehiculo;
         this.ventanaPricipal = ventanaPrincipal;
+        
     }
     
     //metodo para calcular la fecha y hora automaticamente 

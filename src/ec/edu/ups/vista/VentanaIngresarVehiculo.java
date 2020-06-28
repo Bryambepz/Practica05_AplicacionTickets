@@ -291,7 +291,6 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame {
 //        if(!crearVehiculo.getTxtPlaca().getText().equals("")){
             cargarNumero();
 //        }
-//        
         FechaYHora();
         cargarDatosTablaVehiculos();
 

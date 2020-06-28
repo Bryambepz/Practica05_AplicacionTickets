@@ -222,7 +222,8 @@ public class CrearVehiculo extends javax.swing.JInternalFrame {
             txtNombre.setText(u.getNombre());
             txtDireccion.setText(u.getDireccion());
             txtNumeroFormateado.setText(u.getTelefono());
-            btnRegistrarVehiculo.setEnabled(true);
+            btnRegistrarVehiculo.setEnabled(true);        
+            
         }else
         {
             int opcion=JOptionPane.showConfirmDialog(this," CLIENTE NO ENCONTRADO \n¿DESEA CREAR UNO?" ); 
