@@ -24,6 +24,7 @@ public class ControladorCliente {
     private Vehiculo vehiculo;
     
     
+    
     public ControladorCliente(ClienteDAO clienteDAO,VehiculoDAO vehiculoDAO) {
         this.clienteDAO=clienteDAO;
         this.vehiculoDAO= vehiculoDAO;
