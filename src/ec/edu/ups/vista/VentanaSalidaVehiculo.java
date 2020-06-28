@@ -11,7 +11,7 @@ import ec.edu.ups.controlador.ControladorVehiculo;
 import ec.edu.ups.modelo.Cliente;
 import ec.edu.ups.modelo.Ticket;
 import ec.edu.ups.modelo.Vehiculo;
-import java.text.SimpleDateFormat;
+//import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -19,7 +19,7 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
-import javafx.util.converter.LocalDateTimeStringConverter;
+//import javafx.util.converter.LocalDateTimeStringConverter;
 import javax.swing.JOptionPane;
 
 /**
@@ -296,8 +296,14 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
             LocalDate d2 = LocalDate.parse(local.toString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
             Duration diff = Duration.between(d1.atStartOfDay(), d2.atStartOfDay());
             long diffDays = diff.toMillis();
-            txtTotal.setText(String.valueOf(diffDays));
-
+            //txtTotal.setText(String.valueOf(diffDays));
+            if(diffDays <=10){
+                txtTotal.setText(String.valueOf(0.25));
+            }else if(diffDays > 10){
+                int calcularTotal = (int) diffDays/10;
+                calcularTotal = (int) (calcularTotal*0.25);
+                txtTotal.setText(String.valueOf(calcularTotal));
+            }
         }
 
 

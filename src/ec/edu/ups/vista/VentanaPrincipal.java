@@ -12,6 +12,8 @@ import ec.edu.ups.dao.ClienteDAO;
 import ec.edu.ups.dao.TiketDAO;
 import ec.edu.ups.dao.VehiculoDAO;
 import java.awt.event.ActionEvent;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JDesktopPane;
 
 /**
@@ -33,6 +35,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private ControladorCliente controladorCliente;
     private ControladorTiket controladorTiket;
     private ControladorVehiculo controladorVehiculo;
+    //Idioma
+    private Locale localizacion;
+    private ResourceBundle mensajes;
+    
     /**
      * Creates new form VentanaPrincipal
      */
@@ -53,13 +59,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ventanaSalidaVehiculo = new VentanaSalidaVehiculo(controladorCliente, controladorTiket, controladorVehiculo, this,ventanaIngresarVehiculo); 
         ventanaListarTicket= new VentanaListarTicket(controladorCliente,controladorVehiculo,controladorTiket);
         ventanaListarTiketCedula= new VentanaListarTiketCedula(controladorCliente,controladorVehiculo,controladorTiket);
+        
         // se añade al panel principal la ventana crear cliente para luego hacerle visble en la ventana ingresar Vehiculo      
         //desktopPane.add(ventanaIngresarVehiculo);
         //desktopPane.add(ventanaCrearCliente);
         //desktopPane.add(crearVehiculo);
+        localizacion = new Locale("es", "EC");
+        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", localizacion);
     }
-
-   
+    
+    public void cambiarIdioma(){
+        principalMenu.setText(mensajes.getString("menu"));
+        registrarEntradaMenuItem.setText(mensajes.getString("registrarEntrada"));
+        crearClienteMenuItem.setText(mensajes.getString("crearCliente"));
+        salirMenuItem.setText(mensajes.getString("salir"));
+        idiomaMenu.setText(mensajes.getString("idioma"));
+        menuItemEspañol.setText(mensajes.getString("español"));
+        menuItemIngles.setText(mensajes.getString("ingles"));
+    }
 
     
     /**
@@ -209,10 +226,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void menuItemEspañolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEspañolActionPerformed
         // TODO add your handling code here:
+        
+        localizacion = new Locale("es", "EC");
+        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", localizacion);
+        cambiarIdioma();
     }//GEN-LAST:event_menuItemEspañolActionPerformed
 
     private void menuItemInglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemInglesActionPerformed
         // TODO add your handling code here:
+        
+        localizacion = new Locale("en", "UK");
+        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", localizacion);
+        cambiarIdioma();
     }//GEN-LAST:event_menuItemInglesActionPerformed
 
     private void listarPorParametroMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarPorParametroMenuItemActionPerformed
