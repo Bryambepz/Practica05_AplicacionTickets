@@ -15,21 +15,21 @@ import java.util.Date;
 public class Ticket {
 
     private int numero;
-    private Date fechaYHoraDeIngreso;
-    private Date fechaYHoraDeSalida;
+    private LocalDateTime fechaYHoraDeIngreso;
+    private LocalDateTime fechaYHoraDeSalida;
     private double total;
     private Vehiculo vehiculo;
 
     public Ticket() {
     }
 
-    public Ticket(int numero, Date fechaYHoraDeIngreso, Vehiculo vehiculo) {
+    public Ticket(int numero, LocalDateTime fechaYHoraDeIngreso, Vehiculo vehiculo) {
         this.numero = numero;
         this.fechaYHoraDeIngreso = fechaYHoraDeIngreso;
         this.vehiculo = vehiculo;
     }
 
-    public Ticket(int numero, Date fechaYHoraDeIngreso, Date fechaYHoraDeSalida, double total, Vehiculo vehiculo) {
+    public Ticket(int numero, LocalDateTime fechaYHoraDeIngreso, LocalDateTime fechaYHoraDeSalida, double total, Vehiculo vehiculo) {
         this.numero = numero;
         this.fechaYHoraDeIngreso = fechaYHoraDeIngreso;
         this.fechaYHoraDeSalida = fechaYHoraDeSalida;
@@ -47,19 +47,19 @@ public class Ticket {
         this.numero = numero;
     }
 
-    public Date getFechaYHoraDeIngreso() {
+    public LocalDateTime getFechaYHoraDeIngreso() {
         return fechaYHoraDeIngreso;
     }
 
-    public void setFechaYHoraDeIngreso(Date fechaYHoraDeIngreso) {
+    public void setFechaYHoraDeIngreso(LocalDateTime fechaYHoraDeIngreso) {
         this.fechaYHoraDeIngreso = fechaYHoraDeIngreso;
     }
 
-    public Date getFechaYHoraDeSalida() {
+    public LocalDateTime getFechaYHoraDeSalida() {
         return fechaYHoraDeSalida;
     }
 
-    public void setFechaYHoraDeSalida(Date fechaYHoraDeSalida) {
+    public void setFechaYHoraDeSalida(LocalDateTime fechaYHoraDeSalida) {
         this.fechaYHoraDeSalida = fechaYHoraDeSalida;
     }
 

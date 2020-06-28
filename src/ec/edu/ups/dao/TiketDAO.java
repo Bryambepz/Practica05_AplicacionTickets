@@ -24,7 +24,6 @@ public class TiketDAO implements ITiketDAO {
 
     public TiketDAO() {
         listaTiket = new ArrayList<>();
-        listaTiket2 = new ArrayList<>();
         numero=0;
     }
 
@@ -80,6 +79,7 @@ public class TiketDAO implements ITiketDAO {
 
     @Override
     public List<Ticket> BuscarPorVehiculo(Vehiculo vehiculo) {
+		listaTiket2 = new ArrayList<>();
         for (Ticket tiket : listaTiket) {
             if (tiket.getVehiculo() == vehiculo)
             {

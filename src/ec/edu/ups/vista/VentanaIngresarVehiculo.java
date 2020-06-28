@@ -32,6 +32,7 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame{
     private VentanaPrincipal ventanaPrincipal;
     private CrearVehiculo crearVehiculo;
     private Date FechaE;
+    private LocalDateTime local;
     
     /**
      * Creates new form VentanaCrearTiket
@@ -64,13 +65,13 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame{
 //    }
     
     public void FechaYHora() {
-        LocalDateTime local = LocalDateTime.now();
+        local = LocalDateTime.now();
         FechaE = java.sql.Timestamp.valueOf(local);
         textFechaIngreso.setText(local.toString());
     }
 
     
-    
+    {
 //    public static String fecha(){
 //        Date fecha = new Date();
 //        SimpleDateFormat sdp = new SimpleDateFormat("dd/mm/yyyy");
@@ -97,7 +98,7 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame{
 //    SimpleDateFormat sdp = new SimpleDateFormat("dd/mm/yyyy HH:mm:ss");
 //    Date date = sdp.parse(myDate);
     
-    
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -380,9 +381,9 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame{
     private void btnEmitirTiketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmitirTiketActionPerformed
         if(!txtCedula.getText().equals("") && !txtNombre.getText().equals("") &&!txtDireccion.getText().equals("")&&!txtNumeroFormateado.getText().equals("")&&!txtPlacaVehiculo.getText().equals(""))
         {
-            Date horaEntrada = FechaE;
+            //Date horaEntrada = FechaE;
             //String hora = this.hora+minuto+segundo;
-            controladorTiket.crear(Integer.valueOf(txtNumeroTiket.getText()), horaEntrada, txtPlacaVehiculo.getText());
+            controladorTiket.crear(Integer.valueOf(txtNumeroTiket.getText()),local, txtPlacaVehiculo.getText());
             JOptionPane.showMessageDialog(this, "TIKET CREADO CORRECTAMENTE  " + txtNumeroTiket.getText());
             //cargarNumero();
             limpiar();

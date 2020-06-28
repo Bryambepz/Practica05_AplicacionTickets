@@ -34,7 +34,7 @@ public class ControladorTiket {
         this.tiketDAO = tiketDAO;
     }
     
-    public void crear(int numero,Date fechaEntrada, String placa) {
+    public void crear(int numero,LocalDateTime fechaEntrada, String placa) {
         vehiculo = vehiculoDAO.read(placa);
         tiket = new Ticket(numero,fechaEntrada, vehiculo);
         tiketDAO.create(tiket);

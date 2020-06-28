@@ -278,10 +278,10 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
             }
 
         } else {
-            Date FechaEntrada = tiket.getFechaYHoraDeIngreso();
-            LocalDateTime localE = FechaEntrada.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+            LocalDateTime FechaEntrada = tiket.getFechaYHoraDeIngreso();
+            //LocalDateTime localE = FechaEntrada.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
             Vehiculo vehiculo = tiket.getVehiculo();
-            txtFechaE.setText(localE.toString());
+            txtFechaE.setText(FechaEntrada.toString());
             txtPlaca.setText(vehiculo.getPlaca());
             txtMarca.setText(vehiculo.getMarca());
             txtModelo.setText(vehiculo.getModelo());
@@ -292,7 +292,7 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
             txtDireccion.setText(cliente.getDireccion());
             txtTelefono.setText(cliente.getTelefono());
 //           DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-mm-dd HH:mm");
-            LocalDate d1 = LocalDate.parse(localE.toString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+            LocalDate d1 = LocalDate.parse(FechaEntrada.toString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
             LocalDate d2 = LocalDate.parse(local.toString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
             Duration diff = Duration.between(d1.atStartOfDay(), d2.atStartOfDay());
             long diffDays = diff.toMillis();
