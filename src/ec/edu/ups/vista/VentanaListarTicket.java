@@ -12,6 +12,7 @@ import ec.edu.ups.modelo.Cliente;
 import ec.edu.ups.modelo.Ticket;
 import ec.edu.ups.modelo.Vehiculo;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -205,14 +206,20 @@ public class VentanaListarTicket extends javax.swing.JInternalFrame {
         {
            
             Vehiculo vehiculo= controladorVehiculo.buscar(txtPlaca.getText());
-            Cliente cliente= controladorCliente.buscarPorVehiculo(txtPlaca.getText());
-            txtCedula.setText(cliente.getCedula());
-            txtNombre.setText(cliente.getNombre());
-            txtDireccion.setText(cliente.getDireccion());
-            txtTelefono.setText(cliente.getTelefono());
-            txtMarca.setText(vehiculo.getMarca());
-            txtModelo.setText(vehiculo.getModelo());
-            cargarDatosTablaVehiculos(controladorTiket.buscarTiketPorVehiculo(vehiculo));
+            if(vehiculo != null){
+                Cliente cliente= controladorCliente.buscarPorVehiculo(txtPlaca.getText());
+                txtCedula.setText(cliente.getCedula());
+                txtNombre.setText(cliente.getNombre());
+                txtDireccion.setText(cliente.getDireccion());
+                txtTelefono.setText(cliente.getTelefono());
+                txtMarca.setText(vehiculo.getMarca());
+                txtModelo.setText(vehiculo.getModelo());
+                cargarDatosTablaVehiculos(controladorTiket.buscarTiketPorVehiculo(vehiculo));
+            }else{
+                JOptionPane.showMessageDialog(this, "No exixte un vehiculo con esta placa");
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Ingrese una placa de vehiculo");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

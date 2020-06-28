@@ -11,6 +11,7 @@ import ec.edu.ups.controlador.ControladorVehiculo;
 import ec.edu.ups.modelo.Cliente;
 import ec.edu.ups.modelo.Ticket;
 import ec.edu.ups.modelo.Vehiculo;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -161,10 +162,16 @@ public class VentanaListarTiketCedula extends javax.swing.JInternalFrame {
         if(!txtCedula.getText().equals(""))
         {
             Cliente cliente=controladorCliente.buscrarClientePorCedula(txtCedula.getText());
-            txtNombre.setText(cliente.getNombre());
-            txtDireccion.setText(cliente.getDireccion());
-            txtTelefono.setText(cliente.getTelefono());
-            cargarDatosTablaVehiculos();
+                if(cliente != null){
+                txtNombre.setText(cliente.getNombre());
+                txtDireccion.setText(cliente.getDireccion());
+                txtTelefono.setText(cliente.getTelefono());
+                cargarDatosTablaVehiculos();
+            }else{
+                    JOptionPane.showMessageDialog(this, "No existe un cliente con esa cedula");
+                }
+        }else{
+            JOptionPane.showMessageDialog(this, "Ingrese una cedula");
         }
     }//GEN-LAST:event_btnListarTiketActionPerformed
 
