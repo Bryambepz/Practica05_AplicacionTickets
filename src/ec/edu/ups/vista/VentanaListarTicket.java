@@ -203,6 +203,7 @@ public class VentanaListarTicket extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(!txtPlaca.getText().equals(""))
         {
+           
             Vehiculo vehiculo= controladorVehiculo.buscar(txtPlaca.getText());
             Cliente cliente= controladorCliente.buscarPorVehiculo(txtPlaca.getText());
             txtCedula.setText(cliente.getCedula());
@@ -215,7 +216,7 @@ public class VentanaListarTicket extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-     public void cargarDatosTablaVehiculos(List<Ticket> lista) {
+    public void cargarDatosTablaVehiculos(List<Ticket> lista) {
         DefaultTableModel modelo = (DefaultTableModel) tblTikets.getModel();
         modelo.setRowCount(0);
         for (Ticket tiket : lista) {
@@ -226,6 +227,8 @@ public class VentanaListarTicket extends javax.swing.JInternalFrame {
         
         tblTikets.setModel(modelo);
     }
+    
+     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
