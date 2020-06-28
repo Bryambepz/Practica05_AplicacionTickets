@@ -71,6 +71,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public void cambiarIdioma(){
         principalMenu.setText(mensajes.getString("menu"));
         registrarEntradaMenuItem.setText(mensajes.getString("registrarEntrada"));
+        //vent
         crearClienteMenuItem.setText(mensajes.getString("crearCliente"));
         salirMenuItem.setText(mensajes.getString("salir"));
         idiomaMenu.setText(mensajes.getString("idioma"));
