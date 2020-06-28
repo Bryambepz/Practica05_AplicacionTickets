@@ -7,6 +7,7 @@ package ec.edu.ups.idao;
 
 
 import ec.edu.ups.modelo.Ticket;
+import ec.edu.ups.modelo.Vehiculo;
 import java.util.List;
 
 /**
@@ -20,4 +21,5 @@ public interface ITiketDAO {
     public void delete(Ticket tiket);   
     public List<Ticket> findAll();
     public int devolverNumero();
+    public List<Ticket> BuscarPorVehiculo(Vehiculo vehiculo);
 }

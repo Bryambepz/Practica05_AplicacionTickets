@@ -19,4 +19,5 @@ public interface IClienteDAO {
     public void delete(Cliente cliente);   
     public List<Cliente> findAll();
     public Cliente buscarPorVehiculo(String placa);
+    
 }

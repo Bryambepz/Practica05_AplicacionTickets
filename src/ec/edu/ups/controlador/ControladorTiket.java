@@ -11,7 +11,10 @@ import ec.edu.ups.idao.IVehiculoDAO;
 import ec.edu.ups.modelo.Cliente;
 import ec.edu.ups.modelo.Ticket;
 import ec.edu.ups.modelo.Vehiculo;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -41,8 +44,20 @@ public class ControladorTiket {
         int conta = tiketDAO.devolverNumero();
         return (conta);
     }
-       public Ticket buscarTiket(int numero){
-           tiket = tiketDAO.read(numero);
-           return tiket;
-       }
+    
+    public Ticket buscarTiket(int numero){
+        tiket = tiketDAO.read(numero);
+        return tiket;
+    }
+    public List<Ticket> buscarTiketPorVehiculo(Vehiculo vehiculo){ 
+        return tiketDAO.BuscarPorVehiculo(vehiculo);
+    }
+    
+    /*public Ticket calculoValorTotal(int numero, Date salida,)
+    {
+        tiket= buscarTiket(numero);
+        tiket.setFechaYHoraDeSalida(salida);
+        long diferenciadetiempo= Duration.between (entrada, salida); 
+        return tiket;
+    }*/
 }

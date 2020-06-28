@@ -5,6 +5,8 @@
  */
 package ec.edu.ups.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -69,8 +71,6 @@ public class Vehiculo {
         this.cliente = cliente;
     }
 
-    
-    
 
     
     @Override
@@ -100,8 +100,8 @@ public class Vehiculo {
 
     @Override
     public String toString() {
-        return "Vehiculo{" + "placa=" + placa + ", marca=" + marca + ", modelo=" + modelo + '}';
-    }
+        return "Vehiculo{" + "placa=" + placa + ", marca=" + marca + ", modelo=" + modelo +  '}';
+    }    
 
     public Object getCliente(String cedula) {
         return cedula;

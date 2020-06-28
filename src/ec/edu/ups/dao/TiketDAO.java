@@ -7,6 +7,7 @@ package ec.edu.ups.dao;
 
 import ec.edu.ups.idao.ITiketDAO;
 import ec.edu.ups.modelo.Ticket;
+import ec.edu.ups.modelo.Vehiculo;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -18,10 +19,12 @@ import java.util.List;
 public class TiketDAO implements ITiketDAO {
 
    private List<Ticket> listaTiket;
+   private List<Ticket> listaTiket2;
    private int numero;
 
     public TiketDAO() {
         listaTiket = new ArrayList<>();
+        listaTiket2 = new ArrayList<>();
         numero=0;
     }
 
@@ -73,6 +76,17 @@ public class TiketDAO implements ITiketDAO {
 
     public int devolverNumero(){
         return numero++;
+    }
+
+    @Override
+    public List<Ticket> BuscarPorVehiculo(Vehiculo vehiculo) {
+        for (Ticket tiket : listaTiket) {
+            if (tiket.getVehiculo() == vehiculo)
+            {
+                listaTiket2.add(tiket);   
+            }
+        }
+        return listaTiket2;
     }
     
 }

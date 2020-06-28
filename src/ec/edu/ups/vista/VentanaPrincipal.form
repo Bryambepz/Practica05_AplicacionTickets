@@ -53,14 +53,9 @@
             <Property name="text" type="java.lang.String" value="Listar"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="listarTodosMenuItem">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Listar todos los tickets"/>
-              </Properties>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="listarPorParametroMenuItem">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Listar por placa o cedula"/>
+                <Property name="text" type="java.lang.String" value="Listar por placa y cedula"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listarPorParametroMenuItemActionPerformed"/>

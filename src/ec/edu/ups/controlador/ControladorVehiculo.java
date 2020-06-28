@@ -27,6 +27,11 @@ public class ControladorVehiculo {
         vehiculoDAO.create(vehiculo);
         return vehiculo;
     }
+    public Vehiculo buscar(String placa)
+    {
+        vehiculo= vehiculoDAO.read(placa);
+        return vehiculo;
+    }
     
     public List<Vehiculo> listar() {
         return vehiculoDAO.findAll();

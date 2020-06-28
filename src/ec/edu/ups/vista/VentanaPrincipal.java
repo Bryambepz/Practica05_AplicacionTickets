@@ -50,7 +50,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         crearVehiculo = new CrearVehiculo(controladorCliente,ventanaCrearCliente,controladorVehiculo,this);
         ventanaIngresarVehiculo = new VentanaIngresarVehiculo(controladorCliente, this,controladorTiket,crearVehiculo,controladorVehiculo);
         ventanaSalidaVehiculo = new VentanaSalidaVehiculo(controladorCliente, controladorTiket, controladorVehiculo, this,ventanaIngresarVehiculo); 
-        ventanaListarTicket= new VentanaListarTicket();
+        ventanaListarTicket= new VentanaListarTicket(controladorCliente,controladorVehiculo,controladorTiket);
         // se añade al panel principal la ventana crear cliente para luego hacerle visble en la ventana ingresar Vehiculo      
         //desktopPane.add(ventanaIngresarVehiculo);
         //desktopPane.add(ventanaCrearCliente);
@@ -77,7 +77,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ticketSalidaMenu = new javax.swing.JMenuItem();
         salirMenuItem = new javax.swing.JMenuItem();
         listarMenu = new javax.swing.JMenu();
-        listarTodosMenuItem = new javax.swing.JMenuItem();
         listarPorParametroMenuItem = new javax.swing.JMenuItem();
         idiomaMenu = new javax.swing.JMenu();
         menuItemEspañol = new javax.swing.JMenuItem();
@@ -132,10 +131,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         listarMenu.setText("Listar");
 
-        listarTodosMenuItem.setText("Listar todos los tickets");
-        listarMenu.add(listarTodosMenuItem);
-
-        listarPorParametroMenuItem.setText("Listar por placa o cedula");
+        listarPorParametroMenuItem.setText("Listar por placa y cedula");
         listarPorParametroMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listarPorParametroMenuItemActionPerformed(evt);
@@ -273,7 +269,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu idiomaMenu;
     private javax.swing.JMenu listarMenu;
     private javax.swing.JMenuItem listarPorParametroMenuItem;
-    private javax.swing.JMenuItem listarTodosMenuItem;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem menuItemEspañol;
     private javax.swing.JMenuItem menuItemIngles;

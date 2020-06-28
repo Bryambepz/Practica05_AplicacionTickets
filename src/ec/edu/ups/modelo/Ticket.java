@@ -5,6 +5,7 @@
  */
 package ec.edu.ups.modelo;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -28,13 +29,15 @@ public class Ticket {
         this.vehiculo = vehiculo;
     }
 
-    
-    public Ticket(int numero, Date fechaYHoraDeIngreso, Date fechaYHoraDeSalida, double total) {
+    public Ticket(int numero, Date fechaYHoraDeIngreso, Date fechaYHoraDeSalida, double total, Vehiculo vehiculo) {
         this.numero = numero;
         this.fechaYHoraDeIngreso = fechaYHoraDeIngreso;
         this.fechaYHoraDeSalida = fechaYHoraDeSalida;
         this.total = total;
+        this.vehiculo = vehiculo;
     }
+
+   
 
     public int getNumero() {
         return numero;
