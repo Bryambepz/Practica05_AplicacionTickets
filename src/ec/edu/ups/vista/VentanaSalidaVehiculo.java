@@ -15,8 +15,11 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
+import javafx.util.converter.LocalDateTimeStringConverter;
 import javax.swing.JOptionPane;
 
 /**
@@ -32,6 +35,7 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
     private VentanaIngresarVehiculo ventanaIngresarVehiculo;
     private VentanaPrincipal ventanaPricipal;
     private Date FechaS; 
+    LocalDateTime local;
     
     /**
      * Creates new form VentanaSalidaVehiculo
@@ -43,6 +47,7 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
         this.controladorVehiculo = controladorVehiculo;
         this.ventanaIngresarVehiculo = ventanaIngresarVehiculo;
         this.ventanaPricipal = ventanaPrincipal;
+        local = LocalDateTime.now();
         
     }
     
@@ -59,7 +64,10 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
         txtFechaS.setText(local.toString());
     }
     
-     
+    public void dateaLocal(){
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -270,8 +278,9 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
            
        }else{
            Date FechaEntrada = tiket.getFechaYHoraDeIngreso();
+           LocalDateTime localE = FechaEntrada.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
            Vehiculo vehiculo = tiket.getVehiculo();
-           txtFechaE.setText(tiket.getFechaYHoraDeIngreso().toString());
+           txtFechaE.setText(localE.toString());
            txtPlaca.setText(vehiculo.getPlaca());
            txtMarca.setText(vehiculo.getMarca());
            txtModelo.setText(vehiculo.getModelo());
@@ -281,11 +290,13 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
            txtNombre.setText(cliente.getNombre());
            txtDireccion.setText(cliente.getDireccion());
            txtTelefono.setText(cliente.getTelefono());
-//           LocalDate d1 = LocalDate.parse(tiket.getFechaYHoraDeIngreso().toString());
-//           LocalDate d2 = LocalDate.parse(tiket.getFechaYHoraDeSalida().toString());
-//           Duration diff = Duration.between(d1.atStartOfDay(), d2.atStartOfDay());
-//           int diffDays = (int) diff.toMinutes();
-//           txtTotal.setText(String.valueOf(diffDays));
+//           DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-mm-dd HH:mm");
+           LocalDate d1 = LocalDate.parse(localE.toString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+           LocalDate d2 = LocalDate.parse(local.toString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+           Duration diff = Duration.between(d1.atStartOfDay(),d2.atStartOfDay());
+           long diffDays = diff.toMinutes();
+           txtTotal.setText(String.valueOf(diffDays));
+           
        }
     }//GEN-LAST:event_btnInformacionTicketActionPerformed
 
