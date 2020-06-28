@@ -218,7 +218,6 @@ public class VentanaListarTicket extends javax.swing.JInternalFrame {
             txtTelefono.setText(cliente.getTelefono());
             txtMarca.setText(vehiculo.getMarca());
             txtModelo.setText(vehiculo.getModelo());
-            System.out.println(controladorTiket.buscarTiketPorVehiculo(vehiculo));
             cargarDatosTablaVehiculos(controladorTiket.buscarTiketPorVehiculo(vehiculo));
         }
     }//GEN-LAST:event_jButton1ActionPerformed
