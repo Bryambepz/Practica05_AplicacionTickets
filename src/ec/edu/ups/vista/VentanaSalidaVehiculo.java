@@ -315,7 +315,7 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnInformacionTicketActionPerformed
 
     private void btnGenerarTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarTicketActionPerformed
-        controladorTicket.actualizar(Integer.valueOf(txtNUmeroTicket.getText()), Double.parseDouble(txtTotal.getText()));
+        controladorTicket.actualizar(Integer.valueOf(txtNUmeroTicket.getText()), Double.parseDouble(txtTotal.getText()),local);
         JOptionPane.showMessageDialog(this, "Gracias por Usar el Parqueadero, Valor a Pagar:"+txtTotal.getText());
         this.dispose();
     }//GEN-LAST:event_btnGenerarTicketActionPerformed

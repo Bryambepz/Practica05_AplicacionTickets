@@ -49,10 +49,11 @@ public class ControladorTiket {
         tiket = tiketDAO.read(numero);
         return tiket;
     }
-    public void actualizar (int numero,double total)
+    public void actualizar (int numero,double total,LocalDateTime fechaSalida)
     {
         tiket=buscarTiket(numero);
         tiket.setTotal(total);
+        tiket.setFechaYHoraDeSalida(fechaSalida);
         tiketDAO.update(tiket);
     }
     public List<Ticket> buscarTiketPorVehiculo(Vehiculo vehiculo){ 
