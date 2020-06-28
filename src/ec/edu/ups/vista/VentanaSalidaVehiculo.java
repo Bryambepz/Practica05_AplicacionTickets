@@ -27,20 +27,21 @@ import javax.swing.JOptionPane;
  * @author braya
  */
 public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
+
     private Calendar fechaYHora;
     private ControladorCliente controladorCliente;
     private ControladorTiket controladorTicket;
     private ControladorVehiculo controladorVehiculo;
-    
+
     private VentanaIngresarVehiculo ventanaIngresarVehiculo;
     private VentanaPrincipal ventanaPricipal;
-    private Date FechaS; 
+    private Date FechaS;
     LocalDateTime local;
-    
+
     /**
      * Creates new form VentanaSalidaVehiculo
      */
-    public VentanaSalidaVehiculo(ControladorCliente controladorCliente, ControladorTiket controladorTicket, ControladorVehiculo controladorVehiculo, VentanaPrincipal ventanaPrincipal,VentanaIngresarVehiculo ventanaIngresarVehiculo) {
+    public VentanaSalidaVehiculo(ControladorCliente controladorCliente, ControladorTiket controladorTicket, ControladorVehiculo controladorVehiculo, VentanaPrincipal ventanaPrincipal, VentanaIngresarVehiculo ventanaIngresarVehiculo) {
         initComponents();
         this.controladorCliente = controladorCliente;
         this.controladorTicket = controladorTicket;
@@ -48,26 +49,25 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
         this.ventanaIngresarVehiculo = ventanaIngresarVehiculo;
         this.ventanaPricipal = ventanaPrincipal;
         local = LocalDateTime.now();
-        
+
     }
-    
+
     //metodo para calcular la fecha y hora automaticamente 
 //    public void FechaYHora() {
 //        fechaYHora = Calendar.getInstance();
 //        txtSalida.setText(fechaYHora.getTime().toString());
 //
 //    }
-    
     public void FechaYHora() {
         LocalDateTime local = LocalDateTime.now();
         FechaS = java.sql.Timestamp.valueOf(local);
         txtFechaS.setText(local.toString());
     }
-    
-    public void dateaLocal(){
-        
+
+    public void dateaLocal() {
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -263,41 +263,44 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
 
     private void btnInformacionTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInformacionTicketActionPerformed
         // TODO add your handling code here:
+
         FechaYHora();
-       Ticket tiket= controladorTicket.buscarTiket(Integer.valueOf(txtNUmeroTicket.getText()));
-       
-       if(tiket == null){
-           int opcion = JOptionPane.showConfirmDialog(this, "No existe ese ticket \n¿Desea crear uno?");
-           if(opcion == JOptionPane.YES_OPTION){
-               ventanaPricipal.getDesktopPane().add(ventanaIngresarVehiculo);
-               ventanaIngresarVehiculo.setVisible(true);
-               this.dispose();
-           }else if(opcion == JOptionPane.NO_OPTION){
-               JOptionPane.showMessageDialog(this, "Ingrese un ticket valido");
-           }
-           
-       }else{
-           Date FechaEntrada = tiket.getFechaYHoraDeIngreso();
-           LocalDateTime localE = FechaEntrada.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-           Vehiculo vehiculo = tiket.getVehiculo();
-           txtFechaE.setText(localE.toString());
-           txtPlaca.setText(vehiculo.getPlaca());
-           txtMarca.setText(vehiculo.getMarca());
-           txtModelo.setText(vehiculo.getModelo());
-           Cliente cliente = controladorCliente.buscarPorVehiculo(vehiculo.getPlaca());
-           //Cliente cliente=vehiculo.getCliente();
-           txtCedula.setText(cliente.getCedula());
-           txtNombre.setText(cliente.getNombre());
-           txtDireccion.setText(cliente.getDireccion());
-           txtTelefono.setText(cliente.getTelefono());
+        Ticket tiket = controladorTicket.buscarTiket(Integer.valueOf(txtNUmeroTicket.getText()));
+
+        if (tiket == null) {
+            int opcion = JOptionPane.showConfirmDialog(this, "No existe ese ticket \n¿Desea crear uno?");
+            if (opcion == JOptionPane.YES_OPTION) {
+                ventanaPricipal.getDesktopPane().add(ventanaIngresarVehiculo);
+                ventanaIngresarVehiculo.setVisible(true);
+                this.dispose();
+            } else if (opcion == JOptionPane.NO_OPTION) {
+                JOptionPane.showMessageDialog(this, "Ingrese un ticket valido");
+            }
+
+        } else {
+            Date FechaEntrada = tiket.getFechaYHoraDeIngreso();
+            LocalDateTime localE = FechaEntrada.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+            Vehiculo vehiculo = tiket.getVehiculo();
+            txtFechaE.setText(localE.toString());
+            txtPlaca.setText(vehiculo.getPlaca());
+            txtMarca.setText(vehiculo.getMarca());
+            txtModelo.setText(vehiculo.getModelo());
+            Cliente cliente = controladorCliente.buscarPorVehiculo(vehiculo.getPlaca());
+            //Cliente cliente=vehiculo.getCliente();
+            txtCedula.setText(cliente.getCedula());
+            txtNombre.setText(cliente.getNombre());
+            txtDireccion.setText(cliente.getDireccion());
+            txtTelefono.setText(cliente.getTelefono());
 //           DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-mm-dd HH:mm");
-           LocalDate d1 = LocalDate.parse(localE.toString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-           LocalDate d2 = LocalDate.parse(local.toString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-           Duration diff = Duration.between(d1.atStartOfDay(),d2.atStartOfDay());
-           long diffDays = diff.toMinutes();
-           txtTotal.setText(String.valueOf(diffDays));
-           
-       }
+            LocalDate d1 = LocalDate.parse(localE.toString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+            LocalDate d2 = LocalDate.parse(local.toString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+            Duration diff = Duration.between(d1.atStartOfDay(), d2.atStartOfDay());
+            long diffDays = diff.toMillis();
+            txtTotal.setText(String.valueOf(diffDays));
+
+        }
+
+
     }//GEN-LAST:event_btnInformacionTicketActionPerformed
 
 
