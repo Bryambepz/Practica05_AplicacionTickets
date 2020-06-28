@@ -70,13 +70,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     
     public void cambiarIdioma(){
         principalMenu.setText(mensajes.getString("menu"));
-        registrarEntradaMenuItem.setText(mensajes.getString("registrarEntrada"));
-        //vent
-        crearClienteMenuItem.setText(mensajes.getString("crearCliente"));
-        salirMenuItem.setText(mensajes.getString("salir"));
+            registrarEntradaMenuItem.setText(mensajes.getString("registrarEntrada"));
+            crearClienteMenuItem.setText(mensajes.getString("crearCliente"));
+            salirMenuItem.setText(mensajes.getString("salir"));
+        listarMenu.setText(mensajes.getString("listar"));
+            menuItemListarPorPlaca.setText(mensajes.getString("listarPorPlaca"));
+            MenuItemListarPorCedula.setText(mensajes.getString("listarPorCedula"));
         idiomaMenu.setText(mensajes.getString("idioma"));
-        menuItemEspañol.setText(mensajes.getString("español"));
-        menuItemIngles.setText(mensajes.getString("ingles"));
+            menuItemEspañol.setText(mensajes.getString("español"));
+            menuItemIngles.setText(mensajes.getString("ingles"));
     }
 
     
@@ -97,8 +99,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ticketSalidaMenu = new javax.swing.JMenuItem();
         salirMenuItem = new javax.swing.JMenuItem();
         listarMenu = new javax.swing.JMenu();
-        listarPorParametroMenuItem = new javax.swing.JMenuItem();
-        jMenuItemListarPorCedula = new javax.swing.JMenuItem();
+        menuItemListarPorPlaca = new javax.swing.JMenuItem();
+        MenuItemListarPorCedula = new javax.swing.JMenuItem();
         idiomaMenu = new javax.swing.JMenu();
         menuItemEspañol = new javax.swing.JMenuItem();
         menuItemIngles = new javax.swing.JMenuItem();
@@ -110,7 +112,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().add(desktopPane, java.awt.BorderLayout.CENTER);
 
         principalMenu.setMnemonic('f');
-        principalMenu.setText("Menu");
+        principalMenu.setText("Menú");
 
         registrarEntradaMenuItem.setMnemonic('o');
         registrarEntradaMenuItem.setText("Registrar Entrada");
@@ -152,21 +154,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         listarMenu.setText("Listar");
 
-        listarPorParametroMenuItem.setText("Listar por Placa ");
-        listarPorParametroMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        menuItemListarPorPlaca.setText("Listar por Placa ");
+        menuItemListarPorPlaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listarPorParametroMenuItemActionPerformed(evt);
+                menuItemListarPorPlacaActionPerformed(evt);
             }
         });
-        listarMenu.add(listarPorParametroMenuItem);
+        listarMenu.add(menuItemListarPorPlaca);
 
-        jMenuItemListarPorCedula.setText("Listar por Cedula");
-        jMenuItemListarPorCedula.addActionListener(new java.awt.event.ActionListener() {
+        MenuItemListarPorCedula.setText("Listar por Cedula");
+        MenuItemListarPorCedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemListarPorCedulaActionPerformed(evt);
+                MenuItemListarPorCedulaActionPerformed(evt);
             }
         });
-        listarMenu.add(jMenuItemListarPorCedula);
+        listarMenu.add(MenuItemListarPorCedula);
 
         menuBar.add(listarMenu);
 
@@ -241,15 +243,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         cambiarIdioma();
     }//GEN-LAST:event_menuItemInglesActionPerformed
 
-    private void listarPorParametroMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarPorParametroMenuItemActionPerformed
+    private void menuItemListarPorPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarPorPlacaActionPerformed
         desktopPane.add(ventanaListarTicket);
         ventanaListarTicket.setVisible(true);
-    }//GEN-LAST:event_listarPorParametroMenuItemActionPerformed
+    }//GEN-LAST:event_menuItemListarPorPlacaActionPerformed
 
-    private void jMenuItemListarPorCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemListarPorCedulaActionPerformed
+    private void MenuItemListarPorCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemListarPorCedulaActionPerformed
         desktopPane.add(ventanaListarTiketCedula);
         ventanaListarTiketCedula.setVisible(true);
-    }//GEN-LAST:event_jMenuItemListarPorCedulaActionPerformed
+    }//GEN-LAST:event_MenuItemListarPorCedulaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -306,15 +308,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem MenuItemListarPorCedula;
     private javax.swing.JMenuItem crearClienteMenuItem;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu idiomaMenu;
-    private javax.swing.JMenuItem jMenuItemListarPorCedula;
     private javax.swing.JMenu listarMenu;
-    private javax.swing.JMenuItem listarPorParametroMenuItem;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem menuItemEspañol;
     private javax.swing.JMenuItem menuItemIngles;
+    private javax.swing.JMenuItem menuItemListarPorPlaca;
     private javax.swing.JMenu principalMenu;
     private javax.swing.JMenuItem registrarEntradaMenuItem;
     private javax.swing.JMenuItem salirMenuItem;

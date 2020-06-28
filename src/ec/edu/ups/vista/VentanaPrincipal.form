@@ -7,7 +7,7 @@
         <Menu class="javax.swing.JMenu" name="principalMenu">
           <Properties>
             <Property name="mnemonic" type="int" value="102"/>
-            <Property name="text" type="java.lang.String" value="Menu"/>
+            <Property name="text" type="java.lang.String" value="Men&#xfa;"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="registrarEntradaMenuItem">
@@ -53,20 +53,20 @@
             <Property name="text" type="java.lang.String" value="Listar"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="listarPorParametroMenuItem">
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemListarPorPlaca">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Listar por Placa "/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listarPorParametroMenuItemActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemListarPorPlacaActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemListarPorCedula">
+            <MenuItem class="javax.swing.JMenuItem" name="MenuItemListarPorCedula">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Listar por Cedula"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemListarPorCedulaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuItemListarPorCedulaActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
