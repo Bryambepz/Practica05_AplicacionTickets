@@ -25,6 +25,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private CrearVehiculo crearVehiculo;
     private VentanaSalidaVehiculo ventanaSalidaVehiculo;
     private VentanaListarTicket ventanaListarTicket;
+    private VentanaListarTiketCedula ventanaListarTiketCedula;
     //mvc
     private ClienteDAO clienteDAO;
     private VehiculoDAO vehiculoDAO;
@@ -51,6 +52,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ventanaIngresarVehiculo = new VentanaIngresarVehiculo(controladorCliente, this,controladorTiket,crearVehiculo,controladorVehiculo);
         ventanaSalidaVehiculo = new VentanaSalidaVehiculo(controladorCliente, controladorTiket, controladorVehiculo, this,ventanaIngresarVehiculo); 
         ventanaListarTicket= new VentanaListarTicket(controladorCliente,controladorVehiculo,controladorTiket);
+        ventanaListarTiketCedula= new VentanaListarTiketCedula(controladorCliente,controladorVehiculo,controladorTiket);
         // se añade al panel principal la ventana crear cliente para luego hacerle visble en la ventana ingresar Vehiculo      
         //desktopPane.add(ventanaIngresarVehiculo);
         //desktopPane.add(ventanaCrearCliente);
@@ -78,6 +80,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         salirMenuItem = new javax.swing.JMenuItem();
         listarMenu = new javax.swing.JMenu();
         listarPorParametroMenuItem = new javax.swing.JMenuItem();
+        jMenuItemListarPorCedula = new javax.swing.JMenuItem();
         idiomaMenu = new javax.swing.JMenu();
         menuItemEspañol = new javax.swing.JMenuItem();
         menuItemIngles = new javax.swing.JMenuItem();
@@ -131,13 +134,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         listarMenu.setText("Listar");
 
-        listarPorParametroMenuItem.setText("Listar por placa y cedula");
+        listarPorParametroMenuItem.setText("Listar por Placa ");
         listarPorParametroMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listarPorParametroMenuItemActionPerformed(evt);
             }
         });
         listarMenu.add(listarPorParametroMenuItem);
+
+        jMenuItemListarPorCedula.setText("Listar por Cedula");
+        jMenuItemListarPorCedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemListarPorCedulaActionPerformed(evt);
+            }
+        });
+        listarMenu.add(jMenuItemListarPorCedula);
 
         menuBar.add(listarMenu);
 
@@ -209,6 +220,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ventanaListarTicket.setVisible(true);
     }//GEN-LAST:event_listarPorParametroMenuItemActionPerformed
 
+    private void jMenuItemListarPorCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemListarPorCedulaActionPerformed
+        desktopPane.add(ventanaListarTiketCedula);
+        ventanaListarTiketCedula.setVisible(true);
+    }//GEN-LAST:event_jMenuItemListarPorCedulaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -267,6 +283,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem crearClienteMenuItem;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu idiomaMenu;
+    private javax.swing.JMenuItem jMenuItemListarPorCedula;
     private javax.swing.JMenu listarMenu;
     private javax.swing.JMenuItem listarPorParametroMenuItem;
     private javax.swing.JMenuBar menuBar;

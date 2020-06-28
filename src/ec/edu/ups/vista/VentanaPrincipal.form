@@ -55,10 +55,18 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="listarPorParametroMenuItem">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Listar por placa y cedula"/>
+                <Property name="text" type="java.lang.String" value="Listar por Placa "/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listarPorParametroMenuItemActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemListarPorCedula">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Listar por Cedula"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemListarPorCedulaActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

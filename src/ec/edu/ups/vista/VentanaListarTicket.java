@@ -59,7 +59,6 @@ public class VentanaListarTicket extends javax.swing.JInternalFrame {
         txtMarca = new javax.swing.JTextField();
         txtModelo = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
 
         setClosable(true);
 
@@ -123,8 +122,6 @@ public class VentanaListarTicket extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel8.setText("Ingrese la cedula del cliente y la placa del vehiculo para listar los tikets");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -159,18 +156,13 @@ public class VentanaListarTicket extends javax.swing.JInternalFrame {
                                 .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(168, 168, 168)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8)
-                .addGap(48, 48, 48)
+                .addGap(73, 73, 73)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -213,6 +205,7 @@ public class VentanaListarTicket extends javax.swing.JInternalFrame {
         {
             Vehiculo vehiculo= controladorVehiculo.buscar(txtPlaca.getText());
             Cliente cliente= controladorCliente.buscarPorVehiculo(txtPlaca.getText());
+            txtCedula.setText(cliente.getCedula());
             txtNombre.setText(cliente.getNombre());
             txtDireccion.setText(cliente.getDireccion());
             txtTelefono.setText(cliente.getTelefono());
@@ -243,7 +236,6 @@ public class VentanaListarTicket extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblTikets;
     private javax.swing.JTextField txtCedula;
