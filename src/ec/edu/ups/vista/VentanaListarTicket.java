@@ -220,7 +220,7 @@ public class VentanaListarTicket extends javax.swing.JInternalFrame {
         DefaultTableModel modelo = (DefaultTableModel) tblTikets.getModel();
         modelo.setRowCount(0);
         for (Ticket tiket : lista) {
-            Object[] rowData = {tiket.getFechaYHoraDeIngreso(),tiket.getFechaYHoraDeSalida(),tiket.getTotal()};
+            Object[] rowData = {tiket.getFechaYHoraDeSalida(),tiket.getFechaYHoraDeIngreso(),tiket.getTotal()};
             modelo.addRow(rowData);
         }
         

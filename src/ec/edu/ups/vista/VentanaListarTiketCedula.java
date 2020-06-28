@@ -106,7 +106,7 @@ public class VentanaListarTiketCedula extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1369, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 996, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -174,7 +174,7 @@ public class VentanaListarTiketCedula extends javax.swing.JInternalFrame {
         for (Cliente cliente: controladorCliente.listar()) {
             for (Vehiculo vehiculo : cliente.getListaVehiculos()) {
                 for (Ticket tiket : controladorTiket.buscarTiketPorVehiculo(vehiculo)) {
-                Object[] rowData = {tiket.getFechaYHoraDeIngreso(),tiket.getFechaYHoraDeSalida(),tiket.getTotal(),tiket.getVehiculo()};
+                Object[] rowData = {tiket.getFechaYHoraDeSalida(),tiket.getFechaYHoraDeIngreso(),tiket.getTotal(),tiket.getVehiculo()};
                 modelo.addRow(rowData);
                 }
             }
