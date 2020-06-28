@@ -20,7 +20,7 @@ public class CrearVehiculo extends javax.swing.JInternalFrame {
     private ControladorCliente controladorCliente;
     private VentanaCrearCliente ventanaCrearCliente;
     private ControladorVehiculo controladorVehiculo;
-    private VentanaPrincipal ventanaPrincipal;
+    private VentanaPrincipal ventanaPrincipal; 
     /**
      * Creates new form CrearVehiculo
      */
@@ -249,7 +249,7 @@ public class CrearVehiculo extends javax.swing.JInternalFrame {
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
         btnRegistrarVehiculo.setEnabled(false);
     }//GEN-LAST:event_formInternalFrameActivated
-
+    
     private void btnRegistrarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarVehiculoActionPerformed
         if(!txtPlaca.getText().equals("")&&!txtMarca.getText().equals("")&&!txtModelo.getText().equals(""))
         {
