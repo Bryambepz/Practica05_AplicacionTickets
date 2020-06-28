@@ -49,6 +49,12 @@ public class ControladorTiket {
         tiket = tiketDAO.read(numero);
         return tiket;
     }
+    public void actualizar (int numero,double total)
+    {
+        tiket=buscarTiket(numero);
+        tiket.setTotal(total);
+        tiketDAO.update(tiket);
+    }
     public List<Ticket> buscarTiketPorVehiculo(Vehiculo vehiculo){ 
         return tiketDAO.BuscarPorVehiculo(vehiculo);
     }

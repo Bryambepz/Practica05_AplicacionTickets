@@ -157,6 +157,11 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
         txtTotal.setBackground(new java.awt.Color(255, 255, 204));
 
         btnGenerarTicket.setText("Generar ticket de salida");
+        btnGenerarTicket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarTicketActionPerformed(evt);
+            }
+        });
 
         btnInformacionTicket.setText("Informacion Ticket");
         btnInformacionTicket.addActionListener(new java.awt.event.ActionListener() {
@@ -170,7 +175,7 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(82, 82, 82)
+                .addGap(87, 87, 87)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel3)
@@ -186,7 +191,7 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
                         .addComponent(jLabel5))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnInformacionTicket)
-                        .addGap(36, 36, 36)))
+                        .addGap(31, 31, 31)))
                 .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -251,11 +256,11 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInformacionTicket)
                     .addComponent(btnGenerarTicket))
-                .addGap(146, 146, 146))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
@@ -308,6 +313,12 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
 
 
     }//GEN-LAST:event_btnInformacionTicketActionPerformed
+
+    private void btnGenerarTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarTicketActionPerformed
+        controladorTicket.actualizar(Integer.valueOf(txtNUmeroTicket.getText()), Double.parseDouble(txtTotal.getText()));
+        JOptionPane.showMessageDialog(this, "Gracias por Usar el Parqueadero, Valor a Pagar:"+txtTotal.getText());
+        this.dispose();
+    }//GEN-LAST:event_btnGenerarTicketActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
