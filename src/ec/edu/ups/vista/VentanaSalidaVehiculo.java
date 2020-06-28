@@ -31,7 +31,7 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
     
     private VentanaIngresarVehiculo ventanaIngresarVehiculo;
     private VentanaPrincipal ventanaPricipal;
-    private Date FechaS;
+    private Date FechaS; 
     
     /**
      * Creates new form VentanaSalidaVehiculo
