@@ -24,5 +24,7 @@ Desarrollar una aplicación que permita el registro de entra y salida de vehicul
 - https://app.lucidchart.com/documents/edit/66d9b0d8-13e9-4971-8bd0-7205ac6535a8/0_0 
 - Posteriormente entendido y leídas las instrucciones procedemos a creer un programa en netbeans con sus respectivos paquetes y clases para desarrollar la aplicación:
 
+![image](https://user-images.githubusercontent.com/64825176/85982741-f473d700-b9ab-11ea-9c3f-5faa0218e76d.png)
+
 - En el paquete modelo tenemos 3 clases
 ### -Clase Cliente
