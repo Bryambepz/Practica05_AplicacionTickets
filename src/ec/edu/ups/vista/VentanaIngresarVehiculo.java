@@ -354,7 +354,7 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame{
     }// </editor-fold>//GEN-END:initComponents
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-        ventanaPrincipal.cambiarIdioma(); 
+        ventanaPrincipal.cambiarIdioma();
         //cargarNumero();
         FechaYHora();
         cargarDatosTablaVehiculos();
