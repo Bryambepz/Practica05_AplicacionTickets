@@ -411,7 +411,7 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
             controladorTicket.actualizar(Integer.valueOf(txtNUmeroTicket.getText()), Double.parseDouble(txtTotal.getText()), local);
             JOptionPane.showMessageDialog(this, pagar + txtTotal.getText());
             limpiar();
-            this.dispose();
+            this.dispose(); 
         }
     }//GEN-LAST:event_btnGenerarTicketActionPerformed
 
