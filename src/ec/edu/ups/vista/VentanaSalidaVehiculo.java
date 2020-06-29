@@ -410,6 +410,7 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
         } else {
             controladorTicket.actualizar(Integer.valueOf(txtNUmeroTicket.getText()), Double.parseDouble(txtTotal.getText()), local);
             JOptionPane.showMessageDialog(this, pagar + txtTotal.getText());
+            limpiar();
             this.dispose();
         }
     }//GEN-LAST:event_btnGenerarTicketActionPerformed
@@ -418,9 +419,22 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         ventanaPricipal.cambiarIdioma();
         //txtNUmeroTicket.setText("");
+        limpiar();
     }//GEN-LAST:event_formInternalFrameActivated
 
-
+    public void limpiar(){
+        txtFechaE.setText("");
+        txtFechaS.setText("");
+        txtCedula.setText("");
+        txtNombre.setText("");
+        txtDireccion.setText("");
+        txtTelefono.setText("");
+        txtPlaca.setText("");
+        txtMarca.setText("");
+        txtModelo.setText("");
+        txtTotal.setText("");
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGenerarTicket;
     private javax.swing.JButton btnInformacionTicket;

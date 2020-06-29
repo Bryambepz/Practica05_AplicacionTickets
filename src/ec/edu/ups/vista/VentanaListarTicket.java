@@ -293,7 +293,7 @@ public class VentanaListarTicket extends javax.swing.JInternalFrame {
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
         // TODO add your handling code here:
-        ventanaPrincipal.cambiarIdioma();
+//        ventanaPrincipal.cambiarIdioma();
     }//GEN-LAST:event_formInternalFrameActivated
 
     public void cargarDatosTablaVehiculos(List<Ticket> lista) {

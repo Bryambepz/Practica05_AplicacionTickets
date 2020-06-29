@@ -93,7 +93,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     crearVehiculo.getjMarca().setText(mensajes.getString("iMarca"));
                     crearVehiculo.getjModelo().setText(mensajes.getString("iModelo"));
                     crearVehiculo.getjInfo().setText(mensajes.getString("info"));
-                    crearVehiculo.getjCedula().setText(mensajes.getString("iCedula"));
+                    crearVehiculo.getjCedula().setText(mensajes.getString("iCedulaCV"));
                     crearVehiculo.getjNombre().setText(mensajes.getString("nombre"));
                     crearVehiculo.getjDireccion().setText(mensajes.getString("direccion"));
                     crearVehiculo.getjTelefono().setText(mensajes.getString("telefono"));
@@ -132,31 +132,31 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             salirMenuItem.setText(mensajes.getString("salir"));
         listarMenu.setText(mensajes.getString("listar"));
             menuItemListarPorPlaca.setText(mensajes.getString("listarPorPlaca"));
-                ventanaListarTicket.getjPlacaV().setText(mensajes.getString("iplaca"));
-                ventanaListarTicket.getjCedula().setText(mensajes.getString("cedula"));
-                ventanaListarTicket.getjNombre().setText(mensajes.getString("nombre"));
-                ventanaListarTicket.getjDireccion().setText(mensajes.getString("direccion"));
-                ventanaListarTicket.getjTelefono().setText(mensajes.getString("telefono"));
-                ventanaListarTicket.getjMarca().setText(mensajes.getString("marca"));
-                ventanaListarTicket.getjModelo().setText(mensajes.getString("modelo"));
-                ventanaListarTicket.getBtnListar().setText(mensajes.getString("btnListar"));
-                ventanaListarTicket.getTblTickets().getColumnModel().getColumn(0).setHeaderValue(mensajes.getString("tIngreso"));
-                ventanaListarTicket.getTblTickets().getColumnModel().getColumn(1).setHeaderValue(mensajes.getString("tSalida"));
-                ventanaListarTicket.getTblTickets().getColumnModel().getColumn(2).setHeaderValue(mensajes.getString("tTotal"));
-                ventanaListarTicket.setNoExisteV(mensajes.getString("tIngreso"));
-                ventanaListarTicket.setIngrese(mensajes.getString("tIngreso"));
+                ventanaListarTicket.getjPlacaV().setText(mensajes.getString("iplacaP"));
+                ventanaListarTicket.getjCedula().setText(mensajes.getString("cedulaP"));
+                ventanaListarTicket.getjNombre().setText(mensajes.getString("nombreP"));
+                ventanaListarTicket.getjDireccion().setText(mensajes.getString("direccionP"));
+                ventanaListarTicket.getjTelefono().setText(mensajes.getString("telefonoP"));
+                ventanaListarTicket.getjMarca().setText(mensajes.getString("marcaP"));
+                ventanaListarTicket.getjModelo().setText(mensajes.getString("modeloP"));
+                ventanaListarTicket.getBtnListar().setText(mensajes.getString("btnListarP"));
+                ventanaListarTicket.getTblTickets().getColumnModel().getColumn(0).setHeaderValue(mensajes.getString("tIngresoP"));
+                ventanaListarTicket.getTblTickets().getColumnModel().getColumn(1).setHeaderValue(mensajes.getString("tSalidaP"));
+                ventanaListarTicket.getTblTickets().getColumnModel().getColumn(2).setHeaderValue(mensajes.getString("tTotalP"));
+                ventanaListarTicket.setNoExisteV(mensajes.getString("tIngresoP"));
+                ventanaListarTicket.setIngrese(mensajes.getString("tIngresoP"));
             MenuItemListarPorCedula.setText(mensajes.getString("listarPorCedula"));
-                ventanaListarTiketCedula.getjCedula().setText(mensajes.getString("iCedula"));
-                ventanaListarTiketCedula.getjCliente().setText(mensajes.getString("nombre"));
-                ventanaListarTiketCedula.getjDireccion().setText(mensajes.getString("direccion"));
-                ventanaListarTiketCedula.getjTelefono().setText(mensajes.getString("telefono"));
-                ventanaListarTiketCedula.getBtnListarTiket().setText(mensajes.getString("btnListar"));
-                ventanaListarTiketCedula.getTblTiket().getColumnModel().getColumn(0).setHeaderValue(mensajes.getString("tIngreso"));
-                ventanaListarTiketCedula.getTblTiket().getColumnModel().getColumn(1).setHeaderValue(mensajes.getString("tSalida"));
-                ventanaListarTiketCedula.getTblTiket().getColumnModel().getColumn(2).setHeaderValue(mensajes.getString("tTotal"));
-                ventanaListarTiketCedula.getTblTiket().getColumnModel().getColumn(3).setHeaderValue(mensajes.getString("tDatos"));
-                ventanaListarTiketCedula.setNoExisteC(mensajes.getString("noExisteC"));
-                ventanaListarTiketCedula.setIngreseC(mensajes.getString("ingreseC"));
+                ventanaListarTiketCedula.getjCedula().setText(mensajes.getString("iCedulaCL"));
+                ventanaListarTiketCedula.getjCliente().setText(mensajes.getString("nombreCL"));
+                ventanaListarTiketCedula.getjDireccion().setText(mensajes.getString("direccionCL"));
+                ventanaListarTiketCedula.getjTelefono().setText(mensajes.getString("telefonoCL"));
+                ventanaListarTiketCedula.getBtnListarTiket().setText(mensajes.getString("btnListarCL"));
+                ventanaListarTiketCedula.getTblTiket().getColumnModel().getColumn(0).setHeaderValue(mensajes.getString("tIngresoCL"));
+                ventanaListarTiketCedula.getTblTiket().getColumnModel().getColumn(1).setHeaderValue(mensajes.getString("tSalidaCL"));
+                ventanaListarTiketCedula.getTblTiket().getColumnModel().getColumn(2).setHeaderValue(mensajes.getString("tTotalCL"));
+                ventanaListarTiketCedula.getTblTiket().getColumnModel().getColumn(3).setHeaderValue(mensajes.getString("tDatosCL"));
+                ventanaListarTiketCedula.setNoExisteC(mensajes.getString("noExisteCCL"));
+                ventanaListarTiketCedula.setIngreseC(mensajes.getString("ingreseCCL"));
         idiomaMenu.setText(mensajes.getString("idioma"));
             menuItemEspañol.setText(mensajes.getString("español"));
             menuItemIngles.setText(mensajes.getString("ingles"));
@@ -342,8 +342,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // TODO add your handling code here:
         //localizacion = new Locale("es", "EC");
-        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", localizacion);
-        cambiarIdioma();
+//        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", localizacion);
+//        cambiarIdioma();
     }//GEN-LAST:event_formWindowActivated
 
     /**

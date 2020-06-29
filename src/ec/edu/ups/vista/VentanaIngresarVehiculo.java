@@ -355,7 +355,7 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame{
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
         ventanaPrincipal.cambiarIdioma();
-        cargarNumero();
+        //cargarNumero();
         FechaYHora();
         cargarDatosTablaVehiculos();
         
@@ -371,6 +371,7 @@ public class VentanaIngresarVehiculo extends javax.swing.JInternalFrame{
     private void btnEmitirTiketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmitirTiketActionPerformed
         if(!txtCedula.getText().equals("") && !txtNombre.getText().equals("") &&!txtDireccion.getText().equals("")&&!txtNumeroFormateado.getText().equals("")&&!txtPlacaVehiculo.getText().equals(""))
         {
+            cargarNumero();
             controladorTiket.crear(Integer.valueOf(txtNumeroTiket.getText()),local, txtPlacaVehiculo.getText());
             JOptionPane.showMessageDialog(this, mensajeEmitir + txtNumeroTiket.getText());
             limpiar();
