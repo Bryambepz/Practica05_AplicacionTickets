@@ -9,6 +9,10 @@ import ec.edu.ups.controlador.ControladorCliente;
 import ec.edu.ups.controlador.ControladorVehiculo;
 import ec.edu.ups.modelo.Cliente;
 import ec.edu.ups.modelo.Vehiculo;
+import java.util.Locale;
+import java.util.ResourceBundle;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -21,6 +25,10 @@ public class CrearVehiculo extends javax.swing.JInternalFrame {
     private VentanaCrearCliente ventanaCrearCliente;
     private ControladorVehiculo controladorVehiculo;
     private VentanaPrincipal ventanaPrincipal; 
+    
+    private String crearC;
+    private String exito;
+    private String incom;
     /**
      * Creates new form CrearVehiculo
      */
@@ -32,18 +40,72 @@ public class CrearVehiculo extends javax.swing.JInternalFrame {
         this.controladorVehiculo=controladorVehiculo;
     }
 
-    public JTextField getTxtPlaca() {
-        return txtPlaca;
+    public void setCrearC(String crearC) {
+        this.crearC = crearC;
     }
 
-    public JTextField getTxtMarca() {
-        return txtMarca;
+    public void setExito(String exito) {
+        this.exito = exito;
     }
 
-    public JTextField getTxtModelo() {
-        return txtModelo;
+    public void setIncom(String incom) {
+        this.incom = incom;
     }
-        
+    
+    
+    public JButton getBtnBuscarCliente() {
+        return btnBuscarCliente;
+    }
+
+    public JButton getBtnRegistrarVehiculo() {
+        return btnRegistrarVehiculo;
+    }
+
+    public JLabel getjCedula() {
+        return jCedula;
+    }
+
+    public JLabel getjDireccion() {
+        return jDireccion;
+    }
+
+    public JLabel getjInfo() {
+        return jInfo;
+    }
+
+    public JLabel getjMarca() {
+        return jMarca;
+    }
+
+    public JLabel getjModelo() {
+        return jModelo;
+    }
+
+    public JLabel getjNombre() {
+        return jNombre;
+    }
+
+    public JLabel getjPlaca() {
+        return jPlaca;
+    }
+
+    public JLabel getjTelefono() {
+        return jTelefono;
+    }
+    
+    
+//    public JTextField getTxtPlaca() {
+//        return txtPlaca;
+//    }
+//
+//    public JTextField getTxtMarca() {
+//        return txtMarca;
+//    }
+//
+//    public JTextField getTxtModelo() {
+//        return txtModelo;
+//    }
+      
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,22 +115,22 @@ public class CrearVehiculo extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jPlaca = new javax.swing.JLabel();
+        jMarca = new javax.swing.JLabel();
         btnRegistrarVehiculo = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        jModelo = new javax.swing.JLabel();
         txtPlaca = new javax.swing.JTextField();
         txtMarca = new javax.swing.JTextField();
         txtModelo = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        jCedula = new javax.swing.JLabel();
         txtCedula = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        jNombre = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        jDireccion = new javax.swing.JLabel();
         txtDireccion = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        jTelefono = new javax.swing.JLabel();
         txtNumeroFormateado = new javax.swing.JFormattedTextField();
-        jLabel8 = new javax.swing.JLabel();
+        jInfo = new javax.swing.JLabel();
         btnBuscarCliente = new javax.swing.JButton();
 
         setClosable(true);
@@ -90,9 +152,9 @@ public class CrearVehiculo extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel1.setText("Ingrese Placa:");
+        jPlaca.setText("Ingrese Placa:");
 
-        jLabel2.setText("Ingrese marca:");
+        jMarca.setText("Ingrese marca:");
 
         btnRegistrarVehiculo.setForeground(new java.awt.Color(0, 153, 153));
         btnRegistrarVehiculo.setText("Registrar Vehiculo");
@@ -102,28 +164,29 @@ public class CrearVehiculo extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel4.setText("Ingrese modelo:");
+        jModelo.setText("Ingrese modelo:");
 
-        jLabel3.setText("Ingese Cedula del Cliente");
+        jCedula.setText("Ingese Cedula del Cliente");
 
-        jLabel5.setText("Nombre del Cliente:");
+        jNombre.setText("Nombre del Cliente:");
 
         txtNombre.setEditable(false);
         txtNombre.setBackground(new java.awt.Color(255, 255, 204));
 
-        jLabel6.setText("Direccion:");
+        jDireccion.setText("Direccion:");
 
         txtDireccion.setEditable(false);
         txtDireccion.setBackground(new java.awt.Color(255, 255, 204));
 
-        jLabel7.setText("Telefono:");
+        jTelefono.setText("Telefono:");
 
         txtNumeroFormateado.setEditable(false);
         txtNumeroFormateado.setBackground(new java.awt.Color(255, 255, 204));
 
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Datos del Cliente Dueño del Vehiculo");
+        jInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jInfo.setText("Datos del Cliente Dueño del Vehiculo");
 
+        btnBuscarCliente.setForeground(new java.awt.Color(0, 153, 153));
         btnBuscarCliente.setText("Buscar Cliente");
         btnBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,25 +201,25 @@ public class CrearVehiculo extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(84, 84, 84)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel4))
+                                    .addComponent(jPlaca)
+                                    .addComponent(jMarca)
+                                    .addComponent(jModelo))
                                 .addGap(100, 100, 100)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(btnBuscarCliente)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 43, Short.MAX_VALUE)))
                 .addGap(46, 46, 46))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -176,33 +239,33 @@ public class CrearVehiculo extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addComponent(jPlaca)
                     .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jMarca))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
+                    .addComponent(jModelo)
                     .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addComponent(jLabel8)
+                .addComponent(jInfo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(jCedula)
                     .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(jNombre)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                    .addComponent(jDireccion)
                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
+                    .addComponent(jTelefono)
                     .addComponent(txtNumeroFormateado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -226,7 +289,7 @@ public class CrearVehiculo extends javax.swing.JInternalFrame {
             
         }else
         {
-            int opcion=JOptionPane.showConfirmDialog(this," CLIENTE NO ENCONTRADO \n¿DESEA CREAR UNO?" ); 
+            int opcion=JOptionPane.showConfirmDialog(this, crearC); 
             btnRegistrarVehiculo.setEnabled(false);
             if(opcion== JOptionPane.YES_OPTION)
             {
@@ -248,6 +311,9 @@ public class CrearVehiculo extends javax.swing.JInternalFrame {
     }
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
         btnRegistrarVehiculo.setEnabled(false);
+//        localizacion = new Locale("es", "EC");
+//        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", localizacion);
+        ventanaPrincipal.cambiarIdioma();
     }//GEN-LAST:event_formInternalFrameActivated
     
     private void btnRegistrarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarVehiculoActionPerformed
@@ -256,24 +322,24 @@ public class CrearVehiculo extends javax.swing.JInternalFrame {
             Vehiculo vehiculo =controladorVehiculo.crearVehiculo(txtPlaca.getText(), txtMarca.getText(), txtModelo.getText());
             String cedula = txtCedula.getText();
             controladorCliente.agregarVehiculo(vehiculo, cedula);
-            JOptionPane.showMessageDialog(this, "¡Vehiculo agregado con exito!");
+            JOptionPane.showMessageDialog(this, exito);
             limpiar();
             this.dispose();
-        }else{JOptionPane.showMessageDialog(this, "NO SE PUEDE CREAR EL VEHICULO FALTA COMPLETAR INFORMACION");}
+        }else{JOptionPane.showMessageDialog(this, incom);}
     }//GEN-LAST:event_btnRegistrarVehiculoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarCliente;
     private javax.swing.JButton btnRegistrarVehiculo;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jCedula;
+    private javax.swing.JLabel jDireccion;
+    private javax.swing.JLabel jInfo;
+    private javax.swing.JLabel jMarca;
+    private javax.swing.JLabel jModelo;
+    private javax.swing.JLabel jNombre;
+    private javax.swing.JLabel jPlaca;
+    private javax.swing.JLabel jTelefono;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtMarca;

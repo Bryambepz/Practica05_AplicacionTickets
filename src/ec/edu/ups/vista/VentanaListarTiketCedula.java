@@ -11,7 +11,10 @@ import ec.edu.ups.controlador.ControladorVehiculo;
 import ec.edu.ups.modelo.Cliente;
 import ec.edu.ups.modelo.Ticket;
 import ec.edu.ups.modelo.Vehiculo;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,6 +26,10 @@ public class VentanaListarTiketCedula extends javax.swing.JInternalFrame {
     private ControladorCliente controladorCliente;
     private ControladorVehiculo controladorVehiculo;
     private ControladorTiket controladorTiket;
+    private VentanaPrincipal ventanaPrincipal;
+    
+    private String noExisteC;
+    private String ingreseC;
     
     /**
      * Creates new form VentanaListarTiketCedula
@@ -34,6 +41,38 @@ public class VentanaListarTiketCedula extends javax.swing.JInternalFrame {
         this.controladorVehiculo=controladorVehiculo;
     }
 
+    public void setNoExisteC(String noExisteC) {
+        this.noExisteC = noExisteC;
+    }
+
+    public void setIngreseC(String ingreseC) {
+        this.ingreseC = ingreseC;
+    }
+
+    public JButton getBtnListarTiket() {
+        return btnListarTiket;
+    }
+
+    public JLabel getjCedula() {
+        return jCedula;
+    }
+
+    public JLabel getjCliente() {
+        return jCliente;
+    }
+
+    public JLabel getjDireccion() {
+        return jDireccion;
+    }
+
+    public JLabel getjTelefono() {
+        return jTelefono;
+    }
+
+    public JTable getTblTiket() {
+        return tblTiket;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,38 +82,55 @@ public class VentanaListarTiketCedula extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jCedula = new javax.swing.JLabel();
         txtCedula = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        jCliente = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        jDireccion = new javax.swing.JLabel();
         txtDireccion = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        jTelefono = new javax.swing.JLabel();
         txtTelefono = new javax.swing.JTextField();
         btnListarTiket = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblTiket = new javax.swing.JTable();
 
         setClosable(true);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
-        jLabel1.setText("Cedula del Cliente");
+        jCedula.setText("Cedula del Cliente");
 
-        jLabel2.setText("Nombre del Cliente");
+        jCliente.setText("Nombre del Cliente");
 
         txtNombre.setEditable(false);
         txtNombre.setBackground(new java.awt.Color(255, 255, 204));
 
-        jLabel3.setText("Direccion");
+        jDireccion.setText("Direccion");
 
         txtDireccion.setEditable(false);
         txtDireccion.setBackground(new java.awt.Color(255, 255, 204));
 
-        jLabel4.setText("Telefono");
+        jTelefono.setText("Telefono");
 
         txtTelefono.setEditable(false);
         txtTelefono.setBackground(new java.awt.Color(255, 255, 204));
 
-        btnListarTiket.setText("Listar Tiket");
+        btnListarTiket.setText("Listar Ticket");
         btnListarTiket.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnListarTiketActionPerformed(evt);
@@ -112,41 +168,41 @@ public class VentanaListarTiketCedula extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(btnListarTiket))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jDireccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTelefono, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(118, 118, 118)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(434, 434, 434))
+                            .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(212, 212, 212))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnListarTiket)
+                        .addGap(390, 390, 390))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(jCedula)
                     .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(jCliente)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(jDireccion)
                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(jTelefono)
                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnListarTiket)
@@ -168,12 +224,17 @@ public class VentanaListarTiketCedula extends javax.swing.JInternalFrame {
                 txtTelefono.setText(cliente.getTelefono());
                 cargarDatosTablaVehiculos();
             }else{
-                    JOptionPane.showMessageDialog(this, "No existe un cliente con esa cedula");
+                    JOptionPane.showMessageDialog(this, noExisteC);
                 }
         }else{
-            JOptionPane.showMessageDialog(this, "Ingrese una cedula");
+            JOptionPane.showMessageDialog(this, ingreseC);
         }
     }//GEN-LAST:event_btnListarTiketActionPerformed
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        // TODO add your handling code here:
+        ventanaPrincipal.cambiarIdioma();
+    }//GEN-LAST:event_formInternalFrameActivated
 
     public void cargarDatosTablaVehiculos() {
         DefaultTableModel modelo = (DefaultTableModel) tblTiket.getModel();
@@ -192,11 +253,11 @@ public class VentanaListarTiketCedula extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnListarTiket;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jCedula;
+    private javax.swing.JLabel jCliente;
+    private javax.swing.JLabel jDireccion;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel jTelefono;
     private javax.swing.JTable tblTiket;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtDireccion;

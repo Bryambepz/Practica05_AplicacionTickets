@@ -46,6 +46,7 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
     private String si;
     private String no;
     private String cancelar;
+
     //private Object option;
     /**
      * Creates new form VentanaSalidaVehiculo
@@ -58,8 +59,8 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
         this.ventanaIngresarVehiculo = ventanaIngresarVehiculo;
         this.ventanaPricipal = ventanaPrincipal;
         local = LocalDateTime.now();
-        //option = new Object();
 
+        //option = new Object();
     }
 
     //metodo para calcular la fecha y hora automaticamente 
@@ -69,14 +70,6 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
         txtFechaS.setText(local.toString());
     }
 
-    public void setSi(String si) {
-        this.si = si;
-    }
-
-    public void setCancelar(String cancelar) {
-        this.cancelar = cancelar;
-    }
-    
     public void setNoExiste(String noExiste) {
         this.noExiste = noExiste;
     }
@@ -141,7 +134,6 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
         return jTotal;
     }
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -177,6 +169,23 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
         btnInformacionTicket = new javax.swing.JButton();
 
         setClosable(true);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jNumeroT.setText("Ingrese numero de ticket");
 
@@ -342,61 +351,70 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
 
     private void btnInformacionTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInformacionTicketActionPerformed
         // TODO add your handling code here:
-        //si = "si";
-        //int r = 
-        
-        FechaYHora();
-        Ticket tiket = controladorTicket.buscarTiket(Integer.valueOf(txtNUmeroTicket.getText()));
+        if (txtNUmeroTicket.getText() != "") {
+            FechaYHora();
+            Ticket tiket = controladorTicket.buscarTiket(Integer.valueOf(txtNUmeroTicket.getText()));
+            if (tiket == null) {
+                int opcion = JOptionPane.showConfirmDialog(this, noExiste);
+                if (opcion == JOptionPane.YES_OPTION) {
+                    ventanaPricipal.getDesktopPane().add(ventanaIngresarVehiculo);
+                    ventanaIngresarVehiculo.setVisible(true);
+                    this.dispose();
+                } else if (opcion == JOptionPane.NO_OPTION) {
+                    JOptionPane.showMessageDialog(this, valido);
+                    txtNUmeroTicket.setText("");
+                }
 
-        if (tiket == null) {
-            //int opcion = JOptionPane.showConfirmDialog(this, noExiste);
-            Object[] option = {si,no,cancelar};
-            int opcion = JOptionPane.showOptionDialog(this, noExiste, "Seleccionar una Opción", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, cancelar);
-            if (opcion == JOptionPane.YES_OPTION) {
-                ventanaPricipal.getDesktopPane().add(ventanaIngresarVehiculo);
-                ventanaIngresarVehiculo.setVisible(true);
-                this.dispose(); 
-            } else if (opcion == JOptionPane.NO_OPTION) {
-                JOptionPane.showMessageDialog(this, valido);
-            }
-
-        } else {
-            LocalDateTime FechaEntrada = tiket.getFechaYHoraDeIngreso();
-            //LocalDateTime localE = FechaEntrada.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-            Vehiculo vehiculo = tiket.getVehiculo();
-            txtFechaE.setText(FechaEntrada.toString());
-            txtPlaca.setText(vehiculo.getPlaca());
-            txtMarca.setText(vehiculo.getMarca());
-            txtModelo.setText(vehiculo.getModelo());
-            Cliente cliente = controladorCliente.buscarPorVehiculo(vehiculo.getPlaca());
-            //Cliente cliente=vehiculo.getCliente();
-            txtCedula.setText(cliente.getCedula());
-            txtNombre.setText(cliente.getNombre());
-            txtDireccion.setText(cliente.getDireccion());
-            txtTelefono.setText(cliente.getTelefono());
+            } else {
+                LocalDateTime FechaEntrada = tiket.getFechaYHoraDeIngreso();
+                //LocalDateTime localE = FechaEntrada.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+                Vehiculo vehiculo = tiket.getVehiculo();
+                txtFechaE.setText(FechaEntrada.toString());
+                txtPlaca.setText(vehiculo.getPlaca());
+                txtMarca.setText(vehiculo.getMarca());
+                txtModelo.setText(vehiculo.getModelo());
+                Cliente cliente = controladorCliente.buscarPorVehiculo(vehiculo.getPlaca());
+                //Cliente cliente=vehiculo.getCliente();
+                txtCedula.setText(cliente.getCedula());
+                txtNombre.setText(cliente.getNombre());
+                txtDireccion.setText(cliente.getDireccion());
+                txtTelefono.setText(cliente.getTelefono());
 //           DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-mm-dd HH:mm");
-            LocalDate d1 = LocalDate.parse(FechaEntrada.toString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-            LocalDate d2 = LocalDate.parse(local.toString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-            Duration diff = Duration.between(d1.atStartOfDay(), d2.atStartOfDay());
-            long diffDays = diff.toMillis();
-            //txtTotal.setText(String.valueOf(diffDays));
-            if(diffDays <=10){
-                txtTotal.setText(String.valueOf(0.25));
-            }else if(diffDays > 10){
-                int calcularTotal = (int) diffDays/10;
-                calcularTotal = (int) (calcularTotal*0.25);
-                txtTotal.setText(String.valueOf(calcularTotal));
+                LocalDate d1 = LocalDate.parse(FechaEntrada.toString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+                LocalDate d2 = LocalDate.parse(local.toString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+                Duration diff = Duration.between(d1.atStartOfDay(), d2.atStartOfDay());
+                long diffDays = diff.toMillis();
+                //txtTotal.setText(String.valueOf(diffDays));
+                if (diffDays <= 10) {
+                    txtTotal.setText(String.valueOf(0.25));
+                } else if (diffDays > 10) {
+                    int calcularTotal = (int) diffDays / 10;
+                    calcularTotal = (int) (calcularTotal * 0.25);
+                    txtTotal.setText(String.valueOf(calcularTotal));
+                }
             }
+        } else {
+            JOptionPane.showMessageDialog(this, "Ingrese un numero de ticket");
         }
-
 
     }//GEN-LAST:event_btnInformacionTicketActionPerformed
 
     private void btnGenerarTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarTicketActionPerformed
-        controladorTicket.actualizar(Integer.valueOf(txtNUmeroTicket.getText()), Double.parseDouble(txtTotal.getText()),local);
-        JOptionPane.showMessageDialog(this, pagar+txtTotal.getText());
-        this.dispose();
+
+        Ticket tiket = controladorTicket.buscarTiket(Integer.valueOf(txtNUmeroTicket.getText()));
+        if (tiket == null) {
+            JOptionPane.showMessageDialog(this, "Primero verifique si existe si ticket");
+        } else {
+            controladorTicket.actualizar(Integer.valueOf(txtNUmeroTicket.getText()), Double.parseDouble(txtTotal.getText()), local);
+            JOptionPane.showMessageDialog(this, pagar + txtTotal.getText());
+            this.dispose();
+        }
     }//GEN-LAST:event_btnGenerarTicketActionPerformed
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        // TODO add your handling code here:
+        ventanaPricipal.cambiarIdioma();
+    }//GEN-LAST:event_formInternalFrameActivated
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -79,6 +79,23 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
         btnCrearCliente = new javax.swing.JButton();
 
         setClosable(true);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jCedula.setText("Cedula:");
 
@@ -159,6 +176,11 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
         }
         
     }//GEN-LAST:event_btnCrearClienteActionPerformed
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        // TODO add your handling code here:
+        ventanaPrincipal.cambiarIdioma();
+    }//GEN-LAST:event_formInternalFrameActivated
 // creacion del metodo para limpiar las casillas
     public void limpiar()
     {
