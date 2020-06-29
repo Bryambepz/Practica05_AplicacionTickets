@@ -43,6 +43,10 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
     private String noExiste;
     private String valido;
     private String pagar;
+    private String si;
+    private String no;
+    private String cancelar;
+    //private Object option;
     /**
      * Creates new form VentanaSalidaVehiculo
      */
@@ -54,6 +58,7 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
         this.ventanaIngresarVehiculo = ventanaIngresarVehiculo;
         this.ventanaPricipal = ventanaPrincipal;
         local = LocalDateTime.now();
+        //option = new Object();
 
     }
 
@@ -64,6 +69,14 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
         txtFechaS.setText(local.toString());
     }
 
+    public void setSi(String si) {
+        this.si = si;
+    }
+
+    public void setCancelar(String cancelar) {
+        this.cancelar = cancelar;
+    }
+    
     public void setNoExiste(String noExiste) {
         this.noExiste = noExiste;
     }
@@ -329,12 +342,16 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
 
     private void btnInformacionTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInformacionTicketActionPerformed
         // TODO add your handling code here:
-
+        //si = "si";
+        //int r = 
+        
         FechaYHora();
         Ticket tiket = controladorTicket.buscarTiket(Integer.valueOf(txtNUmeroTicket.getText()));
 
         if (tiket == null) {
-            int opcion = JOptionPane.showConfirmDialog(this, noExiste);
+            //int opcion = JOptionPane.showConfirmDialog(this, noExiste);
+            Object[] option = {si,no,cancelar};
+            int opcion = JOptionPane.showOptionDialog(this, noExiste, "Seleccionar una Opción", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, cancelar);
             if (opcion == JOptionPane.YES_OPTION) {
                 ventanaPricipal.getDesktopPane().add(ventanaIngresarVehiculo);
                 ventanaIngresarVehiculo.setVisible(true);
