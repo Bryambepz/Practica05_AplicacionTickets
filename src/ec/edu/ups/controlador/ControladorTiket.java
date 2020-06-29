@@ -21,15 +21,12 @@ import java.util.List;
  * @author NANCY
  */
 public class ControladorTiket {
-    private Cliente cliente;
     private Vehiculo vehiculo;
     private Ticket tiket;
-    private IClienteDAO clienteDAO;
     private IVehiculoDAO vehiculoDAO;
     private ITiketDAO tiketDAO;
     
-    public ControladorTiket(IClienteDAO clienteDAO, IVehiculoDAO vehiculoDAO, ITiketDAO tiketDAO) {
-        this.clienteDAO = clienteDAO;
+    public ControladorTiket( IVehiculoDAO vehiculoDAO, ITiketDAO tiketDAO) {
         this.vehiculoDAO = vehiculoDAO;
         this.tiketDAO = tiketDAO;
     }

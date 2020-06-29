@@ -21,9 +21,6 @@ public class ControladorCliente {
     private IClienteDAO clienteDAO;
     private IVehiculoDAO vehiculoDAO;
     private Cliente cliente;
-    private Vehiculo vehiculo;
-    
-    
     
     public ControladorCliente(ClienteDAO clienteDAO,VehiculoDAO vehiculoDAO) {
         this.clienteDAO=clienteDAO;
@@ -42,7 +39,7 @@ public class ControladorCliente {
         return cliente;
     }
     
-     public void agregarVehiculo(Vehiculo vehiculo, String cedula) {
+    public void agregarVehiculo(Vehiculo vehiculo, String cedula) {
         cliente = clienteDAO.read(cedula);
         vehiculo.getCliente(cedula);
         cliente.agregarVehiculo(vehiculo);
@@ -54,7 +51,6 @@ public class ControladorCliente {
         return cliente;
     }
 
-     
     public List<Cliente> listar() {
         return clienteDAO.findAll();
     }

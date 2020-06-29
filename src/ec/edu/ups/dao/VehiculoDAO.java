@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class VehiculoDAO implements IVehiculoDAO {
 
-     private List<Vehiculo> listaVehiculos;
+    private List<Vehiculo> listaVehiculos;
     public VehiculoDAO() {
         listaVehiculos = new ArrayList<>();
     }
