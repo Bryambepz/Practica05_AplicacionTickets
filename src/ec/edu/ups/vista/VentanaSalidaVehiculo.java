@@ -43,9 +43,7 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
     private String noExiste;
     private String valido;
     private String pagar;
-    private String si;
-    private String no;
-    private String cancelar;
+    private String vacio;
 
     //private Object option;
     /**
@@ -59,7 +57,7 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
         this.ventanaIngresarVehiculo = ventanaIngresarVehiculo;
         this.ventanaPricipal = ventanaPrincipal;
         local = LocalDateTime.now();
-
+        txtNUmeroTicket.setText("");
         //option = new Object();
     }
 
@@ -68,6 +66,10 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
         LocalDateTime local = LocalDateTime.now();
         FechaS = java.sql.Timestamp.valueOf(local);
         txtFechaS.setText(local.toString());
+    }
+
+    public void setVacio(String vacio) {
+        this.vacio = vacio;
     }
 
     public void setNoExiste(String noExiste) {
@@ -351,7 +353,8 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
 
     private void btnInformacionTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInformacionTicketActionPerformed
         // TODO add your handling code here:
-        if (txtNUmeroTicket.getText() != "") {
+        
+        if (!txtNUmeroTicket.getText().equals("")) {
             FechaYHora();
             Ticket tiket = controladorTicket.buscarTiket(Integer.valueOf(txtNUmeroTicket.getText()));
             if (tiket == null) {
@@ -394,7 +397,7 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
                 }
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Ingrese un numero de ticket");
+            JOptionPane.showMessageDialog(this, vacio);
         }
 
     }//GEN-LAST:event_btnInformacionTicketActionPerformed
@@ -414,6 +417,7 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
         // TODO add your handling code here:
         ventanaPricipal.cambiarIdioma();
+        //txtNUmeroTicket.setText("");
     }//GEN-LAST:event_formInternalFrameActivated
 
 

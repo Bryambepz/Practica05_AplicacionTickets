@@ -128,6 +128,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 ventanaSalidaVehiculo.setNoExiste(mensajes.getString("noExiste"));
                 ventanaSalidaVehiculo.setValido(mensajes.getString("valido"));
                 ventanaSalidaVehiculo.setPagar(mensajes.getString("pagar"));
+                ventanaSalidaVehiculo.setVacio(mensajes.getString("vacio"));
             salirMenuItem.setText(mensajes.getString("salir"));
         listarMenu.setText(mensajes.getString("listar"));
             menuItemListarPorPlaca.setText(mensajes.getString("listarPorPlaca"));
@@ -340,7 +341,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // TODO add your handling code here:
-        localizacion = new Locale("es", "EC");
+        //localizacion = new Locale("es", "EC");
         mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", localizacion);
         cambiarIdioma();
     }//GEN-LAST:event_formWindowActivated
