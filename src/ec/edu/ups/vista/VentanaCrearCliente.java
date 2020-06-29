@@ -6,6 +6,8 @@
 package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.ControladorCliente;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,14 +17,48 @@ import javax.swing.JOptionPane;
 public class VentanaCrearCliente extends javax.swing.JInternalFrame {
 // implementacion del controladorcliente 
     private ControladorCliente controladorCliente;
+    private VentanaPrincipal ventanaPrincipal;
+    
+    private String creado;
+    private String incompleto;
     /**
      * Creates new form VentanaCrearCliente
      */
-    public VentanaCrearCliente(ControladorCliente controladorCliente) {
+    public VentanaCrearCliente(ControladorCliente controladorCliente, VentanaPrincipal ventanaPrincipal) {
         initComponents();
         this.controladorCliente=controladorCliente;
+        this.ventanaPrincipal = ventanaPrincipal;
     }
 
+    public void setCreado(String creado) {
+        this.creado = creado;
+    }
+
+    public void setIncompleto(String incompleto) {
+        this.incompleto = incompleto;
+    }
+
+    public JButton getBtnCrearCliente() {
+        return btnCrearCliente;
+    }
+
+    public JLabel getjCedula() {
+        return jCedula;
+    }
+
+    public JLabel getjDireccion() {
+        return jDireccion;
+    }
+
+    public JLabel getjNombre() {
+        return jNombre;
+    }
+
+    public JLabel getjTelefono() {
+        return jTelefono;
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,10 +68,10 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jCedula = new javax.swing.JLabel();
+        jNombre = new javax.swing.JLabel();
+        jDireccion = new javax.swing.JLabel();
+        jTelefono = new javax.swing.JLabel();
         txtCedula = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
@@ -44,13 +80,13 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
 
         setClosable(true);
 
-        jLabel1.setText("Cedula:");
+        jCedula.setText("Cedula:");
 
-        jLabel2.setText("Nombre:");
+        jNombre.setText("Nombre:");
 
-        jLabel3.setText("Direccion:");
+        jDireccion.setText("Direccion:");
 
-        jLabel4.setText("Telefono:");
+        jTelefono.setText("Telefono:");
 
         btnCrearCliente.setBackground(new java.awt.Color(0, 0, 0));
         btnCrearCliente.setForeground(new java.awt.Color(0, 153, 153));
@@ -68,10 +104,10 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jCedula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(jTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtCedula)
@@ -89,19 +125,19 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(jCedula)
                     .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(jNombre)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(jDireccion)
                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(jTelefono)
                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(btnCrearCliente)
@@ -115,10 +151,12 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
         if(!txtCedula.getText().equals("")&&!txtNombre.getText().equals("")&&!txtDireccion.getText().equals("")&&!txtTelefono.getText().equals(""))
         {
             controladorCliente.registrar(txtCedula.getText(), txtNombre.getText(), txtDireccion.getText(), txtTelefono.getText());
-            JOptionPane.showMessageDialog(this, "USUARIO CREADO CORRECTAMENTE");
+            JOptionPane.showMessageDialog(this, creado);
             limpiar();
             this.dispose();
-        }else{JOptionPane.showMessageDialog(this, "NO SE PUEDE CREAR EL USUARIO FALTA COMPLETAR INFORMACION");}
+        }else{
+            JOptionPane.showMessageDialog(this, incompleto);
+        }
         
     }//GEN-LAST:event_btnCrearClienteActionPerformed
 // creacion del metodo para limpiar las casillas
@@ -132,10 +170,10 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearCliente;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jCedula;
+    private javax.swing.JLabel jDireccion;
+    private javax.swing.JLabel jNombre;
+    private javax.swing.JLabel jTelefono;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtNombre;

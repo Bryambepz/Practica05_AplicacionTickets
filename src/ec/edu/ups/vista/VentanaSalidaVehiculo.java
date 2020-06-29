@@ -19,6 +19,8 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 //import javafx.util.converter.LocalDateTimeStringConverter;
 import javax.swing.JOptionPane;
 
@@ -38,6 +40,9 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
     private Date FechaS;
     LocalDateTime local;
 
+    private String noExiste;
+    private String valido;
+    private String pagar;
     /**
      * Creates new form VentanaSalidaVehiculo
      */
@@ -53,21 +58,77 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
     }
 
     //metodo para calcular la fecha y hora automaticamente 
-//    public void FechaYHora() {
-//        fechaYHora = Calendar.getInstance();
-//        txtSalida.setText(fechaYHora.getTime().toString());
-//
-//    }
     public void FechaYHora() {
         LocalDateTime local = LocalDateTime.now();
         FechaS = java.sql.Timestamp.valueOf(local);
         txtFechaS.setText(local.toString());
     }
 
-    public void dateaLocal() {
-
+    public void setNoExiste(String noExiste) {
+        this.noExiste = noExiste;
     }
 
+    public void setValido(String valido) {
+        this.valido = valido;
+    }
+
+    public void setPagar(String pagar) {
+        this.pagar = pagar;
+    }
+
+    public JButton getBtnGenerarTicket() {
+        return btnGenerarTicket;
+    }
+
+    public JButton getBtnInformacionTicket() {
+        return btnInformacionTicket;
+    }
+
+    public JLabel getjCedula() {
+        return jCedula;
+    }
+
+    public JLabel getjDireccion() {
+        return jDireccion;
+    }
+
+    public JLabel getjFecha() {
+        return jFecha;
+    }
+
+    public JLabel getjFechaS() {
+        return jFechaS;
+    }
+
+    public JLabel getjTelefono() {
+        return jTelefono;
+    }
+
+    public JLabel getjMarca() {
+        return jMarca;
+    }
+
+    public JLabel getjModelo() {
+        return jModelo;
+    }
+
+    public JLabel getjNombre() {
+        return jNombre;
+    }
+
+    public JLabel getjNumeroT() {
+        return jNumeroT;
+    }
+
+    public JLabel getjPlacaV() {
+        return jPlacaV;
+    }
+
+    public JLabel getjTotal() {
+        return jTotal;
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -77,17 +138,17 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        jNumeroT = new javax.swing.JLabel();
+        jFechaS = new javax.swing.JLabel();
+        jFecha = new javax.swing.JLabel();
+        jCedula = new javax.swing.JLabel();
+        jNombre = new javax.swing.JLabel();
+        jDireccion = new javax.swing.JLabel();
+        jTelefono = new javax.swing.JLabel();
+        jPlacaV = new javax.swing.JLabel();
+        jMarca = new javax.swing.JLabel();
+        jModelo = new javax.swing.JLabel();
+        jTotal = new javax.swing.JLabel();
         txtFechaE = new javax.swing.JTextField();
         txtNUmeroTicket = new javax.swing.JTextField();
         txtFechaS = new javax.swing.JTextField();
@@ -104,27 +165,27 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
 
         setClosable(true);
 
-        jLabel1.setText("Ingrese numero de ticket");
+        jNumeroT.setText("Ingrese numero de ticket");
 
-        jLabel2.setText("Fecha de salida");
+        jFechaS.setText("Fecha de salida");
 
-        jLabel3.setText("Fecha de entrada");
+        jFecha.setText("Fecha de entrada");
 
-        jLabel4.setText("Cedula del cliente");
+        jCedula.setText("Cedula del cliente");
 
-        jLabel5.setText("Nombre del cliente");
+        jNombre.setText("Nombre del cliente");
 
-        jLabel6.setText("Direccion");
+        jDireccion.setText("Direccion");
 
-        jLabel7.setText("Telefono");
+        jTelefono.setText("Telefono");
 
-        jLabel8.setText("Placa vehiculo");
+        jPlacaV.setText("Placa vehiculo");
 
-        jLabel9.setText("Marca");
+        jMarca.setText("Marca");
 
-        jLabel10.setText("Modelo");
+        jModelo.setText("Modelo");
 
-        jLabel11.setText("Total a pagar");
+        jTotal.setText("Total a pagar");
 
         txtFechaE.setEditable(false);
         txtFechaE.setBackground(new java.awt.Color(255, 255, 204));
@@ -178,17 +239,17 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
                 .addGap(87, 87, 87)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel11)
-                        .addComponent(jLabel10)
-                        .addComponent(jLabel9)
-                        .addComponent(jLabel8)
-                        .addComponent(jLabel7)
-                        .addComponent(jLabel6)
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel5))
+                        .addComponent(jFecha)
+                        .addComponent(jTotal)
+                        .addComponent(jModelo)
+                        .addComponent(jMarca)
+                        .addComponent(jPlacaV)
+                        .addComponent(jTelefono)
+                        .addComponent(jDireccion)
+                        .addComponent(jCedula)
+                        .addComponent(jFechaS)
+                        .addComponent(jNumeroT)
+                        .addComponent(jNombre))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnInformacionTicket)
                         .addGap(31, 31, 31)))
@@ -214,47 +275,47 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(jNumeroT)
                     .addComponent(txtNUmeroTicket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(jFecha)
                     .addComponent(txtFechaE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(jFechaS)
                     .addComponent(txtFechaS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(jCedula)
                     .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(jNombre)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                    .addComponent(jDireccion)
                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
+                    .addComponent(jTelefono)
                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
+                    .addComponent(jPlacaV)
                     .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
+                    .addComponent(jMarca)
                     .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
+                    .addComponent(jModelo)
                     .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
+                    .addComponent(jTotal)
                     .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -273,13 +334,13 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
         Ticket tiket = controladorTicket.buscarTiket(Integer.valueOf(txtNUmeroTicket.getText()));
 
         if (tiket == null) {
-            int opcion = JOptionPane.showConfirmDialog(this, "No existe ese ticket \n¿Desea crear uno?");
+            int opcion = JOptionPane.showConfirmDialog(this, noExiste);
             if (opcion == JOptionPane.YES_OPTION) {
                 ventanaPricipal.getDesktopPane().add(ventanaIngresarVehiculo);
                 ventanaIngresarVehiculo.setVisible(true);
                 this.dispose(); 
             } else if (opcion == JOptionPane.NO_OPTION) {
-                JOptionPane.showMessageDialog(this, "Ingrese un ticket valido");
+                JOptionPane.showMessageDialog(this, valido);
             }
 
         } else {
@@ -316,7 +377,7 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
 
     private void btnGenerarTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarTicketActionPerformed
         controladorTicket.actualizar(Integer.valueOf(txtNUmeroTicket.getText()), Double.parseDouble(txtTotal.getText()),local);
-        JOptionPane.showMessageDialog(this, "Gracias por Usar el Parqueadero, Valor a Pagar:"+txtTotal.getText());
+        JOptionPane.showMessageDialog(this, pagar+txtTotal.getText());
         this.dispose();
     }//GEN-LAST:event_btnGenerarTicketActionPerformed
 
@@ -324,17 +385,17 @@ public class VentanaSalidaVehiculo extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGenerarTicket;
     private javax.swing.JButton btnInformacionTicket;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jCedula;
+    private javax.swing.JLabel jDireccion;
+    private javax.swing.JLabel jFecha;
+    private javax.swing.JLabel jFechaS;
+    private javax.swing.JLabel jMarca;
+    private javax.swing.JLabel jModelo;
+    private javax.swing.JLabel jNombre;
+    private javax.swing.JLabel jNumeroT;
+    private javax.swing.JLabel jPlacaV;
+    private javax.swing.JLabel jTelefono;
+    private javax.swing.JLabel jTotal;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtFechaE;

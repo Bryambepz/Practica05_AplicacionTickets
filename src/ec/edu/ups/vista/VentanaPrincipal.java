@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JDesktopPane;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -54,7 +55,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         controladorVehiculo= new ControladorVehiculo(vehiculoDAO);
         controladorTiket=new ControladorTiket(clienteDAO, vehiculoDAO, tiketDAO);
         
-        ventanaCrearCliente= new VentanaCrearCliente(controladorCliente);
+        ventanaCrearCliente= new VentanaCrearCliente(controladorCliente, this);
         crearVehiculo = new CrearVehiculo(controladorCliente,ventanaCrearCliente,controladorVehiculo,this);
         ventanaIngresarVehiculo = new VentanaIngresarVehiculo(controladorCliente, this,controladorTiket,crearVehiculo,controladorVehiculo);
         ventanaSalidaVehiculo = new VentanaSalidaVehiculo(controladorCliente, controladorTiket, controladorVehiculo, this,ventanaIngresarVehiculo); 
@@ -84,7 +85,36 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 ventanaIngresarVehiculo.getBtnGestionVhiculo().setText(mensajes.getString("btnGestion"));
                 ventanaIngresarVehiculo.setMensajeEmitir(mensajes.getString("mensajeEmitir"));
                 ventanaIngresarVehiculo.setMensajeEmitirNull(mensajes.getString("mensajeEmitirNull"));
+//                ventanaIngresarVehiculo.setColumna1(mensajes.getString("col1"));
+//                ventanaIngresarVehiculo.setColumna2(mensajes.getString("col2"));
+//                ventanaIngresarVehiculo.setColumna3(mensajes.getString("col3"));
+//                ventanaIngresarVehiculo.setColumna4(mensajes.getString("col4"));
             crearClienteMenuItem.setText(mensajes.getString("crearCliente"));
+                ventanaCrearCliente.getjCedula().setText(mensajes.getString("cedula"));
+                ventanaCrearCliente.getjNombre().setText(mensajes.getString("nombre"));
+                ventanaCrearCliente.getjDireccion().setText(mensajes.getString("direccion"));
+                ventanaCrearCliente.getjTelefono().setText(mensajes.getString("telefono"));
+                ventanaCrearCliente.getjTelefono().setText(mensajes.getString("telefono"));
+                ventanaCrearCliente.getBtnCrearCliente().setText(mensajes.getString("btnCrear"));
+                ventanaCrearCliente.setCreado(mensajes.getString("creado"));
+                ventanaCrearCliente.setIncompleto(mensajes.getString("incompleto"));
+            ticketSalidaMenu.setText(mensajes.getString("ticketSalida"));
+                ventanaSalidaVehiculo.getjNumeroT().setText(mensajes.getString("iNumero"));
+                ventanaSalidaVehiculo.getjFecha().setText(mensajes.getString("fechaE"));
+                ventanaSalidaVehiculo.getjFechaS().setText(mensajes.getString("fechaS"));
+                ventanaSalidaVehiculo.getjCedula().setText(mensajes.getString("cedula"));
+                ventanaSalidaVehiculo.getjNombre().setText(mensajes.getString("nombre"));
+                ventanaSalidaVehiculo.getjDireccion().setText(mensajes.getString("direccion"));
+                ventanaSalidaVehiculo.getjTelefono().setText(mensajes.getString("telefono"));
+                ventanaSalidaVehiculo.getjPlacaV().setText(mensajes.getString("placaV"));
+                ventanaSalidaVehiculo.getjMarca().setText(mensajes.getString("marca"));
+                ventanaSalidaVehiculo.getjModelo().setText(mensajes.getString("modelo"));
+                ventanaSalidaVehiculo.getjTotal().setText(mensajes.getString("total"));
+                ventanaSalidaVehiculo.getBtnInformacionTicket().setText(mensajes.getString("btnInfo"));
+                ventanaSalidaVehiculo.getBtnGenerarTicket().setText(mensajes.getString("btnGenerar"));
+                ventanaSalidaVehiculo.setNoExiste(mensajes.getString("noExiste"));
+                ventanaSalidaVehiculo.setValido(mensajes.getString("valido"));
+                ventanaSalidaVehiculo.setPagar(mensajes.getString("pagar"));
             salirMenuItem.setText(mensajes.getString("salir"));
         listarMenu.setText(mensajes.getString("listar"));
             menuItemListarPorPlaca.setText(mensajes.getString("listarPorPlaca"));
@@ -120,6 +150,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         desktopPane.setBackground(new java.awt.Color(0, 204, 204));
         getContentPane().add(desktopPane, java.awt.BorderLayout.CENTER);
@@ -265,6 +300,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         desktopPane.add(ventanaListarTiketCedula);
         ventanaListarTiketCedula.setVisible(true);
     }//GEN-LAST:event_MenuItemListarPorCedulaActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+//        localizacion = new Locale("es", "EC");
+//        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", localizacion);
+//        cambiarIdioma();
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
