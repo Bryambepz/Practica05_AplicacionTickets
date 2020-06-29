@@ -51,7 +51,6 @@ public class ControladorCliente {
         return cliente;
     }
 
-     
     public List<Cliente> listar() {
         return clienteDAO.findAll();
     }
